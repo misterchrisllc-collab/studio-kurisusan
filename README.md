@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# STUDIOくりすさん — Website
 
-## Getting Started
+Commercial photography studio site for **合同会社くりすさん** (Studio くりすさん), Osaka.
+Built with **Next.js 14 (App Router) + TypeScript**, converted from the original
+single-page HTML prototype (`_reference/studio-kurisusan.html`).
 
-First, run the development server:
+Brand colors: magenta `#E8198B`, black `#0A0A0A`, white `#FFFFFF`.
+
+## Pages
+
+| Route       | Description                              |
+| ----------- | ---------------------------------------- |
+| `/`         | Home                                     |
+| `/work`     | Case studies (with category filter)      |
+| `/services` | Services + interactive price calculator  |
+| `/gear`     | Gear list                                |
+| `/about`    | About                                    |
+| `/contact`  | Contact form (saves to Supabase)         |
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Copy `.env.example` → `.env.local` and fill in from your Supabase project
+(**Settings → API**):
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+NEXT_PUBLIC_SUPABASE_URL=        # https://<ref>.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=   # public anon key
+SUPABASE_SERVICE_ROLE_KEY=       # SECRET — server-only, used by the contact form
+```
 
-## Learn More
+The contact form fails gracefully (shows a fallback message) until these are set,
+so the site builds and deploys without them.
 
-To learn more about Next.js, take a look at the following resources:
+## Supabase — contacts table
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run `supabase/migrations/0001_contacts.sql` in your Supabase project's **SQL editor**.
+It creates `public.contacts (name, company, email, shoot_type, message, created_at)`,
+enables Row Level Security, and grants no public policies — inserts happen
+server-side with the service-role key (see `app/contact/actions.ts`).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy (Vercel)
 
-## Deploy on Vercel
+Add the three env vars above in **Vercel → Project → Settings → Environment Variables**,
+then redeploy. The contact form will then write submissions to Supabase.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Localization
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The header has a JP / EN / ES language switcher matching the prototype. It is
+currently a **visual toggle only** — all copy is Japanese, as in the source
+prototype. Wiring real translations (e.g. via `next-intl`) is a future step once
+EN/ES copy exists.
+
+## Structure
+
+```
+app/                 routes (home, work, services, gear, about, contact)
+  contact/actions.ts server action that inserts into Supabase
+  globals.css        all site styles (ported from the prototype)
+components/          Header, Footer, WorkGrid, PriceCalculator, ContactForm
+lib/supabase.ts      server-only Supabase admin client factory
+supabase/migrations/ contacts table SQL
+public/logo.png      brand logo (extracted from the prototype)
+_reference/          original HTML prototype (source of truth for design)
+```

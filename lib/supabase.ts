@@ -1,0 +1,22 @@
+import "server-only";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+
+/**
+ * Server-only Supabase client using the service-role key.
+ * Used by server actions to insert contact submissions (bypasses RLS).
+ *
+ * Returns null when env vars are not configured so the app can still
+ * build/deploy before Supabase credentials are filled in.
+ */
+export function getSupabaseAdmin(): SupabaseClient | null {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!url || !serviceKey) {
+    return null;
+  }
+
+  return createClient(url, serviceKey, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+}
