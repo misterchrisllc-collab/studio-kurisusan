@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# source photo originals (large; keep local, serve optimized copies from public/photos)
+/photos/

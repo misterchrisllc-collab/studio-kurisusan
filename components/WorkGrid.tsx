@@ -16,6 +16,8 @@ type CaseItem = {
   cat: string;
   icon: string;
   imgLabel: string;
+  img?: string;
+  imgAlt?: string;
   tag: string;
   title: string;
   desc: string;
@@ -28,6 +30,8 @@ const CASES: CaseItem[] = [
     cat: "restaurant",
     icon: "🍽",
     imgLabel: "[ RESTAURANT ]",
+    img: "/photos/work-restaurant.jpg",
+    imgAlt: "飲食店の料理撮影、タコスのクローズアップ",
     tag: "飲食店 / Googleマップ · SNS",
     title: "Googleマップ刷新で集客改善",
     desc: "既存写真が古く料理の魅力が伝わっていなかった大阪市内の居酒屋。料理・内観・外観を1回の撮影でまとめて更新。",
@@ -41,6 +45,8 @@ const CASES: CaseItem[] = [
     cat: "product",
     icon: "📦",
     imgLabel: "[ PRODUCT ]",
+    img: "/photos/work-product.jpg",
+    imgAlt: "商品撮影、赤背景のスリラチャ・エディトリアルカット",
     tag: "EC · 商品 / スタジオ撮影",
     title: "ECサイト商品写真でブランド品質を引き上げる",
     desc: "自撮り写真でブランドが安く見えていた雑貨ブランド。スタジオ撮影とライフスタイルカットを組み合わせてEC・SNS素材を一括制作。",
@@ -105,8 +111,15 @@ export default function WorkGrid() {
             }}
           >
             <div className="cf-img">
-              <span className="ci">{c.icon}</span>
-              <span className="ct">{c.imgLabel}</span>
+              {c.img ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="slot-img" src={c.img} alt={c.imgAlt ?? ""} />
+              ) : (
+                <>
+                  <span className="ci">{c.icon}</span>
+                  <span className="ct">{c.imgLabel}</span>
+                </>
+              )}
               <div className="cf-mg"></div>
             </div>
             <div className="cf-body">

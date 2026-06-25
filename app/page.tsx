@@ -97,12 +97,12 @@ export default function Home() {
       {/* HERO */}
       <section className="hero">
         <div className="hero-img-area">
-          <span className="ph-icon">📷</span>
-          <span className="ph-txt">
-            [ HERO IMAGE — Full bleed commercial photo ]<br />
-            Restaurant interior / food / retail / workplace<br />
-            Real business, real people, real location
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="slot-img"
+            src="/photos/hero.jpg"
+            alt="大阪の飲食店向け商業撮影、テーブルに並んだタコスとドリンク"
+          />
         </div>
         <div className="hero-bg"></div>
         <div className="hero-content">
@@ -167,12 +167,12 @@ export default function Home() {
       <section className="why-chris">
         <div className="wc-top">
           <div className="wc-img">
-            <span className="ph-icon">👤</span>
-            <span className="ph-txt">
-              [ CHRIS ON LOCATION ]<br />
-              Shooting at a restaurant / client site<br />
-              Real working context
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="slot-img wc-portrait"
+              src="/photos/portrait.jpg"
+              alt="Studio くりすさん フォトグラファー Chris、フィルムカメラを構えるポートレート"
+            />
             <div className="wc-mg-stripe"></div>
           </div>
           <div className="wc-text">
@@ -238,12 +238,12 @@ export default function Home() {
         <div className="case">
           <div className="case-inner">
             <div className="case-img">
-              <span className="ci">🍽</span>
-              <span className="ct">
-                [ RESTAURANT INTERIOR + FOOD ]<br />
-                Large format, full bleed<br />
-                Real Osaka restaurant location
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="slot-img"
+                src="/photos/case-food.jpg"
+                alt="飲食店の料理撮影、盛り付けられたタコスのプレート"
+              />
               <div className="case-img-label">
                 <span>飲食店 · 大阪市内</span>
               </div>
@@ -321,12 +321,12 @@ export default function Home() {
               </div>
             </div>
             <div className="case-img">
-              <span className="ci">📦</span>
-              <span className="ct">
-                [ PRODUCT LIFESTYLE PHOTO ]<br />
-                Large format, editorial feel<br />
-                Studio + lifestyle combination
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="slot-img"
+                src="/photos/case-product.jpg"
+                alt="商品撮影、キャンドルのエディトリアル・ライフスタイルカット"
+              />
               <div className="case-img-label">
                 <span>商品撮影 · 雑貨ブランド</span>
               </div>
@@ -389,11 +389,12 @@ export default function Home() {
       {/* APPROACH */}
       <section className="approach">
         <div className="approach-img">
-          <span className="ph-icon">📸</span>
-          <span className="ph-txt">
-            [ BEHIND THE SCENES ]<br />
-            Chris working on location
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="slot-img"
+            src="/photos/approach.jpg"
+            alt="スタジオでの商品撮影セットアップ、ライティング機材"
+          />
           <div className="ap-mg-stripe"></div>
         </div>
         <div className="approach-text">

@@ -87,6 +87,11 @@ header{
   display:flex;align-items:center;justify-content:center;
   flex-direction:column;gap:12px;
 }
+/* Real photo fill for any image slot (sits below decorative overlays) */
+.slot-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;z-index:0;
+}
 .hero-img-area .ph-icon{font-size:80px;opacity:.08;}
 .hero-img-area .ph-txt{
   font-size:11px;letter-spacing:2px;color:#888;
