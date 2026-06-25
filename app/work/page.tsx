@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import WorkGrid from "@/components/WorkGrid";
+import PortfolioGallery from "@/components/PortfolioGallery";
 
 export const metadata = {
   title: "実績・ケーススタディ | STUDIOくりすさん",
@@ -15,6 +16,7 @@ export default function WorkPage() {
         <h1>実績・ケーススタディ</h1>
         <p>写真がビジネスにどう機能したか。課題と結果から実績を紹介します。</p>
       </div>
+      <PortfolioGallery />
       <WorkGrid />
       <Footer />
     </div>
