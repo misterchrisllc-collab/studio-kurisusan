@@ -3,7 +3,7 @@ import Link from "next/link";
 type FooterLink = { href: string; label: string };
 
 const HOME_LINKS: FooterLink[] = [
-  { href: "/work", label: "WORK" },
+  { href: "/works", label: "WORKS" },
   { href: "/services", label: "SERVICES" },
   { href: "/about", label: "ABOUT" },
   { href: "/contact", label: "CONTACT" },

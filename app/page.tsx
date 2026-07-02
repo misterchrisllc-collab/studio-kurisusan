@@ -118,7 +118,7 @@ export default function Home() {
             飲食店、小売、企業、ブランド向けの商業撮影・コンテンツ制作。集客、採用、販売——ビジネスの成果につながるビジュアルを制作します。
           </p>
           <div className="hero-acts">
-            <Link href="/work" className="btn-p">
+            <Link href="/works" className="btn-p">
               実績を見る
             </Link>
             <Link href="/contact" className="btn-s">
@@ -232,7 +232,7 @@ export default function Home() {
       <section className="cases">
         <div className="cases-intro">
           <h2>実績・ケーススタディ</h2>
-          <Link href="/work">すべての実績 →</Link>
+          <Link href="/works">すべての実績 →</Link>
         </div>
 
         <div className="case">
