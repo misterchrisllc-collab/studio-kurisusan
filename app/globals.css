@@ -651,6 +651,38 @@ header{
 .fs-btn:hover{background:var(--mg);}
 .fs-btn:disabled{opacity:.5;cursor:default;}
 .fmsg{margin-top:18px;font-size:13px;font-family:'Inter','Noto Sans JP',sans-serif;line-height:1.7;}
+.fmsg.ok{color:#1a7f4b;}
+.fmsg.err{color:#c0392b;}
+
+/* CONTACT — richer left column */
+.ct-l{justify-content:flex-start;gap:44px;}
+.ct-points{list-style:none;margin:26px 0 26px;display:flex;flex-direction:column;gap:12px;}
+.ct-points li{
+  position:relative;padding-left:18px;max-width:400px;
+  color:rgba(255,255,255,.6);font-size:13px;line-height:1.75;font-weight:300;
+  font-family:'Inter','Noto Sans JP',sans-serif;
+}
+.ct-points li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--mg);}
+.ct-ig{
+  display:inline-block;color:#fff;font-size:11px;letter-spacing:1.5px;
+  text-transform:uppercase;font-family:'Inter',sans-serif;
+  border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:4px;
+  transition:color .2s,border-color .2s;
+}
+.ct-ig:hover{color:var(--mg);border-color:var(--mg);}
+.ct-studio{border-top:1px solid rgba(255,255,255,.12);padding-top:34px;}
+.ct-studio-name{color:#fff;font-size:15px;font-family:'Noto Sans JP',sans-serif;font-weight:400;margin:12px 0 10px;}
+.ct-studio-addr{color:rgba(255,255,255,.45);font-size:12.5px;line-height:1.9;font-weight:300;font-family:'Inter',sans-serif;margin-bottom:14px;}
+.ct-map-link{display:inline-block;color:var(--mg);font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:'Inter',sans-serif;margin-bottom:18px;transition:opacity .2s;}
+.ct-map-link:hover{opacity:.7;}
+.ct-map{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;border:1px solid rgba(255,255,255,.12);}
+.ct-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.3) contrast(1.05);}
+.ct-contacts{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;align-items:baseline;margin-top:22px;}
+.ct-contacts a{color:rgba(255,255,255,.6);font-size:13px;font-family:'Inter',sans-serif;font-weight:300;transition:color .2s;}
+.ct-contacts a:hover{color:#fff;}
+/* form required note */
+.fs-note{font-size:11px;color:#999;font-family:'Inter',sans-serif;letter-spacing:.5px;margin:-20px 0 26px;}
+.req{color:var(--mg);}
 .fmsg.ok{color:var(--mg);}
 .fmsg.err{color:#c0392b;}
 
