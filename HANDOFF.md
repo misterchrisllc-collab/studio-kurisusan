@@ -81,6 +81,13 @@ These are "business solutions built on photography." Reinforce everywhere: tech/
 smarter; human creativity + strategy + conversation create memorable brands; photography is the
 foundation; our value is helping businesses communicate who they are.
 
+**HONESTY RULE (DURABLE):** NO fabricated case studies, testimonials, client names, metrics, or
+business results anywhere. The site brand is "help you communicate who you are honestly" — faking
+our own track record breaks it. Present work as **honest examples** (業種 / 課題 / 制作ビジュアル /
+納品内容 + a "ねらい" intent block) until real client cases exist. Swap in a true case study ONLY
+with client permission (real name + real numbers). Same rule the owner set on sibling kansai-snaps
+(no fabricated reviews).
+
 ### Navigation naming decision (2026-07)
 Nav label **`SERVICES` → `WHAT WE DO`** (Header + Footer). Rationale: "Services/サービス" framed us
 as a vendor with a menu; premium JP creative studios frame around solving business problems and
@@ -102,10 +109,19 @@ but ソリューション is fine in JP body copy for "business solutions."
 - **Home** (`app/page.tsx`): repositioned copy (hero/brand/why-chris/quote/ticker). Hero =
   tonkatsu staff; why-chris = Chris portrait. **Services teaser REPLACED (2026-07) with the six
   flagship solutions** (`SOLUTIONS` array + `.svc-flagship`/`.svc-flag-badge`/`.svc-lede` CSS);
-  Monthly Content Partner is visually flagged おすすめ. **Case studies still lean photography-only**
-  (next candidate). Corporate/construction still not featured.
-- **/works**: premium works page. Featured case studies (3, image-backed: restaurant/product/
-  fashion, each with client/challenge/what-shot/deliverables/outcome) + filterable masonry
+  Monthly Content Partner is visually flagged おすすめ. **Honesty pass (2026-07):** the fabricated
+  "実績・ケーススタディ" section is now **"こんな課題に、こう応えます。"** — 3 honest example cards
+  (業種 / 課題 / 制作するビジュアル / 納品内容 + a **"ねらい"** intent block; NO invented clients,
+  metrics, or quotes). The fake カフェオーナー testimonial is **removed** (quote replaced with our
+  own motto "きれいな写真ではなく「あなたらしい」写真とブランドを。" attr STUDIO くりすさん). Hero
+  **"SINCE 2009" label removed** (hard to read over photo + off-positioning). Corporate card is
+  still an emoji placeholder (no real office/team photo).
+- **/works** (honesty pass 2026-07): retitled **"作品と、撮影事例。"** (was "実績・ケーススタディ");
+  hero no longer claims "すべて実際の…プロジェクト/結果" — now "作例とこれまでの撮影… 実際のご依頼
+  事例は許可をいただいたものから順に掲載". `WorkGrid` cards relabeled クライアント→業種, 結果→
+  **ねらい**, titles/outcomes rewritten to remove fabricated results (`components/WorkGrid.tsx`).
+  Featured examples (3, image-backed: restaurant/product/fashion, each 業種/課題/撮影内容/制作物/
+  ねらい) + filterable masonry
   PORTFOLIO (12 preview + 「もっと作品を見る」 inline expand, lazy-load hidden, custom lightbox
   w/ prev/next+keyboard). `/work` 308-redirects to `/works`.
 - **/services** (nav label now **WHAT WE DO**): reframed hero (WHAT WE DO / "課題から始める、6つの

@@ -3,9 +3,9 @@ import WorkGrid from "@/components/WorkGrid";
 import PortfolioGallery from "@/components/PortfolioGallery";
 
 export const metadata = {
-  title: "実績・ケーススタディ | STUDIOくりすさん",
+  title: "作品・撮影事例 | STUDIOくりすさん",
   description:
-    "写真がビジネスにどう機能したか。大阪の商業撮影スタジオが手がけた実際のプロジェクトと作品集。",
+    "業種ごとの課題に、どんなビジュアルで応えるか。大阪のクリエイティブスタジオの作例と撮影事例。",
 };
 
 export default function WorksPage() {
@@ -13,9 +13,9 @@ export default function WorksPage() {
     <div className="page">
       <div className="wk-hero">
         <span className="pre">WORKS</span>
-        <h1>実績・ケーススタディ</h1>
+        <h1>作品と、撮影事例。</h1>
         <p>
-          ここに掲載しているのは、すべて実際の店舗・企業・ブランドのために撮影したプロジェクトです。課題から結果まで、写真がビジネスにどう機能したかをご覧ください。
+          写真を軸に、業種ごとの課題へどんなビジュアルで応えるか。作例とこれまでの撮影をご紹介します。実際のご依頼事例は、許可をいただいたものから順に掲載していきます。
         </p>
       </div>
       <WorkGrid />

@@ -133,7 +133,6 @@ export default function Home() {
         </div>
         <div className="hero-bg"></div>
         <div className="hero-content">
-          <span className="hero-label">大阪 / クリエイティブ・フォトスタジオ / Since 2009</span>
           <h1 className="hero-stmt">
             写真を軸に、<br />
             <em>
@@ -146,7 +145,7 @@ export default function Home() {
           </p>
           <div className="hero-acts">
             <Link href="/works" className="btn-p">
-              実績を見る
+              作品を見る
             </Link>
             <Link href="/contact" className="btn-s">
               プロジェクトを相談する
@@ -268,11 +267,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CASE STUDIES */}
+      {/* PROBLEM → APPROACH EXAMPLES (honest; not fabricated case studies) */}
       <section className="cases">
         <div className="cases-intro">
-          <h2>実績・ケーススタディ</h2>
-          <Link href="/works">すべての実績 →</Link>
+          <h2>こんな課題に、こう応えます。</h2>
+          <Link href="/works">作品を見る →</Link>
         </div>
 
         <div className="case">
@@ -293,32 +292,32 @@ export default function Home() {
               <div>
                 <span className="case-tag">飲食店 / Googleマップ · SNS · メニュー</span>
                 <h3>
-                  Googleマップの写真刷新で<br />
-                  電話問い合わせが増加した居酒屋
+                  Googleマップとメニューの写真を、<br />
+                  「入ってみたい」に変える。
                 </h3>
                 <div className="case-meta">
                   <div className="cm-item">
-                    <span className="lbl">クライアント</span>
-                    <span className="v">大阪市内 居酒屋</span>
+                    <span className="lbl">業種</span>
+                    <span className="v">飲食店・カフェ</span>
                   </div>
                   <div className="cm-item">
                     <span className="lbl">課題</span>
-                    <span className="v">古い写真で来店が伸びない</span>
+                    <span className="v">写真が古く、第一印象で伝わらない</span>
                   </div>
                   <div className="cm-item">
-                    <span className="lbl">制作物</span>
-                    <span className="v">料理20枚・内観8枚</span>
+                    <span className="lbl">制作するビジュアル</span>
+                    <span className="v">料理・内観・スタッフ・外観</span>
                   </div>
                   <div className="cm-item">
-                    <span className="lbl">納期</span>
-                    <span className="v">撮影から3日以内</span>
+                    <span className="lbl">納品内容</span>
+                    <span className="v">撮影データ一式（色補正込み）</span>
                   </div>
                 </div>
               </div>
               <div className="case-result">
-                <span className="rl">ビジネス上の結果</span>
+                <span className="rl">ねらい</span>
                 <p>
-                  Googleマップ更新後、オーナーより「問い合わせが明らかに増えた」との報告。写真一枚の変化が集客に直結することを実感した案件。
+                  古い写真は第一印象で損をします。料理から店の空気感まで撮り直し、Googleマップやメニューで「来店前の期待感」をつくります。
                 </p>
               </div>
             </div>
@@ -331,32 +330,32 @@ export default function Home() {
               <div>
                 <span className="case-tag">小売・EC / 商品撮影 · ライフスタイル</span>
                 <h3>
-                  商品写真のリニューアルで<br />
-                  ECサイトのブランドイメージが一変
+                  商品の世界観が伝わる、<br />
+                  ブランドらしい商品写真を。
                 </h3>
                 <div className="case-meta">
                   <div className="cm-item">
-                    <span className="lbl">クライアント</span>
-                    <span className="v">大阪 雑貨ブランド</span>
+                    <span className="lbl">業種</span>
+                    <span className="v">小売・EC・ブランド</span>
                   </div>
                   <div className="cm-item">
                     <span className="lbl">課題</span>
                     <span className="v">自撮り写真でブランドが安く見える</span>
                   </div>
                   <div className="cm-item">
-                    <span className="lbl">制作物</span>
-                    <span className="v">商品15点・ライフスタイル10カット</span>
+                    <span className="lbl">制作するビジュアル</span>
+                    <span className="v">商品カット・ライフスタイル・使用シーン</span>
                   </div>
                   <div className="cm-item">
-                    <span className="lbl">対応言語</span>
-                    <span className="v">日本語・英語</span>
+                    <span className="lbl">納品内容</span>
+                    <span className="v">EC・SNS・広告用データ（切り抜き対応）</span>
                   </div>
                 </div>
               </div>
               <div className="case-result">
-                <span className="rl">ビジネス上の結果</span>
+                <span className="rl">ねらい</span>
                 <p>
-                  「やっと自分たちのブランドらしい写真が揃った」とのフィードバック。SNSのエンゲージメントが向上し、ブランドイメージと写真のクオリティが一致した。
+                  商品の見え方は、そのままブランドの印象になります。世界観に合わせた光と構図で、ECや広告で「安く見えない」一貫したビジュアルに整えます。
                 </p>
               </div>
             </div>
@@ -385,7 +384,7 @@ export default function Home() {
                 Real workplace, natural light
               </span>
               <div className="case-img-label">
-                <span>企業撮影 · IT企業</span>
+                <span>企業撮影 · チーム / オフィス</span>
               </div>
               <div className="case-mg-bar"></div>
             </div>
@@ -393,32 +392,32 @@ export default function Home() {
               <div>
                 <span className="case-tag">企業 / 採用 · コーポレートサイト</span>
                 <h3>
-                  採用写真の刷新で<br />
-                  文化フィットした応募者が増加
+                  会社の文化が伝わる、<br />
+                  採用・コーポレート写真を。
                 </h3>
                 <div className="case-meta">
                   <div className="cm-item">
-                    <span className="lbl">クライアント</span>
-                    <span className="v">大阪 IT企業</span>
+                    <span className="lbl">業種</span>
+                    <span className="v">企業・スタートアップ</span>
                   </div>
                   <div className="cm-item">
                     <span className="lbl">課題</span>
-                    <span className="v">採用写真が実態と乖離</span>
+                    <span className="v">採用サイトの写真が実態と乖離</span>
                   </div>
                   <div className="cm-item">
-                    <span className="lbl">制作物</span>
-                    <span className="v">チーム・オフィス・プロフィール</span>
+                    <span className="lbl">制作するビジュアル</span>
+                    <span className="v">チーム・オフィス・働く様子・プロフィール</span>
                   </div>
                   <div className="cm-item">
-                    <span className="lbl">対応言語</span>
-                    <span className="v">日本語・英語</span>
+                    <span className="lbl">納品内容</span>
+                    <span className="v">採用・HP・SNS用データ</span>
                   </div>
                 </div>
               </div>
               <div className="case-result">
-                <span className="rl">ビジネス上の結果</span>
+                <span className="rl">ねらい</span>
                 <p>
-                  「面接応募者の質が変わった」という声。会社の雰囲気と価値観を正確に伝えることで、文化フィットした候補者からの応募が増加。
+                  採用は「どんな人と働くか」が伝わるかどうか。オフィスやチームの自然な姿を撮り、会社の雰囲気と価値観を正直に伝えるビジュアルに整えます。
                 </p>
               </div>
             </div>
@@ -461,11 +460,11 @@ export default function Home() {
       <section className="quote-s">
         <div>
           <blockquote>
-            &quot;写真を変えただけで、<em>お客さんの反応が変わりました。</em>
+            きれいな写真ではなく、<em>「あなたらしい」</em>
             <br />
-            もっと早くお願いすればよかった。&quot;
+            写真とブランドを。
           </blockquote>
-          <span className="qattr">大阪市内 カフェオーナー</span>
+          <span className="qattr">Studio くりすさん</span>
         </div>
         <div className="quote-r">
           <span className="pre">なぜ今、ブランドが重要か</span>
@@ -491,7 +490,7 @@ export default function Home() {
             プロジェクトを相談する
           </Link>
           <Link href="/services" className="btn-txt">
-            料金・サービス一覧を見る
+            ソリューション・料金を見る
           </Link>
         </div>
       </section>

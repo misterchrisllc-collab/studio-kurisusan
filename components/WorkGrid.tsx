@@ -15,40 +15,40 @@ const CASES: CaseItem[] = [
     tag: "飲食店 / Googleマップ・SNS",
     img: "/photos/portfolio/tonkatsu-plate.jpg",
     imgAlt: "とんかつ専門店の料理撮影",
-    title: "Googleマップ刷新で来店につなげたとんかつ専門店",
+    title: "料理と店の空気感で、「入りたくなる」入口をつくる",
     challenge:
-      "写真が古く、料理の魅力や店の活気がオンラインで伝わっていませんでした。「見つけて、入りたくなる」入口づくりから設計しました。",
-    client: "大阪市内・とんかつ専門店",
+      "写真が古く、料理の魅力や店の活気がオンラインで伝わっていない。「見つけて、入りたくなる」入口づくりから設計します。",
+    client: "飲食店（とんかつ・専門店）",
     shot: "料理・調理風景・スタッフ・店内",
-    deliverables: "料理20点・内観8点・スタッフカット",
+    deliverables: "料理・内観・スタッフカット",
     outcome:
-      "メニュー写真とGoogleマップを刷新後、オーナーより「問い合わせと来店が明らかに増えた」との声。",
+      "料理から店の活気まで撮り直し、Googleマップやメニューで「来店前の期待感」をつくります。",
   },
   {
     tag: "商品・EC / スタジオ撮影",
     img: "/photos/portfolio/candles-lit.jpg",
     imgAlt: "商品・パッケージのエディトリアル撮影",
-    title: "商品写真の刷新でブランド品質を引き上げたEC",
+    title: "ブランドらしい商品写真で、世界観を伝える",
     challenge:
-      "自撮り中心の写真でブランドが実際より安く見え、ECのコンバージョンと世界観づくりの妨げになっていました。",
-    client: "大阪・雑貨/食品ブランド",
+      "自撮り中心の写真でブランドが実際より安く見え、ECのコンバージョンや世界観づくりの妨げになりがちです。",
+    client: "小売・EC（雑貨・食品）",
     shot: "商品単体・パッケージ・ライフスタイル",
-    deliverables: "商品15点・ライフスタイル10カット",
+    deliverables: "商品カット・ライフスタイル素材",
     outcome:
-      "「やっとブランドらしい写真が揃った」との評価。ECとSNSで世界観が統一され、反応が向上。",
+      "世界観に合わせた光と構図で、ECやSNSで「安く見えない」一貫したビジュアルに整えます。",
   },
   {
     tag: "ファッション・ブランド / エディトリアル",
     img: "/photos/portfolio/fashion-pink-look.jpg",
     imgAlt: "ファッション・モデルのエディトリアル撮影",
-    title: "世界観を伝えるビジュアルでブランドを再定義",
+    title: "世界観を伝えるビジュアルで、ブランドを表現する",
     challenge:
-      "ブランドのトーンや世界観を表現するビジュアルが不足し、SNSや採用でメッセージがぶれていました。",
+      "ブランドのトーンや世界観を表現するビジュアルが不足し、SNSや発信でメッセージがぶれがちです。",
     client: "アパレル・ブランド",
     shot: "ルックブック・モデル・エディトリアル",
-    deliverables: "ルック12点・寄りカット・SNS素材",
+    deliverables: "ルック・寄りカット・SNS素材",
     outcome:
-      "ブランドの世界観が明確になり、SNSでの反応と認知が向上。継続的な素材制作にも発展。",
+      "ブランドのトーンをビジュアルに翻訳し、SNSや発信で一貫して伝わる世界観をつくります。",
   },
 ];
 
@@ -69,7 +69,7 @@ export default function WorkGrid() {
               <p>{c.challenge}</p>
               <div className="cf-meta">
                 <div>
-                  <span className="lbl">クライアント</span>
+                  <span className="lbl">業種</span>
                   <span className="v">{c.client}</span>
                 </div>
                 <div>
@@ -83,7 +83,7 @@ export default function WorkGrid() {
               </div>
             </div>
             <div className="cf-result">
-              <span className="rl">結果</span>
+              <span className="rl">ねらい</span>
               <p>{c.outcome}</p>
             </div>
           </div>

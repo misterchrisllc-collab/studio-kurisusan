@@ -162,7 +162,7 @@ export default function ServicesPage() {
             無料で相談する
           </Link>
           <Link href="/works" className="btn-txt">
-            実績・作品を見る
+            作品・撮影事例を見る
           </Link>
         </div>
       </section>
