@@ -3,23 +3,23 @@ import Footer from "@/components/Footer";
 export const metadata = {
   title: "About | STUDIOくりすさん",
   description:
-    "大阪在住15年のアメリカ人フォトグラファー。ビジネスのための写真を撮る合同会社くりすさん代表について。",
+    "写真を軸に、お店やブランドが「自分たちらしく伝わる」ことを手伝う。Studio くりすさんの考え方について。",
 };
 
-const CAPABILITIES = [
-  "店舗・飲食店・サロンの商業撮影",
-  "商品・EC・カタログ撮影",
-  "企業・採用・コーポレートブランディング",
-  "建設・リノベーション記録撮影",
-  "SNSリール・ショート動画制作",
-  "バイリンガルコンテンツ制作（日英）",
+const CAN_DO = [
+  "写真を軸にしたブランドづくり",
+  "コマーシャル・フォトグラフィー",
+  "クリエイティブディレクション",
+  "ビジュアルブランディング・デザイン",
+  "SNS・ショート動画などのコンテンツ",
+  "AIを活用した企画・アイデア出し",
 ];
 
-const CREDENTIALS = [
-  "Florida International University — BA International Studies",
-  "立命館大学 RSJP 修了",
-  "バンタンデザイン研究所大阪校 フォトグラフィー速習コース 修了",
-  "Google Marketing 認定",
+const VALUES = [
+  "撮影の前に、まずビジネスを理解する",
+  "新しいツールも、対話も大切にする",
+  "写真を軸に、伝え方まで一貫させる",
+  "その事業ならではの「らしさ」を形にする",
 ];
 
 const CONTACT = [
@@ -34,36 +34,42 @@ export default function AboutPage() {
     <div className="page">
       <div className="ab-hero">
         <div className="ab-ph">
-          <span className="pi">👤</span>
-          <span className="pt">[ CHRIS PHOTO ]</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="slot-img"
+            src="/photos/portrait.jpg"
+            alt="Studio くりすさん フォトグラファー Chris"
+          />
         </div>
         <div className="ab-intro">
           <span className="pre">ABOUT</span>
           <h1>
-            大阪在住15年のアメリカ人フォトグラファー。ビジネスのための写真を撮っています。
+            私の仕事は、写真を届けることではありません。そのお店やブランドが「自分たちらしく伝わること」です。
           </h1>
           <p>
-            飲食店、EC、企業、ブランドと仕事をしてきた経験から、写真がビジネスにどう機能するかを深く理解しています。Google
-            Marketing認定取得。マーケティングとコミュニケーションの視点から撮影を設計します。
+            いまは、誰でもきれいな画像をつくれる時代です。スマートフォンでも、AIでも。だからこそ難しいのは、上手な写真を撮ることよりも、その事業の「らしさ」が本当に伝わるビジュアルをつくることだと考えています。
           </p>
           <p>
-            日本語・英語・スペイン語対応。合同会社くりすさん代表。大阪市北区拠点。
+            私はAIや新しいツールも積極的に使います。それでも、記憶に残るブランドは、対話と理解、そして本物の写真から生まれると信じています。だから撮影の前に、まずビジネスを理解することから始めます。
+          </p>
+          <p>
+            日本語・英語・スペイン語で対応。大阪を拠点に、合同会社くりすさん代表。
           </p>
         </div>
       </div>
       <div className="ab-body">
         <div className="ab-col">
-          <span className="ab-col-lbl">対応内容</span>
+          <span className="ab-col-lbl">できること</span>
           <ul className="ab-list">
-            {CAPABILITIES.map((c) => (
+            {CAN_DO.map((c) => (
               <li key={c}>{c}</li>
             ))}
           </ul>
         </div>
         <div className="ab-col">
-          <span className="ab-col-lbl">学歴・資格</span>
+          <span className="ab-col-lbl">大切にしていること</span>
           <ul className="ab-list">
-            {CREDENTIALS.map((c) => (
+            {VALUES.map((c) => (
               <li key={c}>{c}</li>
             ))}
           </ul>
