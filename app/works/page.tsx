@@ -3,9 +3,10 @@ import WorkGrid from "@/components/WorkGrid";
 import PortfolioGallery from "@/components/PortfolioGallery";
 
 export const metadata = {
-  title: "作品・撮影事例 | STUDIOくりすさん",
+  title: "作品・撮影事例",
   description:
     "業種ごとの課題に、どんなビジュアルで応えるか。大阪のクリエイティブスタジオの作例と撮影事例。",
+  alternates: { canonical: "/works" },
 };
 
 export default function WorksPage() {

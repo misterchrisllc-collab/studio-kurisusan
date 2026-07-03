@@ -53,7 +53,17 @@ export default function PriceCalculator() {
             <div
               key={opt.name}
               className={`co${selected[i] ? " sel" : ""}`}
+              role="checkbox"
+              aria-checked={selected[i]}
+              aria-label={`${opt.name} ¥${opt.price.toLocaleString()}`}
+              tabIndex={0}
               onClick={() => toggle(i)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  toggle(i);
+                }
+              }}
             >
               <div className="co-l">
                 <div className="cbox"></div>

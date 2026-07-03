@@ -5,9 +5,10 @@ import FAQ from "@/components/FAQ";
 import PriceCalculator from "@/components/PriceCalculator";
 
 export const metadata = {
-  title: "ビジネスソリューション・料金 | STUDIOくりすさん",
+  title: "ビジネスソリューション・料金",
   description:
-    "開業ブランディング、ブランドリフレッシュ、Googleビジネス強化、採用ブランディング、月額コンテンツパートナー、季節キャンペーン。写真を軸に、大阪でビジネスの課題を解決するクリエイティブスタジオ。料金の目安・よくあるご質問。",
+    "開業ブランディング、ブランドリフレッシュ、Googleビジネス強化、採用ブランディング、クリエイティブパートナー、季節キャンペーン。写真を軸に、大阪でビジネスの課題を解決するクリエイティブスタジオ。料金の目安・よくあるご質問。",
+  alternates: { canonical: "/services" },
 };
 
 // Six flagship business solutions — the primary way we frame our work.

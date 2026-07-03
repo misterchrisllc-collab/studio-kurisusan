@@ -1,12 +1,13 @@
 import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
-  title: "お問い合わせ | STUDIOくりすさん",
+  title: "お問い合わせ",
   description:
-    "プロジェクトのご相談。撮影内容が決まっていなくても構いません。大阪の商業撮影スタジオへのお問い合わせ。日本語・英語・スペイン語対応。",
+    "プロジェクトのご相談。撮影内容が決まっていなくても構いません。大阪のクリエイティブスタジオへのお問い合わせ。日本語・英語・スペイン語対応。",
+  alternates: { canonical: "/contact" },
 };
 
-const STUDIO_NAME = "フォトスタジオ くりすさん";
+const STUDIO_NAME = "Studio くりすさん";
 const ADDR = "Moriki Mansion #310, 2-14-6 Honjo-higashi, Kita-ku, Osaka 531-0074";
 const MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   ADDR,
@@ -73,7 +74,7 @@ export default function ContactPage() {
             <div className="ct-map">
               <iframe
                 src={MAPS_EMBED}
-                title="フォトスタジオ くりすさん の地図"
+                title="Studio くりすさん の地図"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />

@@ -8,6 +8,7 @@ const PLACEHOLDER = "選択してください";
 
 const SHOOT_TYPES = [
   PLACEHOLDER,
+  "クリエイティブパートナー（月額契約）",
   "Googleマップ更新パッケージ",
   "料理・メニュー撮影",
   "店内・空間撮影",

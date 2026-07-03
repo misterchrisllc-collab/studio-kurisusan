@@ -1,9 +1,10 @@
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "About | STUDIOくりすさん",
+  title: "私たちについて",
   description:
     "写真を軸に、お店やブランドが「自分たちらしく伝わる」ことを手伝う。Studio くりすさんの考え方について。",
+  alternates: { canonical: "/about" },
 };
 
 const CAN_DO = [

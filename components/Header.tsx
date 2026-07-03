@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 
 const NAV = [
   { href: "/", label: "HOME" },
@@ -13,12 +12,8 @@ const NAV = [
   { href: "/contact", label: "CONTACT" },
 ];
 
-type Lang = "ja" | "en" | "es";
-
 export default function Header() {
   const pathname = usePathname();
-  // Visual-only language switcher — mirrors the prototype (no translations yet).
-  const [lang, setLang] = useState<Lang>("ja");
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -27,7 +22,7 @@ export default function Header() {
     <header>
       <Link href="/" className="logo">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo.png" alt="STUDIO くりすさん" />
+        <img src="/logo.png" alt="Studio くりすさん" />
       </Link>
       <nav className="hn">
         {NAV.map((n) => (
@@ -42,17 +37,6 @@ export default function Header() {
         ))}
       </nav>
       <div className="hr">
-        <div className="lsw">
-          {(["ja", "en", "es"] as Lang[]).map((l) => (
-            <button
-              key={l}
-              className={`lb${lang === l ? " on" : ""}`}
-              onClick={() => setLang(l)}
-            >
-              {l === "ja" ? "JP" : l.toUpperCase()}
-            </button>
-          ))}
-        </div>
         <Link href="/contact" className="hcta">
           相談する
         </Link>

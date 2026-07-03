@@ -147,12 +147,12 @@ async function sendNotification(d: Parsed): Promise<boolean> {
     from,
     to,
     replyTo: d.email,
-    subject: `STUDIO くりすさん — 新規お問い合わせ: ${d.name}${
+    subject: `Studio くりすさん — 新規お問い合わせ: ${d.name}${
       d.company ? `（${d.company}）` : ""
     }`,
     html: `
       <div style="font-family:ui-sans-serif,system-ui,sans-serif;background:#fff;color:#111;padding:32px;max-width:560px">
-        <p style="font-family:ui-monospace,monospace;letter-spacing:.2em;font-size:11px;color:#E8198B;text-transform:uppercase;margin:0 0 24px">STUDIO くりすさん · 新規お問い合わせ</p>
+        <p style="font-family:ui-monospace,monospace;letter-spacing:.2em;font-size:11px;color:#E8198B;text-transform:uppercase;margin:0 0 24px">Studio くりすさん · 新規お問い合わせ</p>
         <p style="margin:0 0 6px;font-size:16px"><strong>${esc(d.name)}</strong></p>
         <p style="margin:0 0 20px;font-size:13px;color:#666">&lt;${esc(
           d.email,

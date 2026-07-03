@@ -20,9 +20,10 @@ export default function Footer({
   variant?: "home" | "sub";
 }) {
   const links = variant === "home" ? HOME_LINKS : SUB_LINKS;
+  const year = new Date().getFullYear();
   return (
     <footer>
-      <p>© 2025 合同会社くりすさん</p>
+      <p>© {year} 合同会社くりすさん</p>
       <div className="ft-nav">
         {links.map((l) => (
           <Link key={l.label} href={l.href}>
@@ -30,7 +31,7 @@ export default function Footer({
           </Link>
         ))}
       </div>
-      <span className="ft-mg">STUDIO: くりすさん</span>
+      <span className="ft-mg">Studio くりすさん</span>
     </footer>
   );
 }

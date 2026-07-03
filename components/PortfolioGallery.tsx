@@ -125,7 +125,16 @@ export default function PortfolioGallery() {
             className="pf-item"
             key={s.src}
             style={{ animationDelay: `${Math.min(i, 12) * 0.035}s` }}
+            role="button"
+            tabIndex={0}
+            aria-label={`${CAT_LABEL[s.cat]}・${s.title} を拡大表示`}
             onClick={() => setLightbox(filtered.indexOf(s))}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setLightbox(filtered.indexOf(s));
+              }
+            }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -152,7 +161,13 @@ export default function PortfolioGallery() {
       )}
 
       {current && (
-        <div className="pf-lb" role="dialog" aria-modal="true" onClick={close}>
+        <div
+          className="pf-lb"
+          role="dialog"
+          aria-modal="true"
+          aria-label="作品ビューア"
+          onClick={close}
+        >
           <button className="pf-lb-close" aria-label="閉じる" onClick={close}>
             ×
           </button>

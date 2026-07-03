@@ -1,9 +1,10 @@
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "機材リスト | STUDIOくりすさん",
+  title: "機材リスト",
   description:
     "Fujifilmボディにヴィンテージニッコールレンズ。自然光からGodoxストロボまで、あらゆる現場に対応する機材リスト。",
+  alternates: { canonical: "/gear" },
 };
 
 type Item = { name: string; note: string };

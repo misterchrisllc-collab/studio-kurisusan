@@ -17,6 +17,16 @@ body{
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
 }
+/* Keyboard focus visibility (a11y) — only shows on keyboard nav, not mouse. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible{
+  outline:2px solid var(--mg);
+  outline-offset:2px;
+}
 
 /* ── HEADER ── */
 header{
@@ -50,10 +60,13 @@ header{
 .hcta{
   background:none;border:1px solid var(--bk);color:var(--bk);
   padding:7px 18px;font-size:11px;font-weight:500;cursor:pointer;
-  letter-spacing:1px;font-family:'Inter',sans-serif;
+  letter-spacing:1px;font-family:'Inter',sans-serif;white-space:nowrap;
   transition:all .2s;text-transform:uppercase;text-decoration:none;
 }
 .hcta:hover{background:var(--mg);border-color:var(--mg);color:#fff;}
+/* On small phones the header CTA crowds the nav; CONTACT is already in the nav
+   and every page has an in-page CTA, so hide the redundant header button. */
+@media(max-width:620px){.hcta{display:none;}}
 
 /* ── PAGES ── */
 .page{padding-top:56px;}
