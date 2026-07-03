@@ -1,95 +1,23 @@
+import Link from "next/link";
 import Footer from "@/components/Footer";
+import ServiceList from "@/components/ServiceList";
+import FAQ from "@/components/FAQ";
 import PriceCalculator from "@/components/PriceCalculator";
 
 export const metadata = {
   title: "サービス・料金 | STUDIOくりすさん",
   description:
-    "店舗・飲食店撮影、商品・EC撮影、企業・採用撮影、コンテンツ制作。大阪の商業撮影スタジオの料金一覧。",
+    "店舗・飲食店撮影、商品・EC撮影、企業・採用撮影、コンテンツ制作。大阪の商業撮影スタジオの料金一覧と、撮影に含まれるもの・よくあるご質問。",
 };
 
-type Row = { name: string; desc: string; price: string };
-type Section = { title: string; outcome: string; rows: Row[] };
-
-const SECTIONS: Section[] = [
-  {
-    title: "店舗・飲食店撮影",
-    outcome: "集客・来店・Googleマップの改善に",
-    rows: [
-      {
-        name: "Googleマップ更新パッケージ",
-        desc: "15枚〜。Googleマップ・Tabelog・Hot Pepper掲載対応。",
-        price: "¥35,000〜",
-      },
-      {
-        name: "料理・メニュー撮影",
-        desc: "SNS、メニューブック、WEB用。20枚〜。",
-        price: "¥50,000〜",
-      },
-      {
-        name: "店内・空間撮影",
-        desc: "内観・外観・雰囲気。15枚〜。",
-        price: "¥50,000〜",
-      },
-      {
-        name: "フルブランドパッケージ",
-        desc: "料理・店内・スタッフ・動画。1回で素材をまとめて。",
-        price: "¥95,000〜",
-      },
-    ],
-  },
-  {
-    title: "商品・EC撮影",
-    outcome: "ECコンバージョン・ブランドイメージの向上に",
-    rows: [
-      {
-        name: "スタジオ商品撮影",
-        desc: "白・黒・カラー背景。EC、カタログ、SNS広告用。",
-        price: "¥30,000〜",
-      },
-      {
-        name: "ライフスタイル商品撮影",
-        desc: "使用シーンを想定した撮影。ブランドイメージを伝える。",
-        price: "¥45,000〜",
-      },
-    ],
-  },
-  {
-    title: "企業・採用撮影",
-    outcome: "採用力・コーポレートブランドの強化に",
-    rows: [
-      {
-        name: "スタッフ・採用写真",
-        desc: "コーポレートサイト・採用ページ・SNS用。",
-        price: "¥45,000〜",
-      },
-      {
-        name: "コーポレートブランディング",
-        desc: "オフィス・現場・チームの撮影。企業文化を伝える。",
-        price: "¥70,000〜",
-      },
-      {
-        name: "建設・リノベーション記録",
-        desc: "施工前・中・後の記録。提案書・実績紹介に。",
-        price: "¥40,000〜",
-      },
-    ],
-  },
-  {
-    title: "コンテンツ制作",
-    outcome: "SNS・動画・バイリンガルコンテンツ",
-    rows: [
-      {
-        name: "リール・ショート動画",
-        desc: "TikTok・Instagram・YouTube Shorts。1本から。",
-        price: "¥15,000〜",
-      },
-      {
-        name: "バイリンガルキャプション",
-        desc: "日本語・英語のSNSキャプション制作。",
-        price: "¥8,000〜",
-      },
-    ],
-  },
+const INCLUDED = [
+  "事前ヒアリング",
+  "撮影プラン作成",
+  "プロによるライティング",
+  "色補正・現像",
+  "高解像度データ納品",
+  "商用利用",
+  "オンライン納品",
 ];
 
 export default function ServicesPage() {
@@ -98,27 +26,52 @@ export default function ServicesPage() {
       <div className="sp-hero">
         <span className="pre">SERVICES</span>
         <h1>サービス・料金</h1>
+        <p className="sp-lede">
+          ビジネスによって、目指すゴールは異なります。ブランディング、集客、採用、販売、そして信頼づくり。それぞれの目的に合わせて、成果につながる撮影を設計します。
+        </p>
       </div>
+
       <div className="sp-body">
-        {SECTIONS.map((sec) => (
-          <div className="sp-sec" key={sec.title}>
-            <div className="sp-sec-hd">
-              <div className="sp-sec-t">{sec.title}</div>
-              <div className="sp-sec-oc">{sec.outcome}</div>
-            </div>
-            <div>
-              {sec.rows.map((row) => (
-                <div className="sp-row" key={row.name}>
-                  <div className="sp-row-n">{row.name}</div>
-                  <div className="sp-row-d">{row.desc}</div>
-                  <div className="sp-row-p">{row.price}</div>
-                </div>
-              ))}
-            </div>
+        {/* What's included */}
+        <section className="sp-incl">
+          <div className="sp-incl-hd">
+            <h2>撮影に含まれるもの</h2>
+            <p>すべてのプランに、以下がすべて含まれています。</p>
           </div>
-        ))}
+          <ul className="sp-incl-grid">
+            {INCLUDED.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </section>
+
+        <ServiceList />
       </div>
+
+      <FAQ />
+
       <PriceCalculator />
+
+      {/* Final CTA */}
+      <section className="cta-f">
+        <div>
+          <h2>
+            まずは、<em>お気軽にご相談ください。</em>
+          </h2>
+          <p>
+            プロジェクトによって最適な内容は異なります。撮影が決まっていなくても大丈夫です。目的やご予算に合わせて、無料でお見積り・ご提案します。
+          </p>
+        </div>
+        <div className="cta-actions">
+          <Link href="/contact" className="btn-big">
+            無料で相談する
+          </Link>
+          <Link href="/works" className="btn-txt">
+            実績・作品を見る
+          </Link>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
