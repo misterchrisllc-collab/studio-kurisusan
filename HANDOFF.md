@@ -88,8 +88,14 @@ our own track record breaks it. Present work as **honest examples** (業種 / �
 with client permission (real name + real numbers). Same rule the owner set on sibling kansai-snaps
 (no fabricated reviews).
 
-### Navigation naming decision (2026-07)
-Nav label **`SERVICES` → `WHAT WE DO`** (Header + Footer). Rationale: "Services/サービス" framed us
+### Navigation naming decision (2026-07) — FINAL
+Nav is now **Japanese, GEAR dropped**: **ホーム / 作品 / できること / 私たちについて / お問い合わせ**
+(Header + Footer). Research-backed: premium JP creative/branding studios use clear, non-abstract,
+positioning-carrying labels and drop vanity pages; the buyer is a JP local-business owner, so native
+labels read warmer/clearer. Kept **作品** (not PROJECTS — accurate for honest work samples) and
+**できること** (over サービス/ソリューション). `/gear` page still exists (in sitemap) but is unlinked
+from nav. Decorative English page-eyebrows (`.pre` kickers: WORKS/ABOUT/etc.) intentionally KEPT as a
+premium accent above JP headings. Earlier step (superseded): nav had been EN `SERVICES` → `WHAT WE DO`. Rationale: "Services/サービス" framed us
 as a vendor with a menu; premium JP creative studios frame around solving business problems and
 use short English nav + let the page carry positioning. `/services` **URL kept** (SEO/links). JP
 page heading now leads with outcomes/partnership ("課題から始める、6つのビジネスソリューション").
@@ -168,9 +174,9 @@ Senior-QA sweep of every page. **Critical: none.** **High (all fixed + live):**
    full consistency update the display name to "Studio くりすさん" in Vercel env (code strings already done).
 
 **Remaining LOW (non-blocking):** custom 404 page; `next/font` migration; PWA manifest; verify the
-Google Map embed renders on a real device (looked black only in headless due to lazy-load); the
-**GEAR-in-nav positioning tension** (part of the parked nav-labels decision); minor light-gray text
-contrast in a few spots.
+Google Map embed renders on a real device (looked black only in headless due to lazy-load); minor
+light-gray text contrast in a few spots. (Nav-labels decision is now RESOLVED — JP labels, GEAR
+dropped; see Navigation naming decision above.)
 
 ## Open follow-ups / next candidates
 1. ~~Carry positioning into home services teaser + contact intro~~ **DONE (2026-07)** — plus the
