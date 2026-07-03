@@ -145,6 +145,33 @@ but ソリューション is fine in JP body copy for "business solutions."
   パートナーも歓迎); POINTS mention 事業の課題からご相談.
 - **/gear**: not touched this cycle.
 
+## Launch QA pass (2026-07) — DONE
+Senior-QA sweep of every page. **Critical: none.** **High (all fixed + live):**
+- **Brand name standardized → "Studio くりすさん"** (titles, footer mark, email template,
+  contact studio block). Legal/© stays 合同会社くりすさん. `lib/site.ts` holds SITE_URL/NAME/DESC.
+- **Dynamic © year** (Footer `new Date().getFullYear()`).
+- **SEO added:** `metadataBase` + Open Graph/Twitter defaults + OG image (hero.jpg) in
+  `app/layout.tsx`; title template `%s｜Studio くりすさん`; per-page titles + `alternates.canonical`;
+  **`app/robots.ts` + `app/sitemap.ts`** (6 routes). Verify + submit sitemap in Google Search Console.
+- **Removed the non-functional EN/ES language toggle** (was cosmetic; i18n not built). JP-only for
+  launch; multilingual ability still stated in copy. One-line revert in `Header.tsx` if wanted.
+- **A11y:** keyboard access for price-calculator rows (`role=checkbox`) + gallery tiles
+  (`role=button`) + global `:focus-visible` ring.
+- **Mobile header:** hide redundant header CTA <620px (was wrapping); nav fits 5 items.
+- Contact shoot-type list now includes クリエイティブパートナー.
+
+**⚠️ Two items needing owner input (flagged, not blockers):**
+1. **Contact studio name** changed フォトスタジオ くりすさん → **Studio くりすさん**. If your **Google
+   Business Profile** is registered as "フォトスタジオ くりすさん", keep the on-site name matching GBP
+   for local-SEO NAP consistency — say so and I'll revert just that string (address/phone unchanged).
+2. **Vercel env `EMAIL_FROM`** still `"STUDIO くりすさん <studio@kansai-snaps.com>"` (caps STUDIO). For
+   full consistency update the display name to "Studio くりすさん" in Vercel env (code strings already done).
+
+**Remaining LOW (non-blocking):** custom 404 page; `next/font` migration; PWA manifest; verify the
+Google Map embed renders on a real device (looked black only in headless due to lazy-load); the
+**GEAR-in-nav positioning tension** (part of the parked nav-labels decision); minor light-gray text
+contrast in a few spots.
+
 ## Open follow-ups / next candidates
 1. ~~Carry positioning into home services teaser + contact intro~~ **DONE (2026-07)** — plus the
    six-solution restructure + `SERVICES`→`WHAT WE DO` nav rename + site metadata repositioned
