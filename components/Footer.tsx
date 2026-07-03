@@ -3,15 +3,15 @@ import Link from "next/link";
 type FooterLink = { href: string; label: string };
 
 const HOME_LINKS: FooterLink[] = [
-  { href: "/works", label: "WORKS" },
-  { href: "/services", label: "WHAT WE DO" },
-  { href: "/about", label: "ABOUT" },
-  { href: "/contact", label: "CONTACT" },
+  { href: "/works", label: "作品" },
+  { href: "/services", label: "できること" },
+  { href: "/about", label: "私たちについて" },
+  { href: "/contact", label: "お問い合わせ" },
 ];
 
 const SUB_LINKS: FooterLink[] = [
-  { href: "/", label: "HOME" },
-  { href: "/contact", label: "CONTACT" },
+  { href: "/", label: "ホーム" },
+  { href: "/contact", label: "お問い合わせ" },
 ];
 
 export default function Footer({

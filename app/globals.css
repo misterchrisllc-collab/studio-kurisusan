@@ -42,7 +42,7 @@ header{
 .hn{display:flex;align-items:center;gap:32px;}
 .hn a{
   text-decoration:none;color:#aaa;font-size:11px;font-weight:400;
-  cursor:pointer;letter-spacing:.8px;font-family:'Inter',sans-serif;
+  cursor:pointer;letter-spacing:.5px;font-family:'Inter','Noto Sans JP',sans-serif;
   transition:color .2s;text-transform:uppercase;white-space:nowrap;
 }
 .hn a:hover,.hn a.on{color:var(--bk);}
@@ -809,15 +809,15 @@ header{
 footer{background:var(--bk);padding:40px 80px;display:flex;justify-content:space-between;align-items:center;}
 footer p{font-size:11px;color:#3a3a3a;font-family:'Inter',sans-serif;}
 .ft-nav{display:flex;gap:28px;}
-.ft-nav a{color:#444;font-size:11px;font-family:'Inter',sans-serif;text-decoration:none;cursor:pointer;transition:color .15s;letter-spacing:.5px;text-transform:uppercase;}
+.ft-nav a{color:#444;font-size:11px;font-family:'Inter','Noto Sans JP',sans-serif;text-decoration:none;cursor:pointer;transition:color .15s;letter-spacing:.5px;text-transform:uppercase;}
 .ft-nav a:hover{color:var(--mg);}
 .ft-mg{color:#2a2a2a;font-size:11px;font-family:'Inter',sans-serif;letter-spacing:1px;}
 
 /* RESPONSIVE */
 @media(max-width:960px){
   header{padding:0 20px;}
-  .hn{gap:16px;}
-  .hn a{font-size:10px;letter-spacing:.4px;}
+  .hn{gap:13px;}
+  .hn a{font-size:10.5px;letter-spacing:.2px;}
   .hn a[data-hide]{display:none;}
   .hero-content{padding:0 32px 56px;}
   .brand-stmt,.brand-stmt-inner{padding:48px 24px;}

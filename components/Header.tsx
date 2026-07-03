@@ -4,12 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const NAV = [
-  { href: "/", label: "HOME" },
-  { href: "/works", label: "WORKS" },
-  { href: "/services", label: "WHAT WE DO" },
-  { href: "/gear", label: "GEAR", hide: true },
-  { href: "/about", label: "ABOUT" },
-  { href: "/contact", label: "CONTACT" },
+  { href: "/", label: "ホーム" },
+  { href: "/works", label: "作品" },
+  { href: "/services", label: "できること" },
+  { href: "/about", label: "私たちについて" },
+  { href: "/contact", label: "お問い合わせ" },
 ];
 
 export default function Header() {
@@ -30,7 +29,6 @@ export default function Header() {
             key={n.href}
             href={n.href}
             className={isActive(n.href) ? "on" : ""}
-            {...(n.hide ? { "data-hide": "1" } : {})}
           >
             {n.label}
           </Link>
