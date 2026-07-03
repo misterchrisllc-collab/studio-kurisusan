@@ -114,8 +114,12 @@ but ソリューション is fine in JP body copy for "business solutions."
   (業種 / 課題 / 制作するビジュアル / 納品内容 + a **"ねらい"** intent block; NO invented clients,
   metrics, or quotes). The fake カフェオーナー testimonial is **removed** (quote replaced with our
   own motto "きれいな写真ではなく「あなたらしい」写真とブランドを。" attr STUDIO くりすさん). Hero
-  **"SINCE 2009" label removed** (hard to read over photo + off-positioning). Corporate card is
-  still an emoji placeholder (no real office/team photo).
+  **"SINCE 2009" label removed** (hard to read over photo + off-positioning). **Card 3 (2026-07):**
+  emoji placeholder replaced with a real photo (`portfolio/tonkatsu-chef.jpg`) and re-themed
+  corporate→**「人と現場」/「働く人の魅力を、そのまま伝える」** (honest: authentic person-at-work
+  image, no office/team photo needed). **Solution #5 renamed 月額コンテンツパートナー →
+  クリエイティブパートナー (Creative Partner)** = ongoing creative partnership, not a monthly photo
+  plan (tag "月額契約"). No published price yet (don't invent one).
 - **/works** (honesty pass 2026-07): retitled **"作品と、撮影事例。"** (was "実績・ケーススタディ");
   hero no longer claims "すべて実際の…プロジェクト/結果" — now "作例とこれまでの撮影… 実際のご依頼
   事例は許可をいただいたものから順に掲載". `WorkGrid` cards relabeled クライアント→業種, 結果→
@@ -127,7 +131,10 @@ but ソリューション is fine in JP body copy for "business solutions."
 - **/services** (nav label now **WHAT WE DO**): reframed hero (WHAT WE DO / "課題から始める、6つの
   ビジネスソリューション" / partnership+AI-as-tool lede) → **six-solutions section** (`SOLUTIONS`
   array, reuses `.sp-flow-grid`, English sublabels via `.sp-sol-en`, おすすめ badge on Monthly) →
-  the old 9-item FLOW re-headed "各ソリューションを構成する、制作の要素" → 撮影に含まれるもの →
+  a **flagship highlight** "クリエイティブパートナー契約に含まれるもの" (8 inclusions as `.sp-incl-grid`
+  chips: Googleビジネス更新 / 毎月の撮影 / SNS / ポスター・チラシ / 季節キャンペーン企画 / ブランド相談 /
+  AI活用×人のディレクション / 優先予約) → the old 9-item FLOW re-headed "各ソリューションを構成する、
+  制作の要素" → 撮影に含まれるもの →
   pricing menu re-headed **"料金の目安（撮影メニュー）"** (`ServiceList` unchanged — still the 4
   medium-based categories; pricing is now framed as the building blocks of the solutions) → FAQ +
   calculator + CTA. **Not yet done:** map the detailed pricing rows onto the six solutions; set a

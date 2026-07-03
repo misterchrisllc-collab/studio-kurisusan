@@ -35,10 +35,10 @@ const SOLUTIONS: Solution[] = [
     desc: "会社の文化と働く人の魅力を、正直なビジュアルで。価値観の合う応募者との出会いを増やします。",
   },
   {
-    name: "月額コンテンツパートナー",
-    en: "Monthly Content Partner",
+    name: "クリエイティブパートナー",
+    en: "Creative Partner",
     flagship: true,
-    desc: "毎月の撮影・動画・Google更新・SNS・販促物までを継続支援する、私たちの中心となる月額プラン。伴走しながらブランドを育てます。",
+    desc: "撮影を都度お願いするのではなく、ブランドの「伴走者」を持つ月額契約。私たちの中心となる、継続的なパートナーシップです。",
   },
   {
     name: "季節・スポットキャンペーン",
@@ -102,6 +102,26 @@ export default function ServicesPage() {
                 <span className="sp-flow-d">{s.desc}</span>
               </li>
             ))}
+          </ul>
+        </section>
+
+        {/* Flagship: ongoing creative partnership (not a monthly photo plan) */}
+        <section className="sp-flow">
+          <div className="sp-incl-hd">
+            <h2>クリエイティブパートナー契約に含まれるもの</h2>
+            <p>
+              撮影を都度お願いするのではなく、ブランドの「伴走者」を持つ、私たちの中心となる継続契約です。技術やAIは賢く使う道具として、人のクリエイティブディレクションで一貫したブランドを育てます。単発の撮影ではなく、続くパートナーシップです。
+            </p>
+          </div>
+          <ul className="sp-incl-grid">
+            <li>Googleビジネス更新</li>
+            <li>毎月の撮影</li>
+            <li>SNSコンテンツ</li>
+            <li>ポスター・チラシ制作</li>
+            <li>季節キャンペーン企画</li>
+            <li>ブランド相談</li>
+            <li>AI活用 × 人のディレクション</li>
+            <li>優先予約</li>
           </ul>
         </section>
 

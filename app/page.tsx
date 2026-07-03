@@ -60,11 +60,11 @@ const SOLUTIONS: Solution[] = [
   },
   {
     n: "05",
-    name: "月額コンテンツパートナー",
-    en: "Monthly Content Partner",
+    name: "クリエイティブパートナー",
+    en: "Creative Partner",
     outcome:
-      "毎月の撮影・ショート動画・Google更新・SNS素材・販促物までを継続してお任せいただける、私たちの中心となる月額プラン。単発で終わらせず、伴走しながらブランドを育てます。",
-    tag: "月額プラン",
+      "撮影を都度お願いするのではなく、ブランドの「伴走者」を持つ契約です。Googleビジネス更新・毎月の撮影・SNS・販促デザイン・季節キャンペーン・ブランド相談までを、AIも活用しながら継続支援。優先予約つき、私たちの中心となるサービスです。",
+    tag: "月額契約",
     flagship: true,
   },
   {
@@ -377,36 +377,36 @@ export default function Home() {
         <div className="case">
           <div className="case-inner">
             <div className="case-img">
-              <span className="ci">🏢</span>
-              <span className="ct">
-                [ CORPORATE TEAM / OFFICE ]<br />
-                Large format<br />
-                Real workplace, natural light
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="slot-img"
+                src="/photos/portfolio/tonkatsu-chef.jpg"
+                alt="厨房で仕込みをする職人、働く人の撮影"
+              />
               <div className="case-img-label">
-                <span>企業撮影 · チーム / オフィス</span>
+                <span>人・現場 · 撮影事例</span>
               </div>
               <div className="case-mg-bar"></div>
             </div>
             <div className="case-body">
               <div>
-                <span className="case-tag">企業 / 採用 · コーポレートサイト</span>
+                <span className="case-tag">採用・ブランド / 人と現場</span>
                 <h3>
-                  会社の文化が伝わる、<br />
-                  採用・コーポレート写真を。
+                  働く人の魅力を、<br />
+                  そのまま伝える。
                 </h3>
                 <div className="case-meta">
                   <div className="cm-item">
                     <span className="lbl">業種</span>
-                    <span className="v">企業・スタートアップ</span>
+                    <span className="v">企業・店舗・チーム</span>
                   </div>
                   <div className="cm-item">
                     <span className="lbl">課題</span>
-                    <span className="v">採用サイトの写真が実態と乖離</span>
+                    <span className="v">採用・発信で「人」の魅力が伝わらない</span>
                   </div>
                   <div className="cm-item">
                     <span className="lbl">制作するビジュアル</span>
-                    <span className="v">チーム・オフィス・働く様子・プロフィール</span>
+                    <span className="v">働く様子・チーム・プロフィール・現場</span>
                   </div>
                   <div className="cm-item">
                     <span className="lbl">納品内容</span>
@@ -417,7 +417,7 @@ export default function Home() {
               <div className="case-result">
                 <span className="rl">ねらい</span>
                 <p>
-                  採用は「どんな人と働くか」が伝わるかどうか。オフィスやチームの自然な姿を撮り、会社の雰囲気と価値観を正直に伝えるビジュアルに整えます。
+                  採用もブランドも、最後は「人」です。現場で働く自然な姿を撮り、会社やお店の空気感と人柄を、正直に伝わるビジュアルにします。
                 </p>
               </div>
             </div>
