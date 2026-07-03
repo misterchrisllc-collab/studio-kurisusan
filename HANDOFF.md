@@ -64,6 +64,31 @@ understanding + real photography build memorable brands. Tone: premium, calm, ap
 natural Japanese, no buzzwords. Goal: visitor thinks "they understand branding, marketing,
 photography, and modern tools," not just "they take good photos."
 
+### Business model evolution (2026-07 — DURABLE)
+We solve **business problems through visual communication**; we are a **creative partner that
+helps businesses communicate who they are**, not a photography vendor. Photography stays the
+core expertise; **AI is one tool, never the product**; **Google Business optimization is a
+signature strength**; **long-term recurring partnerships > one-time projects**. Content is
+organized around **six flagship business solutions** (not a service menu):
+1. **開業・オープンブランディング** (Business Launch) — new opens / rebrands.
+2. **ブランドリフレッシュ** (Brand Refresh) — modernize an existing visual identity.
+3. **Googleビジネス強化** (Google Business Boost) — GBP imagery, ongoing updates, local visibility.
+4. **採用ブランディング** (Recruitment Branding) — attract better hires via authentic visuals.
+5. **月額コンテンツパートナー** (Monthly Content Partner) — **FLAGSHIP recurring**: monthly photo,
+   short video, Google updates, SNS assets, promo, seasonal campaigns, ongoing creative support.
+6. **季節・スポットキャンペーン** (Seasonal Campaigns) — limited-time promos, events, launches.
+These are "business solutions built on photography." Reinforce everywhere: tech/AI helps us work
+smarter; human creativity + strategy + conversation create memorable brands; photography is the
+foundation; our value is helping businesses communicate who they are.
+
+### Navigation naming decision (2026-07)
+Nav label **`SERVICES` → `WHAT WE DO`** (Header + Footer). Rationale: "Services/サービス" framed us
+as a vendor with a menu; premium JP creative studios frame around solving business problems and
+use short English nav + let the page carry positioning. `/services` **URL kept** (SEO/links). JP
+page heading now leads with outcomes/partnership ("課題から始める、6つのビジネスソリューション").
+Do NOT use "Solutions/ソリューション" as the nav label (corporate-SIer feel; owner flagged it) —
+but ソリューション is fine in JP body copy for "business solutions."
+
 ## Photos
 - Source originals in `photos/` (521MB, **gitignored**); optimized web copies in
   `public/photos/` + `public/photos/portfolio/` (29 curated shots, 1280px, committed).
@@ -75,25 +100,37 @@ photography, and modern tools," not just "they take good photos."
 
 ## Page status
 - **Home** (`app/page.tsx`): repositioned copy (hero/brand/why-chris/quote/ticker). Hero =
-  tonkatsu staff; why-chris = Chris portrait. Home **services teaser + case studies still lean
-  photography-only** (candidate for the new positioning language). Corporate/construction not
-  featured.
+  tonkatsu staff; why-chris = Chris portrait. **Services teaser REPLACED (2026-07) with the six
+  flagship solutions** (`SOLUTIONS` array + `.svc-flagship`/`.svc-flag-badge`/`.svc-lede` CSS);
+  Monthly Content Partner is visually flagged おすすめ. **Case studies still lean photography-only**
+  (next candidate). Corporate/construction still not featured.
 - **/works**: premium works page. Featured case studies (3, image-backed: restaurant/product/
   fashion, each with client/challenge/what-shot/deliverables/outcome) + filterable masonry
   PORTFOLIO (12 preview + 「もっと作品を見る」 inline expand, lazy-load hidden, custom lightbox
   w/ prev/next+keyboard). `/work` 308-redirects to `/works`.
-- **/services**: creative-workflow section (photo as foundation) + 撮影に含まれるもの +
-  per-category image+WHY + expandable rows (use/deliverables/shoot-time/lead-time/options) +
-  FAQ accordion + calculator (total + est. shoot time/photos/delivery) + final CTA.
-  ONE PAGE by design — only split into per-service pages if ranking for
-  "大阪 商品撮影 / 店舗撮影 / 採用写真".
+- **/services** (nav label now **WHAT WE DO**): reframed hero (WHAT WE DO / "課題から始める、6つの
+  ビジネスソリューション" / partnership+AI-as-tool lede) → **six-solutions section** (`SOLUTIONS`
+  array, reuses `.sp-flow-grid`, English sublabels via `.sp-sol-en`, おすすめ badge on Monthly) →
+  the old 9-item FLOW re-headed "各ソリューションを構成する、制作の要素" → 撮影に含まれるもの →
+  pricing menu re-headed **"料金の目安（撮影メニュー）"** (`ServiceList` unchanged — still the 4
+  medium-based categories; pricing is now framed as the building blocks of the solutions) → FAQ +
+  calculator + CTA. **Not yet done:** map the detailed pricing rows onto the six solutions; set a
+  real Monthly Content Partner price (currently shown as "月額プラン", no number — don't invent one).
 - **/about**: philosophy-first + real portrait.
-- **/contact**: studio block + embedded map + rich B2B form (email delivery live).
+- **/contact**: studio block + embedded map + rich B2B form (email delivery live). Intro
+  repositioned (2026-07): H1 "ビジネスについて、話しましょう。" + partnership copy (単発も継続
+  パートナーも歓迎); POINTS mention 事業の課題からご相談.
 - **/gear**: not touched this cycle.
 
 ## Open follow-ups / next candidates
-1. Carry positioning language into the **home services teaser** + **contact intro** (still
-   photography-only tone).
+1. ~~Carry positioning into home services teaser + contact intro~~ **DONE (2026-07)** — plus the
+   six-solution restructure + `SERVICES`→`WHAT WE DO` nav rename + site metadata repositioned
+   (layout title/desc no longer "商業フォトグラファー/商業撮影スタジオ"). **Next positioning gaps:**
+   home **case studies** still lean photography-only; map pricing rows onto the six solutions; set
+   a Monthly Content Partner price; consider dedicated solution detail pages or `/services#anchors`.
+1b. **Mobile header overflow (pre-existing):** header nav is horizontal with no hamburger; at
+   ≤960px the `.hr` lang switcher + `相談する` CTA run off-screen. Tightened nav gap/font so all 5
+   nav items now fit at 390px, but a proper responsive header (hamburger or wrap) is still owed.
 2. Real **corporate/team/office** + **construction** photos → swap the Services "Corporate"
    stand-in and consider a 4th case study.
 3. Optional: verify a **studio-branded sending domain** (e.g. studio-kurisusan.com) so email

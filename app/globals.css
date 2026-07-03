@@ -33,7 +33,7 @@ header{
 .hn a{
   text-decoration:none;color:#aaa;font-size:11px;font-weight:400;
   cursor:pointer;letter-spacing:.8px;font-family:'Inter',sans-serif;
-  transition:color .2s;text-transform:uppercase;
+  transition:color .2s;text-transform:uppercase;white-space:nowrap;
 }
 .hn a:hover,.hn a.on{color:var(--bk);}
 .hr{display:flex;align-items:center;gap:20px;}
@@ -299,6 +299,26 @@ header{
 .svc-price{
   font-size:13px;color:#aaa;font-family:'Inter',sans-serif;
   text-align:right;padding-top:5px;
+}
+.svc-intro .pre{
+  font-size:10px;letter-spacing:3px;color:var(--mg);
+  font-family:'Inter',sans-serif;text-transform:uppercase;
+  display:block;margin-bottom:12px;
+}
+.svc-lede{
+  padding:22px 80px 0;max-width:660px;
+  font-family:'Noto Serif JP',serif;font-size:14px;font-weight:300;
+  line-height:1.95;color:#666;
+}
+.svc-flagship{position:relative;}
+.svc-flagship::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--mg);
+}
+.svc-flag-badge{
+  display:inline-block;margin-left:10px;vertical-align:middle;
+  font-family:'Inter',sans-serif;font-size:9px;letter-spacing:1px;
+  text-transform:uppercase;color:#fff;background:var(--mg);
+  padding:2px 8px;border-radius:2px;font-weight:500;
 }
 
 /* CASE STUDIES — large format editorial */
@@ -653,6 +673,7 @@ header{
 .sp-flow-n::before{content:"";position:absolute;left:0;top:9px;width:6px;height:1px;background:var(--mg);}
 .sp-flow-d{font-size:12.5px;color:#888;font-weight:300;line-height:1.7;padding-left:16px;font-family:'Inter','Noto Sans JP',sans-serif;}
 .sp-menu-hd{margin-bottom:26px;}
+.sp-sol-en{display:block;font-family:'Inter',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#bbb;margin-top:4px;font-weight:400;}
 
 @media(max-width:960px){
   .sp-incl-grid{grid-template-columns:1fr 1fr;}
@@ -782,6 +803,8 @@ footer p{font-size:11px;color:#3a3a3a;font-family:'Inter',sans-serif;}
 /* RESPONSIVE */
 @media(max-width:960px){
   header{padding:0 20px;}
+  .hn{gap:16px;}
+  .hn a{font-size:10px;letter-spacing:.4px;}
   .hn a[data-hide]{display:none;}
   .hero-content{padding:0 32px 56px;}
   .brand-stmt,.brand-stmt-inner{padding:48px 24px;}
@@ -792,6 +815,7 @@ footer p{font-size:11px;color:#3a3a3a;font-family:'Inter',sans-serif;}
   .wc-grid{grid-template-columns:1fr 1fr;}
   .wc-item{padding:28px 24px;}
   .svc-intro,.cases-intro{padding:56px 24px 32px;}
+  .svc-lede{padding:16px 24px 0;}
   .svc-row{grid-template-columns:40px 1fr;padding:20px 24px;}
   .svc-outcome,.svc-price{display:none;}
   .case{}

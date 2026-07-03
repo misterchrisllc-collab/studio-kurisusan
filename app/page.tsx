@@ -14,38 +14,66 @@ const TICKER = [
   "OSAKA · JAPAN",
 ];
 
-const SERVICES = [
+// Six flagship business solutions — outcomes and partnerships, all built on
+// photography. Presented as solutions (not a service menu). The Monthly Content
+// Partner is the flagship recurring relationship.
+type Solution = {
+  n: string;
+  name: string;
+  en: string;
+  outcome: string;
+  tag: string;
+  flagship?: boolean;
+};
+const SOLUTIONS: Solution[] = [
   {
     n: "01",
-    name: "集客・来店を増やしたい",
-    forWho: "飲食店・カフェ・サロン・小売店",
+    name: "開業・オープンブランディング",
+    en: "Business Launch",
     outcome:
-      "Googleマップの写真が古い、SNS素材がない、メニューの魅力が伝わっていない。プロの写真で第一印象を変えます。",
-    price: "¥35,000〜",
+      "開業やリブランディングのタイミングで、店名・世界観・写真・発信までを一度に整えます。最初の第一印象から「らしさ」が伝わる状態をつくります。",
+    tag: "¥95,000〜",
   },
   {
     n: "02",
-    name: "ECサイトの売上を改善したい",
-    forWho: "商品・食品・雑貨・アパレル",
+    name: "ブランドリフレッシュ",
+    en: "Brand Refresh",
     outcome:
-      "商品ページのコンバージョンが低い、写真の質がブランドイメージに合っていない。商品の価値を正確に伝える写真を。",
-    price: "¥30,000〜",
+      "すでにあるビジネスの見え方を、今の姿に更新します。古く見える写真や不揃いな素材を、一貫したブランドの表現に整え直します。",
+    tag: "¥50,000〜",
   },
   {
     n: "03",
-    name: "採用力・企業ブランドを高めたい",
-    forWho: "企業・スタートアップ・士業",
+    name: "Googleビジネス強化",
+    en: "Google Business Boost",
     outcome:
-      "採用サイトの写真が実態と乖離している、コーポレートサイトの写真が古すぎる。会社の雰囲気と文化を正直に伝える写真を。",
-    price: "¥45,000〜",
+      "Googleマップと検索で見つけてもらう入口を強化します。プロフィール写真の刷新から定期的な更新まで、地域での見つけやすさを継続的に高めます。",
+    tag: "¥35,000〜",
   },
   {
     n: "04",
-    name: "SNS・コンテンツを継続的に強化したい",
-    forWho: "ブランド・店舗・個人事業主",
+    name: "採用ブランディング",
+    en: "Recruitment Branding",
     outcome:
-      "投稿するビジュアルコンテンツが足りない、統一感がない、動画で商品を見せたい。継続的な素材制作もお任せください。",
-    price: "¥15,000〜",
+      "会社の文化と働く人の魅力を、正直なビジュアルで伝えます。実態に合った採用写真とコンテンツで、価値観の合う応募者との出会いを増やします。",
+    tag: "¥45,000〜",
+  },
+  {
+    n: "05",
+    name: "月額コンテンツパートナー",
+    en: "Monthly Content Partner",
+    outcome:
+      "毎月の撮影・ショート動画・Google更新・SNS素材・販促物までを継続してお任せいただける、私たちの中心となる月額プラン。単発で終わらせず、伴走しながらブランドを育てます。",
+    tag: "月額プラン",
+    flagship: true,
+  },
+  {
+    n: "06",
+    name: "季節・スポットキャンペーン",
+    en: "Seasonal Campaigns",
+    outcome:
+      "新商品・イベント・季節のフェアなど、期間限定の施策に合わせたビジュアルを制作します。狙ったタイミングで、しっかり伝わる打ち出しをつくります。",
+    tag: "都度お見積り",
   },
 ];
 
@@ -203,25 +231,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* SOLUTIONS */}
       <section className="services">
         <div className="svc-intro">
-          <h2>ビジネスの課題別に選ぶサービス</h2>
-          <Link href="/services">料金を見る →</Link>
+          <div>
+            <span className="pre">WHAT WE DO</span>
+            <h2>写真を軸にした、6つのビジネスソリューション</h2>
+          </div>
+          <Link href="/services">すべて見る →</Link>
         </div>
+        <p className="svc-lede">
+          単発の撮影ではなく、ビジネスの課題から考える解決策を。写真を土台に、ディレクション・発信・継続的な支援までを組み合わせ、「自分たちが何者か」が伝わるブランドを一緒に育てます。
+        </p>
         <div className="svc-list">
-          {SERVICES.map((s) => (
-            <Link href="/services" className="svc-row" key={s.n}>
+          {SOLUTIONS.map((s) => (
+            <Link
+              href="/services"
+              className={`svc-row${s.flagship ? " svc-flagship" : ""}`}
+              key={s.n}
+            >
               <span className="svc-n">{s.n}</span>
               <div className="svc-main">
-                <div className="svc-name">{s.name}</div>
-                <div className="svc-for">{s.forWho}</div>
+                <div className="svc-name">
+                  {s.name}
+                  {s.flagship && <span className="svc-flag-badge">おすすめ</span>}
+                </div>
+                <div className="svc-for">{s.en}</div>
               </div>
               <div className="svc-outcome">
-                <span className="outcome-label">解決する課題</span>
+                <span className="outcome-label">できること</span>
                 <p>{s.outcome}</p>
               </div>
-              <div className="svc-price">{s.price}</div>
+              <div className="svc-price">{s.tag}</div>
             </Link>
           ))}
         </div>

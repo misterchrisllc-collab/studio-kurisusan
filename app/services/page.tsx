@@ -5,10 +5,47 @@ import FAQ from "@/components/FAQ";
 import PriceCalculator from "@/components/PriceCalculator";
 
 export const metadata = {
-  title: "サービス・料金 | STUDIOくりすさん",
+  title: "ビジネスソリューション・料金 | STUDIOくりすさん",
   description:
-    "店舗・飲食店撮影、商品・EC撮影、企業・採用撮影、コンテンツ制作。大阪の商業撮影スタジオの料金一覧と、撮影に含まれるもの・よくあるご質問。",
+    "開業ブランディング、ブランドリフレッシュ、Googleビジネス強化、採用ブランディング、月額コンテンツパートナー、季節キャンペーン。写真を軸に、大阪でビジネスの課題を解決するクリエイティブスタジオ。料金の目安・よくあるご質問。",
 };
+
+// Six flagship business solutions — the primary way we frame our work.
+// Not a service menu: outcomes and partnerships, all built on photography.
+type Solution = { name: string; en: string; desc: string; flagship?: boolean };
+const SOLUTIONS: Solution[] = [
+  {
+    name: "開業・オープンブランディング",
+    en: "Business Launch",
+    desc: "開業やリブランディングに合わせ、店名・世界観・写真・発信を一度に整えます。最初の第一印象から「らしさ」を。",
+  },
+  {
+    name: "ブランドリフレッシュ",
+    en: "Brand Refresh",
+    desc: "既存ビジネスの見え方を、今の姿に更新。古く見える写真や不揃いな素材を、一貫した表現に整え直します。",
+  },
+  {
+    name: "Googleビジネス強化",
+    en: "Google Business Boost",
+    desc: "Googleマップと検索の入口を強化。写真の刷新から定期的な更新まで、地域での見つけやすさを継続的に高めます。",
+  },
+  {
+    name: "採用ブランディング",
+    en: "Recruitment Branding",
+    desc: "会社の文化と働く人の魅力を、正直なビジュアルで。価値観の合う応募者との出会いを増やします。",
+  },
+  {
+    name: "月額コンテンツパートナー",
+    en: "Monthly Content Partner",
+    flagship: true,
+    desc: "毎月の撮影・動画・Google更新・SNS・販促物までを継続支援する、私たちの中心となる月額プラン。伴走しながらブランドを育てます。",
+  },
+  {
+    name: "季節・スポットキャンペーン",
+    en: "Seasonal Campaigns",
+    desc: "新商品・イベント・季節のフェアなど、期間限定の施策に合わせたビジュアルを、狙ったタイミングで制作します。",
+  },
+];
 
 const INCLUDED = [
   "事前ヒアリング",
@@ -36,20 +73,44 @@ export default function ServicesPage() {
   return (
     <div className="page">
       <div className="sp-hero">
-        <span className="pre">SERVICES</span>
-        <h1>サービス・料金</h1>
+        <span className="pre">WHAT WE DO</span>
+        <h1>課題から始める、6つのビジネスソリューション。</h1>
         <p className="sp-lede">
-          Studio くりすさんは、写真を軸にしたクリエイティブスタジオです。撮影を中心に、ディレクションからデザイン、SNSや販促物まで。お店やブランドが「自分たちらしく伝わる」ことを、ひとつの流れでお手伝いします。
+          Studio くりすさんは、写真を軸にしたクリエイティブスタジオです。単発の撮影ではなく、ビジネスの課題からご一緒します。AIや新しいツールは賢く働くための道具として使い、人の対話と理解から、「自分たちが何者か」が伝わるブランドを設計します。
         </p>
       </div>
 
       <div className="sp-body">
-        {/* Creative workflow: one connected process, photography at the core */}
+        {/* Six flagship business solutions — the primary framing */}
         <section className="sp-flow">
           <div className="sp-flow-hd">
-            <h2>写真を軸にした、ひとつの制作の流れ</h2>
+            <h2>課題から選ぶ、6つのビジネスソリューション</h2>
             <p>
-              すべてのプロジェクトは、写真を軸にしています。そこに必要な要素を組み合わせ、ブランドが一貫して伝わるようにまとめます。内容はお店やブランドごとに合わせて設計します。
+              それぞれ独立したメニューではなく、写真を土台にした課題解決のかたちです。目的に合わせて必要な要素を組み合わせ、必要であれば継続的に伴走します。
+            </p>
+          </div>
+          <ul className="sp-flow-grid">
+            {SOLUTIONS.map((s) => (
+              <li key={s.en}>
+                <span className="sp-flow-n">
+                  {s.name}
+                  {s.flagship && (
+                    <span className="svc-flag-badge">おすすめ</span>
+                  )}
+                  <span className="sp-sol-en">{s.en}</span>
+                </span>
+                <span className="sp-flow-d">{s.desc}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* Creative components: everything is built on photography */}
+        <section className="sp-flow">
+          <div className="sp-flow-hd">
+            <h2>各ソリューションを構成する、制作の要素</h2>
+            <p>
+              すべてのソリューションは、写真を軸にしています。そこに必要な要素を組み合わせ、ブランドが一貫して伝わるようにまとめます。内容はお店やブランドごとに合わせて設計します。
             </p>
           </div>
           <ul className="sp-flow-grid">
@@ -76,8 +137,8 @@ export default function ServicesPage() {
         </section>
 
         <div className="sp-incl-hd sp-menu-hd">
-          <h2>撮影メニューと料金</h2>
-          <p>写真制作の目安料金です。その他の制作物は、内容に応じてお見積りします。</p>
+          <h2>料金の目安（撮影メニュー）</h2>
+          <p>各ソリューションは、以下の撮影メニューを組み合わせて構成します。月額プランや複数の制作は、内容に合わせてお見積りします。</p>
         </div>
         <ServiceList />
       </div>

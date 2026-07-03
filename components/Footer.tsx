@@ -4,7 +4,7 @@ type FooterLink = { href: string; label: string };
 
 const HOME_LINKS: FooterLink[] = [
   { href: "/works", label: "WORKS" },
-  { href: "/services", label: "SERVICES" },
+  { href: "/services", label: "WHAT WE DO" },
   { href: "/about", label: "ABOUT" },
   { href: "/contact", label: "CONTACT" },
 ];

@@ -18,7 +18,7 @@ const MAPS_EMBED = `https://maps.google.com/maps?q=${encodeURIComponent(
 const POINTS = [
   "ご返信は通常24時間以内にお送りします。",
   "日本語・英語・スペイン語で対応します。",
-  "撮影内容が未定でも、まずはお気軽にご相談ください。",
+  "撮影内容が未定でも、事業の課題からご相談いただけます。",
 ];
 
 export default function ContactPage() {
@@ -30,12 +30,12 @@ export default function ContactPage() {
           <div className="ct-l-top">
             <span className="pre">CONTACT</span>
             <h1>
-              プロジェクトについて、
+              ビジネスについて、
               <br />
               <em>話しましょう。</em>
             </h1>
             <p>
-              撮影内容が決まっていなくても構いません。「こういう課題がある」「こういうビジュアルが欲しい」、そこから一緒に考えます。ご相談は無料です。
+              撮影が決まっていなくても構いません。「こういう課題がある」「こう見られたい」、そこから一緒に考えます。単発のご相談も、継続的なパートナーとしてのご相談も歓迎です。ご相談は無料です。
             </p>
             <ul className="ct-points">
               {POINTS.map((p) => (

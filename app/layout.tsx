@@ -3,9 +3,9 @@ import "./globals.css";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "STUDIOくりすさん | 大阪の商業フォトグラファー",
+  title: "STUDIOくりすさん｜大阪のクリエイティブスタジオ｜写真・ブランディング",
   description:
-    "写真で売上と集客に直結するビジュアルを。大阪の飲食店・企業・ブランド向け商業撮影スタジオ。",
+    "写真を軸に、ビジネスの課題を解決する大阪のクリエイティブスタジオ。飲食店・企業・ブランド向けに、撮影・ブランディング・Googleビジネス・SNSまで継続的にご一緒します。",
 };
 
 export default function RootLayout({
