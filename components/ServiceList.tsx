@@ -24,8 +24,8 @@ type Section = {
 
 const SECTIONS: Section[] = [
   {
-    title: "店舗・飲食店撮影",
-    outcome: "集客・来店・Googleマップの改善に",
+    title: "飲食店の集客・来店を増やす",
+    outcome: "料理・店内・スタッフの撮影で、第一印象を変える",
     why: "料理だけではなく、お店の雰囲気・スタッフ・空間まで伝えることで、来店前の期待感を高めます。",
     img: "/photos/portfolio/tonkatsu-staff.jpg",
     imgAlt: "飲食店の撮影、スタッフと料理",
@@ -73,8 +73,8 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    title: "商品・EC撮影",
-    outcome: "ECコンバージョン・ブランドイメージの向上に",
+    title: "ECの売上とブランド価値を上げる",
+    outcome: "商品・ライフスタイル撮影で、世界観を伝える",
     why: "ブランド価値を高め、ECサイトや広告で使いやすい商品写真を制作します。",
     img: "/photos/portfolio/candles-lit.jpg",
     imgAlt: "商品・EC撮影、パッケージのエディトリアル",
@@ -102,8 +102,8 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    title: "企業・採用撮影",
-    outcome: "採用力・コーポレートブランドの強化に",
+    title: "採用力と企業ブランドを高める",
+    outcome: "働く人・現場の撮影で、会社の魅力を伝える",
     why: "企業文化や働く人の魅力を伝え、採用・営業・ブランディングに活用できます。",
     img: "/photos/on-location.jpg",
     imgAlt: "企業・採用撮影、現場で働く人",
@@ -141,8 +141,8 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    title: "コンテンツ制作",
-    outcome: "SNS・動画・バイリンガルコンテンツ",
+    title: "SNS・発信を、続けやすくする",
+    outcome: "写真・動画・多言語コンテンツをまとめて制作",
     why: "SNSを継続しやすい写真・動画をまとめて制作します。",
     img: "/photos/portfolio/model-speaker.jpg",
     imgAlt: "コンテンツ制作、ライフスタイル撮影",

@@ -144,7 +144,7 @@ export default function ContactForm() {
 
       <div className="fg">
         <label className="fl" htmlFor="shoot_type">
-          撮影・制作内容
+          ご相談内容（解決したいこと）
         </label>
         <select
           id="shoot_type"

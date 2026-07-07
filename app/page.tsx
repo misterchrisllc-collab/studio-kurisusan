@@ -2,15 +2,15 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 
 const TICKER = [
-  "商業写真",
-  "クリエイティブディレクション",
   "ブランディング",
+  "集客・マーケティング",
+  "クリエイティブディレクション",
+  "Googleビジネス",
   "SNSコンテンツ",
+  "商業写真",
   "販促・デザイン",
-  "Googleマップ",
-  "PHOTOGRAPHY",
+  "BRANDING",
   "CREATIVE DIRECTION",
-  "VISUAL BRANDING",
   "OSAKA · JAPAN",
 ];
 
@@ -93,7 +93,7 @@ const WHY = [
   },
   {
     n: "02",
-    title: "写真を軸に、伝え方まで設計する",
+    title: "伝え方まで、一貫して設計する",
     body: "Googleマップ、SNS、WEB、メニューや販促物。媒体ごとに最適な見せ方を考え、ブランドが一貫して伝わるようにまとめます。",
   },
   {
@@ -142,14 +142,14 @@ export default function Home() {
         <div className="hero-bg"></div>
         <div className="hero-content">
           <h1 className="hero-stmt">
-            写真を軸に、<br />
+            お店やブランドが、<br />
             <em>
-              お店やブランドの<br />
-              「らしさ」をかたちにする。
+              もっと選ばれる<br />
+              理由をつくる。
             </em>
           </h1>
           <p className="hero-sub">
-            商業写真を軸に、クリエイティブディレクション、ブランディング、SNSや販促物まで。お店やブランドが「自分たちらしく伝わる」ビジュアルを、対話しながらつくります。
+            集客・SNS・Googleマップ・採用・ブランディング。写真やデザイン、AIも使いながら、小さなビジネスの「うまく伝わらない」を解決するクリエイティブパートナーです。
           </p>
           <div className="hero-acts">
             <Link href="/works" className="btn-p">
@@ -176,7 +176,7 @@ export default function Home() {
           </div>
           <div className="bs-right">
             <p>
-              Studio くりすさんは、写真を軸にしたクリエイティブスタジオです。撮影に加えて、クリエイティブディレクション、ブランディング、デザイン、SNSや販促物まで、ひとつの流れとしてお手伝いします。
+              Studio くりすさんは、小さなビジネスの「伝わらない」を解決するクリエイティブスタジオです。写真・デザイン・Googleビジネス・SNS・AIまで、課題に合わせて必要な手段を組み合わせ、ひとつの流れでお手伝いします。
             </p>
             <p>
               AIや新しいツールも積極的に使います。ただ、記憶に残るブランドをつくるのは技術だけではありません。丁寧な対話と、その事業への理解から、本当に「その人たちらしい」ビジュアルが生まれると考えています。
@@ -212,8 +212,8 @@ export default function Home() {
           <div className="wc-text">
             <span className="pre">なぜ Studio くりすさんか</span>
             <h2>
-              写真家であると同時に、<br />
-              ブランドづくりの相談相手。<br />
+              ブランドづくりの相談相手であり、<br />
+              つくり手でもある。<br />
               その両方でありたいと考えています。
             </h2>
             <p>
@@ -243,7 +243,7 @@ export default function Home() {
         <div className="svc-intro">
           <div>
             <span className="pre">WHAT WE DO</span>
-            <h2>写真を軸にした、7つのビジネスソリューション</h2>
+            <h2>課題から考える、7つのビジネスソリューション</h2>
           </div>
           <Link href="/services">すべて見る →</Link>
         </div>
@@ -527,7 +527,7 @@ export default function Home() {
           <span className="pre">なぜ今、ブランドが重要か</span>
           <h3>誰もが画像をつくれる時代。だからこそ、「らしさ」で差がつきます。</h3>
           <p>
-            AIや便利なツールで、きれいな画像は誰でもつくれるようになりました。似たビジュアルが増えるなかで選ばれるのは、「その事業らしさ」がきちんと伝わるブランドです。写真を軸に、その違いをかたちにします。
+            AIや便利なツールで、きれいな画像は誰でもつくれるようになりました。似たビジュアルが増えるなかで選ばれるのは、「その事業らしさ」がきちんと伝わるブランドです。写真やデザインを使って、その違いをかたちにします。
           </p>
         </div>
       </section>
