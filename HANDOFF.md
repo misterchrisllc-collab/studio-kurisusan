@@ -86,6 +86,15 @@ These are "business solutions built on photography." Reinforce everywhere: tech/
 smarter; human creativity + strategy + conversation create memorable brands; photography is the
 foundation; our value is helping businesses communicate who they are.
 
+**PROBLEM-FIRST RULE (DURABLE, 2026-07):** Studio does NOT sell photography — it sells **business
+outcomes**. Photography/video/AI/design/Google/social/web/flyers/branding are all just **tools**.
+Every page/section must answer **"what business problem is this solving?"** and lead with a customer
+pain point or desired outcome, NOT "写真/撮影/photography." Each solution begins with a problem and
+ends with an outcome (e.g. 店舗撮影 → 「飲食店の集客・来店を増やす」). Photography is rarely the
+headline. Applied 2026-07 across hero, brand statement, solutions headings, services ledes, pricing
+category titles, works/contact copy, ticker. Think like a strategist/creative-director/consultant,
+not a photographer/web-designer — and challenge any drift back toward selling "photos."
+
 **HONESTY RULE (DURABLE):** NO fabricated case studies, testimonials, client names, metrics, or
 business results anywhere. The site brand is "help you communicate who you are honestly" — faking
 our own track record breaks it. Present work as **honest examples** (業種 / 課題 / 制作ビジュアル /
