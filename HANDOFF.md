@@ -97,7 +97,7 @@ Next.js **14** (App Router) + TypeScript. **Plain CSS** design system in `app/gl
 
 ## 9. SEO (DONE)
 
-`metadataBase` + Open Graph / Twitter defaults + OG image (`hero.jpg`) in `app/layout.tsx`; title template `%s｜Studio くりすさん`; per-page titles + `alternates.canonical`; **`app/robots.ts`** + **`app/sitemap.ts`** (6 routes). `<html lang="ja">`. **To do:** submit the sitemap in Google Search Console; consider adding **LocalBusiness JSON-LD** (name = フォトスタジオ くりすさん + address/phone/hours) to strengthen the Google Business signal.
+`metadataBase` + Open Graph / Twitter defaults + OG image (`hero.jpg`) in `app/layout.tsx`; title template `%s｜Studio くりすさん`; per-page titles + `alternates.canonical`; **`app/robots.ts`** + **`app/sitemap.ts`** (6 routes). `<html lang="ja">`. **LocalBusiness JSON-LD DONE** (2026-07): sitewide `ProfessionalService` structured data in `app/layout.tsx`, built from `localBusinessJsonLd()` in `lib/site.ts`. NAP is centralized in the `BUSINESS` const (single source for site + schema). Uses the **listing name フォトスタジオ くりすさん** + address/phone (`+81-90-8437-0387`)/hours (Mo–Su 09:00–21:00)/priceRange/Instagram. ⚠️ **Owner verify vs GBP:** confirm the exact address format, that hours are truly Mo–Su 09:00–21:00, and whether GBP category warrants `PhotographicStudio` instead of `ProfessionalService`. Optional add later: `geo` lat/long. **To do:** submit the sitemap + validate the rich result in Google Search Console.
 
 ---
 
@@ -115,7 +115,7 @@ Next.js **14** (App Router) + TypeScript. **Plain CSS** design system in `app/gl
 1. **Set a Creative Partner (#5) price** (currently "月額契約" with no number).
 2. **Map the `ServiceList` pricing rows onto the 7 solutions** (or build dedicated solution detail pages / `/services#anchors`).
 3. **Real corporate/team/office + construction photos** → strengthen card 3 / add subjects; **fuller taco pop-up crowd/activation photos** → strengthen the event case (currently a venue exterior).
-4. **LocalBusiness JSON-LD** for Google Business / local SEO (offered, not yet built).
+4. ~~LocalBusiness JSON-LD~~ **DONE (2026-07)** — owner still needs to verify NAP/hours/category vs GBP and (optional) add geo coords; then validate in Search Console.
 5. Optional: studio-branded sending domain (e.g. studio-kurisusan.com) so email `from` isn't kansai-snaps.com; real EN/ES i18n if needed (toggle was removed).
 6. LOW polish: custom 404 page; `next/font` migration; PWA manifest; a few light-gray contrast spots.
 7. Owner action: fix `EMAIL_FROM` caps in Vercel env (see §8).
