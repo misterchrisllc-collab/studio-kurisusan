@@ -732,6 +732,12 @@ header{
 .ab-ct{padding:56px 80px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;background:var(--off);}
 .ab-ct-item .lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#bbb;font-family:'Inter',sans-serif;display:block;margin-bottom:6px;}
 .ab-ct-item .val{font-size:13px;color:#333;font-family:'Inter',sans-serif;font-weight:300;}
+.ab-note{padding:34px 72px;border-bottom:1px solid var(--bd);font-size:13px;color:#888;font-weight:300;line-height:1.9;}
+.ab-note a{color:var(--mg);text-decoration:none;}
+.ab-note a:hover{text-decoration:underline;}
+.sp-flow-more{margin-top:22px;font-size:13px;color:#888;font-weight:300;line-height:1.9;}
+.sp-flow-more a{color:var(--mg);text-decoration:none;}
+.sp-flow-more a:hover{text-decoration:underline;}
 
 /* ══ GEAR PAGE ══ */
 .gr-hero{padding:72px 80px 48px;border-bottom:1px solid var(--bd);}
@@ -851,6 +857,7 @@ footer p{font-size:11px;color:#3a3a3a;font-family:'Inter',sans-serif;}
   .sp-calc{padding:48px 24px;}
   .gr-cols{grid-template-columns:1fr;}
   .gr-benefits{padding:48px 24px;}
+  .ab-note{padding:28px 24px;}
   .gr-details summary{padding:22px 24px;}
   .gr-note{padding:0 24px;}
   .gr-col{border-right:none;border-bottom:1px solid var(--bd);padding:36px 24px;}

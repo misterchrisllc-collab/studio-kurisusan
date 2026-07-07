@@ -147,6 +147,11 @@ export default function ServicesPage() {
               </li>
             ))}
           </ul>
+          <p className="sp-flow-more">
+            安定した品質を支える
+            <Link href="/gear">制作環境（スタジオ・機材）</Link>
+            についてはこちら。
+          </p>
         </section>
 
         {/* What's included */}

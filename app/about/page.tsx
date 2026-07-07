@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Footer from "@/components/Footer";
 
 export const metadata = {
@@ -75,6 +76,13 @@ export default function AboutPage() {
             ))}
           </ul>
         </div>
+      </div>
+      <div className="ab-note">
+        <p>
+          撮影・制作の品質を支える
+          <Link href="/gear">制作環境（スタジオ・機材）</Link>
+          についても、ご覧いただけます。
+        </p>
       </div>
       <div className="ab-ct">
         {CONTACT.map((c) => (
