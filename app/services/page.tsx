@@ -7,7 +7,7 @@ import PriceCalculator from "@/components/PriceCalculator";
 export const metadata = {
   title: "ビジネスソリューション・料金",
   description:
-    "開業ブランディング、ブランドリフレッシュ、Googleビジネス強化、採用ブランディング、クリエイティブパートナー、季節キャンペーン。写真を軸に、大阪でビジネスの課題を解決するクリエイティブスタジオ。料金の目安・よくあるご質問。",
+    "開業ブランディング、ブランドリフレッシュ、Googleビジネス強化、採用ブランディング、クリエイティブパートナー、イベント・PR撮影、季節キャンペーン。写真を軸に、大阪でビジネスの課題を解決するクリエイティブスタジオ。料金の目安・よくあるご質問。",
   alternates: { canonical: "/services" },
 };
 
@@ -40,6 +40,11 @@ const SOLUTIONS: Solution[] = [
     en: "Creative Partner",
     flagship: true,
     desc: "撮影を都度お願いするのではなく、ブランドの「伴走者」を持つ月額契約。私たちの中心となる、継続的なパートナーシップです。",
+  },
+  {
+    name: "イベント・PR撮影",
+    en: "Event Marketing Content",
+    desc: "イベントは当日で終わりではありません。当日の記録に加え、次回集客・SNS・Googleマップ・プレスリリースまで、後から使い続けられるマーケティング素材を制作します。",
   },
   {
     name: "季節・スポットキャンペーン",
@@ -75,7 +80,7 @@ export default function ServicesPage() {
     <div className="page">
       <div className="sp-hero">
         <span className="pre">WHAT WE DO</span>
-        <h1>課題から始める、6つのビジネスソリューション。</h1>
+        <h1>課題から始める、7つのビジネスソリューション。</h1>
         <p className="sp-lede">
           Studio くりすさんは、写真を軸にしたクリエイティブスタジオです。単発の撮影ではなく、ビジネスの課題からご一緒します。AIや新しいツールは賢く働くための道具として使い、人の対話と理解から、「自分たちが何者か」が伝わるブランドを設計します。
         </p>
@@ -85,7 +90,7 @@ export default function ServicesPage() {
         {/* Six flagship business solutions — the primary framing */}
         <section className="sp-flow">
           <div className="sp-flow-hd">
-            <h2>課題から選ぶ、6つのビジネスソリューション</h2>
+            <h2>課題から選ぶ、7つのビジネスソリューション</h2>
             <p>
               それぞれ独立したメニューではなく、写真を土台にした課題解決のかたちです。目的に合わせて必要な要素を組み合わせ、必要であれば継続的に伴走します。
             </p>

@@ -69,6 +69,14 @@ const SOLUTIONS: Solution[] = [
   },
   {
     n: "06",
+    name: "イベント・PR撮影",
+    en: "Event Marketing Content",
+    outcome:
+      "イベントは当日だけでは終わりません。次回の集客・SNS・ホームページ・Googleマップ・プレスリリースまで見据えて、終わった後も使い続けられる写真とコンテンツを制作します。",
+    tag: "都度お見積り",
+  },
+  {
+    n: "07",
     name: "季節・スポットキャンペーン",
     en: "Seasonal Campaigns",
     outcome:
@@ -235,7 +243,7 @@ export default function Home() {
         <div className="svc-intro">
           <div>
             <span className="pre">WHAT WE DO</span>
-            <h2>写真を軸にした、6つのビジネスソリューション</h2>
+            <h2>写真を軸にした、7つのビジネスソリューション</h2>
           </div>
           <Link href="/services">すべて見る →</Link>
         </div>
@@ -420,6 +428,55 @@ export default function Home() {
                   採用もブランドも、最後は「人」です。現場で働く自然な姿を撮り、会社やお店の空気感と人柄を、正直に伝わるビジュアルにします。
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+        <div className="case">
+          <div className="case-inner">
+            <div className="case-body">
+              <div>
+                <span className="case-tag">イベント・PR / SNS・集客・プレスリリース</span>
+                <h3>
+                  一日のポップアップを、<br />
+                  使い続ける集客コンテンツに。
+                </h3>
+                <div className="case-meta">
+                  <div className="cm-item">
+                    <span className="lbl">業種</span>
+                    <span className="v">飲食・ポップアップ / イベント</span>
+                  </div>
+                  <div className="cm-item">
+                    <span className="lbl">課題</span>
+                    <span className="v">当日で終わり、後に残る素材がない</span>
+                  </div>
+                  <div className="cm-item">
+                    <span className="lbl">制作するビジュアル</span>
+                    <span className="v">会場の熱気・料理・来場者・ブランド</span>
+                  </div>
+                  <div className="cm-item">
+                    <span className="lbl">納品内容</span>
+                    <span className="v">SNS・HP・Googleマップ・プレス用データ</span>
+                  </div>
+                </div>
+              </div>
+              <div className="case-result">
+                <span className="rl">ねらい</span>
+                <p>
+                  イベントは一度きりでも、写真とコンテンツは残ります。当日の熱気を記録し、次回の告知・SNS・Googleマップ・プレスリリースに使える素材として届けることで、一日の出店を継続的な集客資産に変えます。
+                </p>
+              </div>
+            </div>
+            <div className="case-img">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="slot-img"
+                src="/photos/portfolio/tacos-shop.jpg"
+                alt="タコスのポップアップ会場、夜の店頭で営業するスタッフ"
+              />
+              <div className="case-img-label">
+                <span>イベント・PR撮影 · ポップアップ</span>
+              </div>
+              <div className="case-mg-bar"></div>
             </div>
           </div>
         </div>
