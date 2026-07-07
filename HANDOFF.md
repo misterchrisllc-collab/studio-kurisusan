@@ -69,14 +69,19 @@ We solve **business problems through visual communication**; we are a **creative
 helps businesses communicate who they are**, not a photography vendor. Photography stays the
 core expertise; **AI is one tool, never the product**; **Google Business optimization is a
 signature strength**; **long-term recurring partnerships > one-time projects**. Content is
-organized around **six flagship business solutions** (not a service menu):
+organized around **seven flagship business solutions** (not a service menu):
 1. **開業・オープンブランディング** (Business Launch) — new opens / rebrands.
 2. **ブランドリフレッシュ** (Brand Refresh) — modernize an existing visual identity.
 3. **Googleビジネス強化** (Google Business Boost) — GBP imagery, ongoing updates, local visibility.
 4. **採用ブランディング** (Recruitment Branding) — attract better hires via authentic visuals.
-5. **月額コンテンツパートナー** (Monthly Content Partner) — **FLAGSHIP recurring**: monthly photo,
-   short video, Google updates, SNS assets, promo, seasonal campaigns, ongoing creative support.
-6. **季節・スポットキャンペーン** (Seasonal Campaigns) — limited-time promos, events, launches.
+5. **クリエイティブパートナー** (Creative Partner, was 月額コンテンツパートナー) — **FLAGSHIP recurring**
+   (おすすめ badge): monthly photo, video, Google updates, SNS, promo, seasonal, brand consult,
+   AI×human direction, priority booking.
+6. **イベント・PR撮影** (Event Marketing Content) — restaurants/pop-ups/launches/company &
+   community events/activations. Positioned as **Event Marketing Content, NOT event photography**:
+   reusable post-event assets (SNS/Google/press/website), bilingual, fast turnaround. Home has a
+   matching outcome-framed case study (taco pop-up, `portfolio/tacos-shop.jpg`).
+7. **季節・スポットキャンペーン** (Seasonal Campaigns) — limited-time promos, events, launches.
 These are "business solutions built on photography." Reinforce everywhere: tech/AI helps us work
 smarter; human creativity + strategy + conversation create memorable brands; photography is the
 foundation; our value is helping businesses communicate who they are.
