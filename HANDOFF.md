@@ -166,12 +166,15 @@ Senior-QA sweep of every page. **Critical: none.** **High (all fixed + live):**
 - **Mobile header:** hide redundant header CTA <620px (was wrapping); nav fits 5 items.
 - Contact shoot-type list now includes クリエイティブパートナー.
 
-**⚠️ Two items needing owner input (flagged, not blockers):**
-1. **Contact studio name** changed フォトスタジオ くりすさん → **Studio くりすさん**. If your **Google
-   Business Profile** is registered as "フォトスタジオ くりすさん", keep the on-site name matching GBP
-   for local-SEO NAP consistency — say so and I'll revert just that string (address/phone unchanged).
-2. **Vercel env `EMAIL_FROM`** still `"STUDIO くりすさん <studio@kansai-snaps.com>"` (caps STUDIO). For
-   full consistency update the display name to "Studio くりすさん" in Vercel env (code strings already done).
+**Brand-name convention (RESOLVED 2026-07):** three distinct names, used deliberately —
+- **Public brand = `Studio くりすさん`** everywhere (titles, page copy, footer mark, logo alt, email).
+- **Google Business / listing name = `フォトスタジオ くりすさん`** — ONLY the Contact studio block +
+  map title (must match the actual GBP listing for local-SEO NAP). Don't "unify" these away.
+- **Legal entity = `合同会社くりすさん`** — © footer and "代表".
+
+**⚠️ One item still needing owner action (not a blocker):**
+- **Vercel env `EMAIL_FROM`** still `"STUDIO くりすさん <studio@kansai-snaps.com>"` (caps STUDIO). For
+  full consistency, update the display name to "Studio くりすさん" in Vercel env (code strings done).
 
 **Remaining LOW (non-blocking):** custom 404 page; `next/font` migration; PWA manifest; verify the
 Google Map embed renders on a real device (looked black only in headless due to lazy-load); minor
