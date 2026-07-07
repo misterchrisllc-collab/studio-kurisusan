@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/site";
+import {
+  SITE_URL,
+  SITE_NAME,
+  SITE_DESCRIPTION,
+  localBusinessJsonLd,
+} from "@/lib/site";
 
 const HOME_TITLE = "Studio くりすさん｜大阪のクリエイティブスタジオ｜写真・ブランディング";
 const OG_TITLE = "Studio くりすさん｜大阪のクリエイティブスタジオ";
@@ -53,6 +58,12 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessJsonLd()),
+          }}
+        />
         <Header />
         {children}
       </body>
