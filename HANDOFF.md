@@ -1,219 +1,127 @@
 # Studio くりすさん — Session Handoff
 
-_Paste this into a new chat to resume. Durable facts also live in Claude auto-memory._
+_Paste this into a new chat to resume with full context. Durable facts also live in Claude auto-memory. Last consolidated: 2026-07._
 
-## TL;DR
-**Studio くりすさん** (合同会社くりすさん) is a **creative studio where photography is the
-foundation** — NOT a photography vendor. B2B site for Chris, Osaka. Live and deployed.
-It is a **separate project** from the sibling **kansai-snaps** (Chris's B2C street-portrait
-site). Do not confuse them.
+---
+
+## 1. TL;DR — what this is
+
+**Studio くりすさん** is a **creative business partner that solves communication & marketing problems for small businesses** in Osaka (run by Chris). It is **NOT a photography company.** Photography is one of our strongest tools, but rarely the reason a client hires us. Live, deployed, launch-ready.
 
 - **Edit here:** `/Users/morethanplesent/yolo/studio-kurisusan/website`
 - **Live:** https://studio-kurisusan.vercel.app
 - **Repo:** GitHub `misterchrisllc-collab/studio-kurisusan`, branch `main`
-- **Sibling (do NOT edit, read-only):** `/Users/morethanplesent/yolo/kansai-snaps`
+- **Sibling project (do NOT edit — read-only):** `/Users/morethanplesent/yolo/kansai-snaps` (Chris's separate B2C tourist/street-portrait site). Do not confuse the two.
 
-## Tech stack
-Next.js 14 (App Router) + TypeScript. Plain CSS design system in `app/globals.css`
-(tokens: magenta `--mg:#E8198B`, black `--bk:#0A0A0A`, warm `--warm:#EEEBE6`,
-off `--off:#F7F5F2`; fonts Noto Serif JP + Inter/Noto Sans JP). No Tailwind, no motion lib.
-Supabase (contact storage) + Resend (contact email). Japanese-only copy; header has a
-visual-only JP/EN/ES switcher (no real i18n yet).
+---
 
-Pages: `/` `/works` (portfolio+cases) `/services` `/gear` `/about` `/contact`.
-Components: `Header`, `Footer`, `WorkGrid` (featured cases), `PortfolioGallery`,
-`ServiceList`, `FAQ`, `PriceCalculator`, `ContactForm`.
+## 2. DURABLE RULES — apply to everything, challenge any drift
 
-## Ops runbook / gotchas
-- **Deps live in kansai-snaps, not here:** this project has no `sharp` / `puppeteer-core`.
-  Borrow by ABSOLUTE path from `kansai-snaps/node_modules` (e.g.
-  `import sharp from ".../kansai-snaps/node_modules/sharp/dist/index.mjs"`). Read-only.
-- **Shell cwd keeps resetting to `kansai-snaps`** — always use absolute paths / cd inline.
-- **Deploy:** `cd website && source ~/.zshrc && npx --yes vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN"`.
-  (git push to `main` usually also deploys, but CLI is the reliable path.) Project is linked
-  in `.vercel/project.json` (id `prj_JTBxTasUcH7h7wmAM6cHSml9PvDG`, team `team_7SzsNzSnY6qvwWeavqb4sGfE`).
-  Studio project has NO ssoProtection issue (unlike kansai-snaps).
-- **Tokens** in `~/.zshrc`: `$VERCEL_TOKEN`, `$SUPABASE_ACCESS_TOKEN`. `source ~/.zshrc` per command.
-- **Supabase Management API** needs `/usr/bin/curl` (else Cloudflare 1010).
-- **No em-dashes** in copy, any language (use 、 or 。). Exception left intact: the home
-  ticker's decorative "—" separator (design element).
-- **Self-review** with puppeteer-core (from kansai-snaps) + `/Applications/Google Chrome.app`,
-  headless "new". Build check: `npm run build`.
+**PROBLEM-FIRST (most important).** Studio sells **business outcomes**, not photography. Video, AI, design, Google Business, social, websites, flyers, branding, and photography are all just **tools**. Challenge every page/section with **"what business problem is this solving?"** Lead with the customer's pain point or desired outcome, never with 写真/撮影/photography. Every solution **begins with a problem and ends with an outcome** (e.g. 店舗撮影 → 「飲食店の集客・来店を増やす」). Think like a **strategist / creative director / consultant** — not a photographer or web designer. If work drifts back toward selling "photos," challenge it and propose a stronger alternative.
 
-## Email delivery (DONE, working)
-- Resend domain **kansai-snaps.com is VERIFIED** (DKIM + SPF/MX added to Vercel-managed DNS).
-  One shared account/domain serves both sites; can send to ANY recipient.
-- Studio env on Vercel: `RESEND_API_KEY`, `EMAIL_FROM="STUDIO くりすさん <studio@kansai-snaps.com>"`,
-  `CONTACT_RECIPIENT_EMAIL=studiokurisusan@gmail.com`.
-- Contact form: `app/contact/actions.ts` sends email (reply-to = lead) AND stores to Supabase;
-  succeeds if either path works. Resend account owner = **misterchris.llc@gmail.com**.
-- (kansai-snaps B2C also fixed: `EMAIL_FROM="Kansai Snaps <hello@kansai-snaps.com>"`, recipient
-  santino62@gmail.com — was silently failing before the domain was verified.)
+**HONESTY.** NO fabricated case studies, testimonials, client names, metrics, or business results anywhere. Present work as honest examples (業種 / 課題 / 制作するビジュアル / 納品内容 + a **「ねらい」** intent block). Add a real case study ONLY with client permission (real name + real numbers).
 
-## Supabase (DONE)
-Dedicated project **studio-kurisusan**, ref `pnnkvcyhzaandwnpzzwq`, region ap-northeast-1,
-`public.contacts` table (name/company/email/shoot_type/message/created_at). Keys wired to
-Vercel env + local `.env.local` (gitignored). Extra form fields (phone/method/budget/timeline)
-are composed into `message`.
+**TONE.** Premium, calm, approachable, natural Japanese, no buzzwords. **No em-dashes** in copy (use 、 or 。). Sole exception: the home ticker's decorative "—" separator (a design element).
 
-## Brand positioning (DURABLE — apply to all future copy)
-Creative studio, photography is the FOUNDATION. Core philosophy woven through Home/Services/
-About: anyone can make images now (incl. AI), so what matters is whether visuals truly reflect
-each business. **Not anti-AI** — AI is one modern tool, never the hero. Human conversation +
-understanding + real photography build memorable brands. Tone: premium, calm, approachable,
-natural Japanese, no buzzwords. Goal: visitor thinks "they understand branding, marketing,
-photography, and modern tools," not just "they take good photos."
+**AI stance.** Not anti-AI — AI is one modern tool used to work smarter, never the hero. Human conversation, strategy, and understanding are what create memorable brands.
 
-### Business model evolution (2026-07 — DURABLE)
-We solve **business problems through visual communication**; we are a **creative partner that
-helps businesses communicate who they are**, not a photography vendor. Photography stays the
-core expertise; **AI is one tool, never the product**; **Google Business optimization is a
-signature strength**; **long-term recurring partnerships > one-time projects**. Content is
-organized around **seven flagship business solutions** (not a service menu):
+---
+
+## 3. The seven flagship solutions (the spine of the offer)
+
+Presented as business solutions, not a service menu. Live on the home teaser + `/services` grid.
+
 1. **開業・オープンブランディング** (Business Launch) — new opens / rebrands.
 2. **ブランドリフレッシュ** (Brand Refresh) — modernize an existing visual identity.
-3. **Googleビジネス強化** (Google Business Boost) — GBP imagery, ongoing updates, local visibility.
+3. **Googleビジネス強化** (Google Business Boost) — GBP imagery, ongoing updates, local visibility. (Google Business optimization is a signature strength.)
 4. **採用ブランディング** (Recruitment Branding) — attract better hires via authentic visuals.
-5. **クリエイティブパートナー** (Creative Partner, was 月額コンテンツパートナー) — **FLAGSHIP recurring**
-   (おすすめ badge): monthly photo, video, Google updates, SNS, promo, seasonal, brand consult,
-   AI×human direction, priority booking.
-6. **イベント・PR撮影** (Event Marketing Content) — restaurants/pop-ups/launches/company &
-   community events/activations. Positioned as **Event Marketing Content, NOT event photography**:
-   reusable post-event assets (SNS/Google/press/website), bilingual, fast turnaround. Home has a
-   matching outcome-framed case study (taco pop-up, `portfolio/tacos-shop.jpg`).
+5. **クリエイティブパートナー** (Creative Partner) — **FLAGSHIP recurring** (おすすめ badge). Monthly photo/video, Google updates, SNS, promo, seasonal, brand consult, AI×human direction, priority booking. `/services` has a "含まれるもの" chip list. **No published price yet** (shown as "月額契約" — don't invent a number).
+6. **イベント・PR撮影** (Event Marketing Content) — restaurants / pop-ups / launches / company & community events / activations. Positioned as **Event Marketing Content, NOT event photography**: reusable post-event assets (SNS / Google / press / website), bilingual, fast turnaround. Home has a matching outcome-framed case study (taco pop-up, `portfolio/tacos-shop.jpg`).
 7. **季節・スポットキャンペーン** (Seasonal Campaigns) — limited-time promos, events, launches.
-These are "business solutions built on photography." Reinforce everywhere: tech/AI helps us work
-smarter; human creativity + strategy + conversation create memorable brands; photography is the
-foundation; our value is helping businesses communicate who they are.
 
-**PROBLEM-FIRST RULE (DURABLE, 2026-07):** Studio does NOT sell photography — it sells **business
-outcomes**. Photography/video/AI/design/Google/social/web/flyers/branding are all just **tools**.
-Every page/section must answer **"what business problem is this solving?"** and lead with a customer
-pain point or desired outcome, NOT "写真/撮影/photography." Each solution begins with a problem and
-ends with an outcome (e.g. 店舗撮影 → 「飲食店の集客・来店を増やす」). Photography is rarely the
-headline. Applied 2026-07 across hero, brand statement, solutions headings, services ledes, pricing
-category titles, works/contact copy, ticker. Think like a strategist/creative-director/consultant,
-not a photographer/web-designer — and challenge any drift back toward selling "photos."
+**Recurring partnerships > one-time projects.** Long-term relationships (esp. #5) are the goal.
 
-**HONESTY RULE (DURABLE):** NO fabricated case studies, testimonials, client names, metrics, or
-business results anywhere. The site brand is "help you communicate who you are honestly" — faking
-our own track record breaks it. Present work as **honest examples** (業種 / 課題 / 制作ビジュアル /
-納品内容 + a "ねらい" intent block) until real client cases exist. Swap in a true case study ONLY
-with client permission (real name + real numbers). Same rule the owner set on sibling kansai-snaps
-(no fabricated reviews).
+---
 
-### Navigation naming decision (2026-07) — FINAL
-Nav is now **Japanese, GEAR dropped**: **ホーム / 作品 / できること / 私たちについて / お問い合わせ**
-(Header + Footer). Research-backed: premium JP creative/branding studios use clear, non-abstract,
-positioning-carrying labels and drop vanity pages; the buyer is a JP local-business owner, so native
-labels read warmer/clearer. Kept **作品** (not PROJECTS — accurate for honest work samples) and
-**できること** (over サービス/ソリューション). `/gear` page still exists (in sitemap) but is unlinked
-from nav. Decorative English page-eyebrows (`.pre` kickers: WORKS/ABOUT/etc.) intentionally KEPT as a
-premium accent above JP headings. Earlier step (superseded): nav had been EN `SERVICES` → `WHAT WE DO`. Rationale: "Services/サービス" framed us
-as a vendor with a menu; premium JP creative studios frame around solving business problems and
-use short English nav + let the page carry positioning. `/services` **URL kept** (SEO/links). JP
-page heading now leads with outcomes/partnership ("課題から始める、6つのビジネスソリューション").
-Do NOT use "Solutions/ソリューション" as the nav label (corporate-SIer feel; owner flagged it) —
-but ソリューション is fine in JP body copy for "business solutions."
+## 4. Naming conventions (three deliberate names — don't unify them)
 
-## Photos
-- Source originals in `photos/` (521MB, **gitignored**); optimized web copies in
-  `public/photos/` + `public/photos/portfolio/` (29 curated shots, 1280px, committed).
-- `photos/chris check/` = 27 culled near-dups/weak frames (holding folder, reversible).
-- Categories: food (tonkatsu/tacos/burgers), product (candles/sriracha/natto/mayo),
-  fashion/model, studio. **Gaps: no real corporate/team/office or construction photo.**
-  The Services "Corporate" banner uses `on-location.jpg` (chef) as a stand-in.
-- Contact sheet script pattern: sharp montage into scratchpad, then view.
+- **Public brand = `Studio くりすさん`** — everywhere (page titles, copy, footer mark, logo alt, email template).
+- **Google Business / listing name = `フォトスタジオ くりすさん`** — ONLY on the Contact studio block + map title. Must match the actual GBP listing for local-SEO NAP. Do NOT change these to "Studio くりすさん."
+- **Legal entity = `合同会社くりすさん`** — © footer and "代表."
 
-## Page status
-- **Home** (`app/page.tsx`): repositioned copy (hero/brand/why-chris/quote/ticker). Hero =
-  tonkatsu staff; why-chris = Chris portrait. **Services teaser REPLACED (2026-07) with the six
-  flagship solutions** (`SOLUTIONS` array + `.svc-flagship`/`.svc-flag-badge`/`.svc-lede` CSS);
-  Monthly Content Partner is visually flagged おすすめ. **Honesty pass (2026-07):** the fabricated
-  "実績・ケーススタディ" section is now **"こんな課題に、こう応えます。"** — 3 honest example cards
-  (業種 / 課題 / 制作するビジュアル / 納品内容 + a **"ねらい"** intent block; NO invented clients,
-  metrics, or quotes). The fake カフェオーナー testimonial is **removed** (quote replaced with our
-  own motto "きれいな写真ではなく「あなたらしい」写真とブランドを。" attr STUDIO くりすさん). Hero
-  **"SINCE 2009" label removed** (hard to read over photo + off-positioning). **Card 3 (2026-07):**
-  emoji placeholder replaced with a real photo (`portfolio/tonkatsu-chef.jpg`) and re-themed
-  corporate→**「人と現場」/「働く人の魅力を、そのまま伝える」** (honest: authentic person-at-work
-  image, no office/team photo needed). **Solution #5 renamed 月額コンテンツパートナー →
-  クリエイティブパートナー (Creative Partner)** = ongoing creative partnership, not a monthly photo
-  plan (tag "月額契約"). No published price yet (don't invent one).
-- **/works** (honesty pass 2026-07): retitled **"作品と、撮影事例。"** (was "実績・ケーススタディ");
-  hero no longer claims "すべて実際の…プロジェクト/結果" — now "作例とこれまでの撮影… 実際のご依頼
-  事例は許可をいただいたものから順に掲載". `WorkGrid` cards relabeled クライアント→業種, 結果→
-  **ねらい**, titles/outcomes rewritten to remove fabricated results (`components/WorkGrid.tsx`).
-  Featured examples (3, image-backed: restaurant/product/fashion, each 業種/課題/撮影内容/制作物/
-  ねらい) + filterable masonry
-  PORTFOLIO (12 preview + 「もっと作品を見る」 inline expand, lazy-load hidden, custom lightbox
-  w/ prev/next+keyboard). `/work` 308-redirects to `/works`.
-- **/services** (nav label now **WHAT WE DO**): reframed hero (WHAT WE DO / "課題から始める、6つの
-  ビジネスソリューション" / partnership+AI-as-tool lede) → **six-solutions section** (`SOLUTIONS`
-  array, reuses `.sp-flow-grid`, English sublabels via `.sp-sol-en`, おすすめ badge on Monthly) →
-  a **flagship highlight** "クリエイティブパートナー契約に含まれるもの" (8 inclusions as `.sp-incl-grid`
-  chips: Googleビジネス更新 / 毎月の撮影 / SNS / ポスター・チラシ / 季節キャンペーン企画 / ブランド相談 /
-  AI活用×人のディレクション / 優先予約) → the old 9-item FLOW re-headed "各ソリューションを構成する、
-  制作の要素" → 撮影に含まれるもの →
-  pricing menu re-headed **"料金の目安（撮影メニュー）"** (`ServiceList` unchanged — still the 4
-  medium-based categories; pricing is now framed as the building blocks of the solutions) → FAQ +
-  calculator + CTA. **Not yet done:** map the detailed pricing rows onto the six solutions; set a
-  real Monthly Content Partner price (currently shown as "月額プラン", no number — don't invent one).
-- **/about**: philosophy-first + real portrait.
-- **/contact**: studio block + embedded map + rich B2B form (email delivery live). Intro
-  repositioned (2026-07): H1 "ビジネスについて、話しましょう。" + partnership copy (単発も継続
-  パートナーも歓迎); POINTS mention 事業の課題からご相談.
-- **/gear** (title now **制作環境** / Production Environment, 2026-07): transformed from an equipment
-  list into a **client-benefit** page — how the production environment delivers reliable, consistent
-  quality anywhere (4 benefit points via `.gr-benefits` reusing `.sp-flow-*`). Equipment kept as a
-  secondary, accessible **`<details>`** expandable ("機材・技術仕様を見る"). URL stays `/gear`
-  (unlinked from nav). Embodies the problem-first rule.
+**Navigation (FINAL): Japanese labels, GEAR dropped** — `ホーム / 作品 / できること / 私たちについて / お問い合わせ` (Header + Footer). Research-backed (premium JP creative studios use clear native labels, drop vanity pages; buyer is a JP local-business owner). Kept **作品** (not "PROJECTS" — accurate for honest work samples) and **できること** (avoid サービス/ソリューション as the nav label). Decorative English page-eyebrows (`.pre` kickers like STUDIO/CONTACT above JP headings) are intentionally kept as a premium accent.
 
-## Launch QA pass (2026-07) — DONE
-Senior-QA sweep of every page. **Critical: none.** **High (all fixed + live):**
-- **Brand name standardized → "Studio くりすさん"** (titles, footer mark, email template,
-  contact studio block). Legal/© stays 合同会社くりすさん. `lib/site.ts` holds SITE_URL/NAME/DESC.
-- **Dynamic © year** (Footer `new Date().getFullYear()`).
-- **SEO added:** `metadataBase` + Open Graph/Twitter defaults + OG image (hero.jpg) in
-  `app/layout.tsx`; title template `%s｜Studio くりすさん`; per-page titles + `alternates.canonical`;
-  **`app/robots.ts` + `app/sitemap.ts`** (6 routes). Verify + submit sitemap in Google Search Console.
-- **Removed the non-functional EN/ES language toggle** (was cosmetic; i18n not built). JP-only for
-  launch; multilingual ability still stated in copy. One-line revert in `Header.tsx` if wanted.
-- **A11y:** keyboard access for price-calculator rows (`role=checkbox`) + gallery tiles
-  (`role=button`) + global `:focus-visible` ring.
-- **Mobile header:** hide redundant header CTA <620px (was wrapping); nav fits 5 items.
-- Contact shoot-type list now includes クリエイティブパートナー.
+---
 
-**Brand-name convention (RESOLVED 2026-07):** three distinct names, used deliberately —
-- **Public brand = `Studio くりすさん`** everywhere (titles, page copy, footer mark, logo alt, email).
-- **Google Business / listing name = `フォトスタジオ くりすさん`** — ONLY the Contact studio block +
-  map title (must match the actual GBP listing for local-SEO NAP). Don't "unify" these away.
-- **Legal entity = `合同会社くりすさん`** — © footer and "代表".
+## 5. Site structure & current page state
 
-**⚠️ One item still needing owner action (not a blocker):**
-- **Vercel env `EMAIL_FROM`** still `"STUDIO くりすさん <studio@kansai-snaps.com>"` (caps STUDIO). For
-  full consistency, update the display name to "Studio くりすさん" in Vercel env (code strings done).
+Routes: `/` · `/works` · `/services` · `/about` · `/contact` · `/gear` (title 制作環境, unlinked from nav). `/work` 308-redirects to `/works`.
+Components: `Header`, `Footer`, `WorkGrid`, `PortfolioGallery`, `ServiceList`, `FAQ`, `PriceCalculator`, `ContactForm`.
 
-**Remaining LOW (non-blocking):** custom 404 page; `next/font` migration; PWA manifest; verify the
-Google Map embed renders on a real device (looked black only in headless due to lazy-load); minor
-light-gray text contrast in a few spots. (Nav-labels decision is now RESOLVED — JP labels, GEAR
-dropped; see Navigation naming decision above.)
+- **`/` Home** (`app/page.tsx`): Hero leads with the outcome — **「お店やブランドが、もっと選ばれる理由をつくる。」** (sub lists real problems: 集客・SNS・Googleマップ・採用・ブランディング; photography = one tool). Then brand statement → why-Chris ("ブランドづくりの相談相手であり、つくり手でもある") → 7-solution teaser (`SOLUTIONS` array; #5 おすすめ badge via `.svc-flagship`/`.svc-flag-badge`) → **「こんな課題に、こう応えます。」** honest case studies (4 cards incl. taco pop-up event) → approach (制作プロセス) → quote (our own motto, not a fake testimonial) → CTA.
+- **`/works`**: retitled **「作品と、撮影事例。」** Honest — no "all real client projects/results" claim. `WorkGrid` = 3 example cards (業種 / 課題 / 撮影内容 / 制作物 / ねらい). Then `PortfolioGallery` (filterable masonry, 12-preview + 「もっと作品を見る」 expand, custom keyboard-accessible lightbox).
+- **`/services`** (nav "できること"): hero **「課題から始める、7つのビジネスソリューション。」** → 7-solution grid (`SOLUTIONS`, English sublabels via `.sp-sol-en`, おすすめ on #5) → Creative Partner "含まれるもの" chip highlight → **「各ソリューションを構成する、制作の要素」** (how-we-work; has a subtle `.sp-flow-more` link to 制作環境) → 撮影に含まれるもの → **「料金の目安（撮影メニュー）」** (`ServiceList`, 4 outcome-led categories: 飲食店の集客・来店を増やす / ECの売上とブランド価値を上げる / 採用力と企業ブランドを高める / SNS・発信を続けやすくする) → `FAQ` → `PriceCalculator` → CTA.
+- **`/about`**: philosophy-first, real portrait. Opener is on-message: 「私の仕事は、写真を届けることではありません。そのお店やブランドが『自分たちらしく伝わること』です。」 A subtle `.ab-note` line above the contact block links to 制作環境.
+- **`/contact`**: intro 「ビジネスについて、話しましょう。」 + partnership copy. Rich B2B form (`ContactForm`) → DB + email (both paths; succeeds if either works). Studio block uses the **listing name フォトスタジオ くりすさん** + embedded Google Map.
+- **`/gear` = 制作環境** (Production Environment): reframed from an equipment list into a **client-benefit** page (reliable, consistent quality anywhere — 4 benefit points, `.gr-benefits` reusing `.sp-flow-*`). Equipment kept as a secondary accessible **`<details>`** expandable ("機材・技術仕様を見る"). Unlinked from nav but discoverable via the About + services contextual links.
 
-## Open follow-ups / next candidates
-1. ~~Carry positioning into home services teaser + contact intro~~ **DONE (2026-07)** — plus the
-   six-solution restructure + `SERVICES`→`WHAT WE DO` nav rename + site metadata repositioned
-   (layout title/desc no longer "商業フォトグラファー/商業撮影スタジオ"). **Next positioning gaps:**
-   home **case studies** still lean photography-only; map pricing rows onto the six solutions; set
-   a Monthly Content Partner price; consider dedicated solution detail pages or `/services#anchors`.
-1b. **Mobile header overflow (pre-existing):** header nav is horizontal with no hamburger; at
-   ≤960px the `.hr` lang switcher + `相談する` CTA run off-screen. Tightened nav gap/font so all 5
-   nav items now fit at 390px, but a proper responsive header (hamburger or wrap) is still owed.
-2. Real **corporate/team/office** + **construction** photos → swap the Services "Corporate"
-   stand-in and consider a 4th case study.
-3. Optional: verify a **studio-branded sending domain** (e.g. studio-kurisusan.com) so email
-   `from` isn't kansai-snaps.com.
-4. Real i18n (EN/ES) if/when needed — currently visual toggle only.
-5. `/gear` (now 制作環境) stays OUT of primary nav by design, but is **discoverable** via subtle
-   contextual links (2026-07): About page (muted line above contact block, `.ab-note`) + できること
-   page (end of the "how we work" components section, `.sp-flow-more`). Both accent only 制作環境.
-   About right-column could later re-add trimmed credentials if desired.
+---
+
+## 6. Tech stack
+
+Next.js **14** (App Router) + TypeScript. **Plain CSS** design system in `app/globals.css` — no Tailwind, no motion lib. Tokens: magenta `--mg:#E8198B`, black `--bk:#0A0A0A`, warm `--warm:#EEEBE6`, off `--off:#F7F5F2`. Fonts: Noto Serif JP (headings) + Inter / Noto Sans JP. Japanese-only site (no real i18n; the old cosmetic EN/ES toggle was removed). `lib/site.ts` centralizes `SITE_URL` / `SITE_NAME` / `SITE_DESCRIPTION`.
+
+---
+
+## 7. Ops runbook / gotchas
+
+- **Deps live in kansai-snaps, not here.** This project has no `sharp` / `puppeteer-core`. Borrow by ABSOLUTE path from `kansai-snaps/node_modules` (e.g. `import puppeteer from "/Users/morethanplesent/yolo/kansai-snaps/node_modules/puppeteer-core/lib/esm/puppeteer/puppeteer-core.js"`). Read-only; never edit kansai-snaps.
+- **Shell cwd keeps resetting to `kansai-snaps`** — always use absolute paths or `cd` inline within the command.
+- **Build check:** `npm run build`.
+- **Deploy:** `cd /Users/morethanplesent/yolo/studio-kurisusan/website && source ~/.zshrc && npx --yes vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN"`. (Pushing to `main` also auto-deploys via the GitHub link, but the CLI is the reliable path.) Vercel project id `prj_JTBxTasUcH7h7wmAM6cHSml9PvDG`, team `team_7SzsNzSnY6qvwWeavqb4sGfE`. **No ssoProtection issue** on this project (unlike kansai-snaps).
+- **Tokens** in `~/.zshrc`: `$VERCEL_TOKEN`, `$SUPABASE_ACCESS_TOKEN` — `source ~/.zshrc` per command.
+- **Supabase Management API** needs `/usr/bin/curl` (Anaconda curl → Cloudflare 1010).
+- **Visual self-review:** headless puppeteer-core (borrowed) + `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome`, headless `"new"`; screenshot into scratchpad and view. Note: Google Map embeds and lazy images can look blank in headless full-page shots — not a real bug.
+- Commit style: end messages with `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`.
+
+---
+
+## 8. Infra — Supabase + email (both DONE, working)
+
+**Supabase** — dedicated project **studio-kurisusan**, ref `pnnkvcyhzaandwnpzzwq`, region ap-northeast-1. Table `public.contacts` (name / company / email / shoot_type / message / created_at). Keys wired to Vercel env + local `.env.local` (gitignored). Extra form fields (phone / method / budget / timeline) are composed into `message`.
+
+**Email (Resend)** — domain **kansai-snaps.com is VERIFIED** (one shared account/domain serves both sites; can send to any recipient). Resend account owner = `misterchris.llc@gmail.com`. Studio Vercel env: `RESEND_API_KEY`, `EMAIL_FROM="STUDIO くりすさん <studio@kansai-snaps.com>"`, `CONTACT_RECIPIENT_EMAIL=studiokurisusan@gmail.com`. `app/contact/actions.ts` sends email (reply-to = lead) AND stores to Supabase; succeeds if either path works.
+⚠️ **Owner action:** update the `EMAIL_FROM` display name in Vercel env from caps `STUDIO くりすさん` → `Studio くりすさん` (code strings already fixed).
+
+---
+
+## 9. SEO (DONE)
+
+`metadataBase` + Open Graph / Twitter defaults + OG image (`hero.jpg`) in `app/layout.tsx`; title template `%s｜Studio くりすさん`; per-page titles + `alternates.canonical`; **`app/robots.ts`** + **`app/sitemap.ts`** (6 routes). `<html lang="ja">`. **To do:** submit the sitemap in Google Search Console; consider adding **LocalBusiness JSON-LD** (name = フォトスタジオ くりすさん + address/phone/hours) to strengthen the Google Business signal.
+
+---
+
+## 10. Photos
+
+- Source originals in `photos/` (~521MB, **gitignored**); optimized web copies committed in `public/photos/` + `public/photos/portfolio/` (~29 curated shots at 1280px).
+- `photos/chris check/` = culled near-dups (reversible holding folder).
+- Categories present: food (tonkatsu / tacos / burgers), product (candles / sriracha / natto / mayo), fashion/model, studio.
+- **Gaps:** no real corporate/team/office photo (the "people/work" home card 3 uses `portfolio/tonkatsu-chef.jpg` as an authentic person-at-work stand-in); no construction photo; no dedicated crowd/activation event set (the event case reuses the taco-venue night shot).
+
+---
+
+## 11. Open follow-ups / next candidates
+
+1. **Set a Creative Partner (#5) price** (currently "月額契約" with no number).
+2. **Map the `ServiceList` pricing rows onto the 7 solutions** (or build dedicated solution detail pages / `/services#anchors`).
+3. **Real corporate/team/office + construction photos** → strengthen card 3 / add subjects; **fuller taco pop-up crowd/activation photos** → strengthen the event case (currently a venue exterior).
+4. **LocalBusiness JSON-LD** for Google Business / local SEO (offered, not yet built).
+5. Optional: studio-branded sending domain (e.g. studio-kurisusan.com) so email `from` isn't kansai-snaps.com; real EN/ES i18n if needed (toggle was removed).
+6. LOW polish: custom 404 page; `next/font` migration; PWA manifest; a few light-gray contrast spots.
+7. Owner action: fix `EMAIL_FROM` caps in Vercel env (see §8).
+
+---
+
+## 12. Recent arc (context for why things are the way they are)
+
+Over recent sessions the site evolved: photography-vendor → creative partner → **problem-first (sells outcomes, not photos)**. Added the **7-solution model**, ran an **honesty pass** (removed all fabricated case studies/testimonials on home + `/works`), a **launch-QA pass** (brand-name standardization, dynamic year, SEO, a11y, mobile header, removed dead language toggle), added the **Event Marketing Content** solution + taco-pop-up case study, applied the **problem-first reframe** across every page, and transformed `/gear` into **制作環境** (benefit-first, equipment expandable) with subtle contextual links. Everything is live and committed on `main`.
