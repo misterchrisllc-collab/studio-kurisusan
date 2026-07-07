@@ -213,5 +213,7 @@ dropped; see Navigation naming decision above.)
 3. Optional: verify a **studio-branded sending domain** (e.g. studio-kurisusan.com) so email
    `from` isn't kansai-snaps.com.
 4. Real i18n (EN/ES) if/when needed — currently visual toggle only.
-5. `/gear` (now 制作環境) is unlinked from nav — consider linking it from できること or the footer if
-   you want it discoverable; About right-column could later re-add trimmed credentials if desired.
+5. `/gear` (now 制作環境) stays OUT of primary nav by design, but is **discoverable** via subtle
+   contextual links (2026-07): About page (muted line above contact block, `.ab-note`) + できること
+   page (end of the "how we work" components section, `.sp-flow-more`). Both accent only 制作環境.
+   About right-column could later re-add trimmed credentials if desired.
