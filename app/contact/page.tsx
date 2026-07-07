@@ -7,7 +7,10 @@ export const metadata = {
   alternates: { canonical: "/contact" },
 };
 
-const STUDIO_NAME = "Studio くりすさん";
+// Physical studio / Google Business Profile listing name — must match the
+// actual Google Maps listing for local-SEO (NAP) consistency. The public-facing
+// brand elsewhere on the site is "Studio くりすさん".
+const STUDIO_NAME = "フォトスタジオ くりすさん";
 const ADDR = "Moriki Mansion #310, 2-14-6 Honjo-higashi, Kita-ku, Osaka 531-0074";
 const MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   ADDR,
@@ -74,7 +77,7 @@ export default function ContactPage() {
             <div className="ct-map">
               <iframe
                 src={MAPS_EMBED}
-                title="Studio くりすさん の地図"
+                title="フォトスタジオ くりすさん の地図"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
