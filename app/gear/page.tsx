@@ -1,11 +1,32 @@
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "機材リスト",
+  title: "制作環境",
   description:
-    "Fujifilmボディにヴィンテージニッコールレンズ。自然光からGodoxストロボまで、あらゆる現場に対応する機材リスト。",
+    "どんな現場でも、安定した品質を。大阪のスタジオを拠点に、店舗・屋外・オフィスまで、状況に合わせて最適な制作環境で撮影します。",
   alternates: { canonical: "/gear" },
 };
+
+// Client-benefit framing first. The production environment is a means to
+// reliable, consistent, high-quality work — not the product.
+const BENEFITS = [
+  {
+    name: "どんな現場でも、安定した品質",
+    desc: "店舗・屋外・オフィス・スタジオ。天候や時間帯に左右されず、狙った仕上がりを安定して届けます。",
+  },
+  {
+    name: "状況に合わせた光づくり",
+    desc: "自然光からライティングまで。料理・商品・人物・空間、それぞれに最適な見せ方を設計します。",
+  },
+  {
+    name: "撮影から編集・納品まで一貫",
+    desc: "企画から撮影、編集、データ納品までを自社で完結。スピードと品質を両立します。",
+  },
+  {
+    name: "幅広い業種・被写体に対応",
+    desc: "飲食・小売・EC・企業・イベントまで。業種を問わず、必要な画づくりに対応できる環境です。",
+  },
+];
 
 type Item = { name: string; note: string };
 type Group = { label: string; items: Item[] };
@@ -78,30 +99,55 @@ export default function GearPage() {
   return (
     <div className="page">
       <div className="gr-hero">
-        <span className="pre">GEAR</span>
-        <h1>機材リスト</h1>
+        <span className="pre">STUDIO</span>
+        <h1>制作環境</h1>
         <p>
-          Fujifilmボディにヴィンテージニッコールレンズ。自然光からGodoxストロボまで、あらゆる現場に対応します。
+          「どんな現場でも、安定した品質を。」大阪のスタジオを拠点に、店舗・屋外・オフィスまで、状況に合わせて最適な制作環境をつくります。だから、天候や場所に左右されず、安心してお任せいただけます。
         </p>
       </div>
-      <div className="gr-cols">
-        {COLUMNS.map((groups, ci) => (
-          <div className="gr-col" key={ci}>
-            {groups.map((group, gi) => (
-              <div key={group.label}>
-                {gi > 0 && <div className="g-sp"></div>}
-                <span className="gr-lbl">{group.label}</span>
-                {group.items.map((item) => (
-                  <div className="gi" key={item.name}>
-                    <span className="gi-n">{item.name}</span>
-                    <span className="gi-nt">{item.note}</span>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
+
+      <section className="gr-benefits">
+        <div className="sp-flow-hd">
+          <h2>安定した品質を、どんな現場でも</h2>
+          <p>
+            機材やスタジオは目的ではなく、良い仕事を安定して届けるための手段です。だからこそ、現場に合わせて柔軟に環境を整えます。
+          </p>
+        </div>
+        <ul className="sp-flow-grid">
+          {BENEFITS.map((b) => (
+            <li key={b.name}>
+              <span className="sp-flow-n">{b.name}</span>
+              <span className="sp-flow-d">{b.desc}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <details className="gr-details">
+        <summary>機材・技術仕様を見る</summary>
+        <p className="gr-note">
+          技術的な詳細をご希望の方へ。使用する主な機材の一覧です。
+        </p>
+        <div className="gr-cols">
+          {COLUMNS.map((groups, ci) => (
+            <div className="gr-col" key={ci}>
+              {groups.map((group, gi) => (
+                <div key={group.label}>
+                  {gi > 0 && <div className="g-sp"></div>}
+                  <span className="gr-lbl">{group.label}</span>
+                  {group.items.map((item) => (
+                    <div className="gi" key={item.name}>
+                      <span className="gi-n">{item.name}</span>
+                      <span className="gi-nt">{item.note}</span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </details>
+
       <Footer />
     </div>
   );

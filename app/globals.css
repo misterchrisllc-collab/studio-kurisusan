@@ -746,6 +746,13 @@ header{
 .gi-n{font-size:13px;font-weight:400;}
 .gi-nt{font-size:11px;color:#bbb;font-family:'Inter',sans-serif;text-align:right;}
 .g-sp{height:20px;}
+.gr-benefits{padding:56px 80px;border-bottom:1px solid var(--bd);}
+.gr-details summary{padding:26px 80px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--mg);cursor:pointer;list-style:none;display:flex;align-items:center;transition:color .2s;}
+.gr-details summary:hover{color:var(--bk);}
+.gr-details summary::-webkit-details-marker{display:none;}
+.gr-details summary::after{content:"＋";margin-left:auto;color:#bbb;font-size:14px;}
+.gr-details[open] summary::after{content:"−";}
+.gr-note{padding:0 80px;margin:0 0 24px;font-size:12px;color:#999;font-family:'Inter',sans-serif;font-weight:300;}
 
 /* ══ CONTACT PAGE ══ */
 .ct-grid{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 56px);}
@@ -843,6 +850,9 @@ footer p{font-size:11px;color:#3a3a3a;font-family:'Inter',sans-serif;}
   .sp-row-p{text-align:left;}
   .sp-calc{padding:48px 24px;}
   .gr-cols{grid-template-columns:1fr;}
+  .gr-benefits{padding:48px 24px;}
+  .gr-details summary{padding:22px 24px;}
+  .gr-note{padding:0 24px;}
   .gr-col{border-right:none;border-bottom:1px solid var(--bd);padding:36px 24px;}
   .quote-s,.cta-f{padding:56px 24px;gap:40px;}
   .ab-col{padding:48px 24px;}
