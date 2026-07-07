@@ -163,7 +163,11 @@ but ソリューション is fine in JP body copy for "business solutions."
 - **/contact**: studio block + embedded map + rich B2B form (email delivery live). Intro
   repositioned (2026-07): H1 "ビジネスについて、話しましょう。" + partnership copy (単発も継続
   パートナーも歓迎); POINTS mention 事業の課題からご相談.
-- **/gear**: not touched this cycle.
+- **/gear** (title now **制作環境** / Production Environment, 2026-07): transformed from an equipment
+  list into a **client-benefit** page — how the production environment delivers reliable, consistent
+  quality anywhere (4 benefit points via `.gr-benefits` reusing `.sp-flow-*`). Equipment kept as a
+  secondary, accessible **`<details>`** expandable ("機材・技術仕様を見る"). URL stays `/gear`
+  (unlinked from nav). Embodies the problem-first rule.
 
 ## Launch QA pass (2026-07) — DONE
 Senior-QA sweep of every page. **Critical: none.** **High (all fixed + live):**
@@ -209,4 +213,5 @@ dropped; see Navigation naming decision above.)
 3. Optional: verify a **studio-branded sending domain** (e.g. studio-kurisusan.com) so email
    `from` isn't kansai-snaps.com.
 4. Real i18n (EN/ES) if/when needed — currently visual toggle only.
-5. `/gear` page review; About right-column could later re-add trimmed credentials if desired.
+5. `/gear` (now 制作環境) is unlinked from nav — consider linking it from できること or the footer if
+   you want it discoverable; About right-column could later re-add trimmed credentials if desired.
