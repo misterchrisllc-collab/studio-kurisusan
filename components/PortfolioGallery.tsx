@@ -6,6 +6,7 @@ type Shot = { src: string; cat: string; title: string; w: number; h: number };
 
 const CAT_LABEL: Record<string, string> = {
   food: "飲食店・フード",
+  event: "イベント・PR",
   product: "商品",
   fashion: "ファッション・人物",
   studio: "スタジオ",
@@ -14,6 +15,7 @@ const CAT_LABEL: Record<string, string> = {
 const FILTERS = [
   { cat: "all", label: "すべて" },
   { cat: "food", label: "飲食店・フード" },
+  { cat: "event", label: "イベント・PR" },
   { cat: "product", label: "商品" },
   { cat: "fashion", label: "ファッション・人物" },
   { cat: "studio", label: "スタジオ" },
@@ -27,7 +29,9 @@ const SHOTS: Shot[] = [
   { src: "/photos/portfolio/tonkatsu-plate.jpg", cat: "food", title: "とんかつ定食", w: 1280, h: 853 },
   { src: "/photos/portfolio/sriracha-lying.jpg", cat: "product", title: "ホットソース", w: 1280, h: 1600 },
   { src: "/photos/portfolio/model-natural.jpg", cat: "fashion", title: "ポートレート", w: 1280, h: 1920 },
+  { src: "/photos/portfolio/tacos-event-chef.jpg", cat: "event", title: "タコス店 / つくり手", w: 1280, h: 1920 },
   { src: "/photos/portfolio/tacos-platter.jpg", cat: "food", title: "タコス / プレート", w: 1280, h: 1600 },
+  { src: "/photos/portfolio/tacos-event-guests.jpg", cat: "event", title: "ポップアップ / 来場者", w: 1280, h: 853 },
   { src: "/photos/portfolio/natto-lift.jpg", cat: "product", title: "納豆 / シズル", w: 1280, h: 1920 },
   { src: "/photos/portfolio/fashion-pink-hold.jpg", cat: "fashion", title: "エディトリアル", w: 1280, h: 853 },
   { src: "/photos/portfolio/burger-cross.jpg", cat: "food", title: "スマッシュバーガー", w: 1280, h: 1425 },
@@ -45,6 +49,10 @@ const SHOTS: Shot[] = [
   { src: "/photos/portfolio/burger-set.jpg", cat: "food", title: "セットメニュー", w: 1280, h: 1920 },
   { src: "/photos/portfolio/mayo-cap.jpg", cat: "product", title: "ディテール", w: 1280, h: 1920 },
   { src: "/photos/portfolio/tacos-table.jpg", cat: "food", title: "テーブルセット", w: 1280, h: 1600 },
+  { src: "/photos/portfolio/tacos-event-table.jpg", cat: "event", title: "ポップアップ / 相席の様子", w: 1280, h: 853 },
+  { src: "/photos/portfolio/tacos-event-staff.jpg", cat: "event", title: "イベント / スタッフ", w: 1280, h: 853 },
+  { src: "/photos/portfolio/tacos-event-night.jpg", cat: "event", title: "イベント / 会場の熱気", w: 1280, h: 1920 },
+  { src: "/photos/portfolio/tacos-beer-set.jpg", cat: "food", title: "クラフトビール / コラボ", w: 1280, h: 1920 },
   { src: "/photos/portfolio/tacos-shop.jpg", cat: "food", title: "店舗外観 / 夜", w: 1280, h: 720 },
   { src: "/photos/portfolio/burger-hand.jpg", cat: "food", title: "バーガー / 断面", w: 1280, h: 853 },
   { src: "/photos/portfolio/portrait-chris.jpg", cat: "studio", title: "フォトグラファー", w: 1280, h: 1280 },

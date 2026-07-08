@@ -470,8 +470,8 @@ export default function Home() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 className="slot-img"
-                src="/photos/portfolio/tacos-shop.jpg"
-                alt="タコスのポップアップ会場、夜の店頭で営業するスタッフ"
+                src="/photos/portfolio/tacos-event-venue.jpg"
+                alt="タコスのポップアップ会場に集まる来場者と、賑わう店内の様子"
               />
               <div className="case-img-label">
                 <span>イベント・PR撮影 · ポップアップ</span>
