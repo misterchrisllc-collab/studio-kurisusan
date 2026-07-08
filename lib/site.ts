@@ -22,6 +22,11 @@ export const BUSINESS = {
   closes: "21:00",
   priceRange: "¥15,000〜¥95,000",
   instagram: "https://instagram.com/studio_kurisusan",
+  // Precise GBP pin (from the listing's Maps URL !3d/!4d) + a stable CID map
+  // link. Keep in sync with the live listing if it ever moves.
+  latitude: 34.7131823,
+  longitude: 135.5067349,
+  mapUrl: "https://www.google.com/maps?cid=17109825510217861059",
 } as const;
 
 // LocalBusiness structured data (schema.org). @type ProfessionalService is a
@@ -49,6 +54,12 @@ export function localBusinessJsonLd() {
       postalCode: BUSINESS.postalCode,
       addressCountry: BUSINESS.addressCountry,
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: BUSINESS.latitude,
+      longitude: BUSINESS.longitude,
+    },
+    hasMap: BUSINESS.mapUrl,
     areaServed: { "@type": "City", name: "Osaka" },
     openingHoursSpecification: [
       {
