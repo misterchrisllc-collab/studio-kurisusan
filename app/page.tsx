@@ -15,112 +15,129 @@ const SOLUTIONS = [
 export default function Home() {
   return (
     <div className="page">
-      {/* HERO — the image as art, type in the negative space */}
-      <section className="eh">
-        <div className="eh-img">
+      {/* HERO — full-bleed rotating photography, bold statement over the image */}
+      <section className="ih">
+        <div className="ih-bg" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/photos/hero-cafe.jpg"
-            alt="大阪の喫茶店の内観。木のカウンターと灯りのともる窓、あたたかい空気感"
-          />
+          <img src="/photos/portfolio/tonkatsu-plate.jpg" alt="" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/photos/portfolio/sriracha-lying.jpg" alt="" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/photos/hero-cafe.jpg" alt="" />
         </div>
-        <div className="eh-txt">
-          <h1 className="eh-line">
-            お店やブランドを、<br />
-            もっと<em>選ばれる</em>存在へ。
+        <div className="ih-in">
+          <span className="ih-eyebrow">商業写真 ・ ビジュアルブランディング</span>
+          <h1 className="ih-title">
+            ビジュアルで、<br />
+            <em>選ばれる</em>。
           </h1>
-          <span className="eh-kicker">商業写真 · ビジュアルブランディング</span>
-          <span className="eh-place">大阪・関西 ／ 日本語・English</span>
+          <span className="ih-triad">IMPACT ・ TRUST ・ SALES</span>
+          <div className="ih-cta">
+            <Link href="/contact" className="ibtn">
+              相談する
+            </Link>
+            <span className="ih-place">大阪・関西 ／ 日本語・English</span>
+          </div>
         </div>
-        <span className="eh-scroll" aria-hidden="true">Scroll</span>
+        <span className="ih-scroll" aria-hidden="true">SCROLL</span>
       </section>
 
-      {/* STATEMENT — quiet, confident, breathing */}
-      <section className="estmt">
-        <div className="estmt-in">
+      {/* THESIS — why visuals. The problem, in the client's own words. */}
+      <section className="ithesis">
+        <div className="ithesis-in">
+          <span className="ith-eyebrow">WHY VISUALS ・ なぜ、ビジュアルなのか</span>
           <h2>
-            「らしさ」を、<br />
-            <em>伝わる</em>形に。
+            見られなければ、<br />
+            存在しないのと<em>同じ</em>。
           </h2>
-          <p>写真・デザイン・戦略で、小さなビジネスの「伝わらない」を解決する。</p>
+          <p>
+            人は、ネットで店を探し、写真で選ぶ時代。どれだけ良い商品やサービスでも、印象に残らなければ選ばれません。同じ店の前を何度通り過ぎても、記憶に残らなければ、無いのと同じ。私たちは、スクロールを止める一枚で、「見られる・信頼される・選ばれる」をつくります。
+          </p>
         </div>
       </section>
 
-      {/* SELECTED WORK — art-directed plates, each composition different */}
-      <section className="ework">
-        <div className="ework-hd">
-          <span className="eyebrow-m">Selected Work</span>
-          <Link href="/works" className="hlink">
+      {/* WORK — proof. Big, full-bleed, bold captions. */}
+      <section className="iwork">
+        <div className="iwork-hd">
+          <span className="ieyebrow">SELECTED WORK ・ 実績</span>
+          <Link href="/works" className="ilink">
             作品をすべて見る →
           </Link>
         </div>
 
-        {/* Plate 1 — full bleed */}
-        <Link href="/works" className="plate-full">
+        {/* Full-bleed food */}
+        <Link href="/works" className="iplate-full">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/photos/portfolio/kominka-moon-door.jpg" alt="古民家を改装した店舗の円窓、空間・店舗撮影" />
-          <span className="plate-cap">空間・店舗</span>
+          <img src="/photos/portfolio/diner-burger.jpg" alt="飲食店のフード撮影、シズル感のあるビジュアル" />
+          <div className="ipl-cap">
+            <span className="ipl-k light">飲食・フード</span>
+            <span className="ipl-t">シズル感で、来店を増やす。</span>
+          </div>
         </Link>
 
-        {/* Plate 2 — offset portrait + air (image left, one line right) */}
-        <div className="plate-split">
-          <Link href="/works" className="ps-img">
+        {/* Split — product + bold line */}
+        <div className="iplate-split">
+          <Link href="/works" className="ips-img">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/photos/portfolio/cafe-owner.jpg" alt="喫茶店の店主のポートレート、人とブランドの撮影" />
+            <img src="/photos/portfolio/candles-lit.jpg" alt="商品・EC向けのプロダクト撮影" />
           </Link>
-          <div className="ps-txt">
-            <span className="eyebrow-m">人・ブランド</span>
-            <p>働く人の空気まで、<br />ブランドになる。</p>
+          <div className="ips-txt">
+            <span className="ieyebrow">商品・EC</span>
+            <p>
+              手に取りたくなる、<br />
+              一枚をつくる。
+            </p>
           </div>
         </div>
 
-        {/* Plate 3 — duo at two scales */}
-        <div className="plate-duo">
-          <Link href="/works" className="pd-a">
+        {/* Duo — space + people */}
+        <div className="iplate-duo">
+          <Link href="/works" className="ipd-a">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/photos/portfolio/wagashi-dorayaki.jpg" alt="和菓子のどら焼きの撮影、飲食店・フードビジュアル" />
-            <span className="plate-cap">飲食・フード</span>
+            <img src="/photos/portfolio/kominka-moon-door.jpg" alt="空間・店舗の撮影、古民家を改装した空間" />
+            <span className="ipl-k light">空間・店舗</span>
           </Link>
-          <Link href="/works" className="pd-b">
+          <Link href="/works" className="ipd-b">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/photos/portfolio/sriracha-lying.jpg" alt="ホットソースの商品撮影、EC・ブランド向けビジュアル" />
-            <span className="plate-cap">商品・EC</span>
+            <img src="/photos/portfolio/tonkatsu-chef.jpg" alt="働く人・ブランドの撮影、職人のポートレート" />
+            <span className="ipl-k light">人・ブランド</span>
           </Link>
         </div>
       </section>
 
-      {/* SERVICES — a quiet index. Names only. */}
-      <section className="sidx">
-        <div className="sidx-hd">
-          <span className="eyebrow-m">できること — What we do</span>
-          <Link href="/services" className="hlink">
+      {/* WHAT WE DO — bold gothic index. Names only. */}
+      <section className="isvc">
+        <div className="isvc-hd">
+          <span className="ieyebrow">WHAT WE DO ・ できること</span>
+          <Link href="/services" className="ilink">
             詳しく見る →
           </Link>
         </div>
-        <ul className="sidx-list">
+        <ul className="isvc-list">
           {SOLUTIONS.map((s) => (
             <li key={s.en} className={s.flagship ? "flag" : undefined}>
               <Link href="/services">
-                <span className="sidx-name">{s.name}</span>
-                <span className="sidx-en">{s.en}</span>
+                <span className="isvc-name">{s.name}</span>
+                <span className="isvc-en">{s.en}</span>
               </Link>
             </li>
           ))}
         </ul>
       </section>
 
-      {/* CLOSE — an intimate frame, one line, one action */}
-      <section className="eclose">
-        <div className="eclose-img">
+      {/* CLOSE — full-bleed, bold CTA */}
+      <section className="iclose">
+        <div className="iclose-bg" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/photos/hero-kominka.jpg" alt="夜の古民家を改装した空間、あたたかい灯りの外観。飲食・宿・物販・ブランドに通じる佇まい" />
+          <img src="/photos/hero-kominka.jpg" alt="" />
         </div>
-        <div className="eclose-in">
+        <div className="iclose-in">
           <h2>
-            まず、<em>話しましょう。</em>
+            その一枚を、<br />
+            <em>つくりましょう。</em>
           </h2>
           <p>撮影内容が決まっていなくても構いません。相談は無料です。</p>
-          <Link href="/contact" className="btn-p">
+          <Link href="/contact" className="ibtn light">
             プロジェクトを相談する
           </Link>
         </div>
