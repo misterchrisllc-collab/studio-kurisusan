@@ -6,6 +6,7 @@ type Shot = { src: string; cat: string; title: string; w: number; h: number };
 
 const CAT_LABEL: Record<string, string> = {
   food: "飲食店・フード",
+  space: "空間・店舗",
   event: "イベント・PR",
   product: "商品",
   fashion: "ファッション・人物",
@@ -15,6 +16,7 @@ const CAT_LABEL: Record<string, string> = {
 const FILTERS = [
   { cat: "all", label: "すべて" },
   { cat: "food", label: "飲食店・フード" },
+  { cat: "space", label: "空間・店舗" },
   { cat: "event", label: "イベント・PR" },
   { cat: "product", label: "商品" },
   { cat: "fashion", label: "ファッション・人物" },
@@ -29,13 +31,16 @@ const SHOTS: Shot[] = [
   { src: "/photos/portfolio/tonkatsu-plate.jpg", cat: "food", title: "とんかつ定食", w: 1280, h: 853 },
   { src: "/photos/portfolio/sriracha-lying.jpg", cat: "product", title: "ホットソース", w: 1280, h: 1600 },
   { src: "/photos/portfolio/model-natural.jpg", cat: "fashion", title: "ポートレート", w: 1280, h: 1920 },
+  { src: "/photos/portfolio/kominka-exterior-night.jpg", cat: "space", title: "古民家 / 夜の佇まい", w: 1280, h: 853 },
   { src: "/photos/portfolio/tacos-event-chef.jpg", cat: "event", title: "タコス店 / つくり手", w: 1280, h: 1920 },
   { src: "/photos/portfolio/tacos-platter.jpg", cat: "food", title: "タコス / プレート", w: 1280, h: 1600 },
   { src: "/photos/portfolio/tacos-event-guests.jpg", cat: "event", title: "ポップアップ / 来場者", w: 1280, h: 853 },
   { src: "/photos/portfolio/natto-lift.jpg", cat: "product", title: "納豆 / シズル", w: 1280, h: 1920 },
   { src: "/photos/portfolio/fashion-pink-hold.jpg", cat: "fashion", title: "エディトリアル", w: 1280, h: 853 },
   { src: "/photos/portfolio/burger-cross.jpg", cat: "food", title: "スマッシュバーガー", w: 1280, h: 1425 },
+  { src: "/photos/portfolio/wagashi-dorayaki.jpg", cat: "food", title: "和菓子 / どら焼き", w: 1280, h: 1280 },
   { src: "/photos/portfolio/candles-jars.jpg", cat: "product", title: "商品ラインナップ", w: 1280, h: 853 },
+  { src: "/photos/portfolio/cafe-owner.jpg", cat: "fashion", title: "店主 / ポートレート", w: 1280, h: 1920 },
   { src: "/photos/portfolio/model-speaker.jpg", cat: "fashion", title: "ライフスタイル", w: 1280, h: 1920 },
   // ── revealed on expand ──
   { src: "/photos/portfolio/tonkatsu-chef.jpg", cat: "food", title: "調理風景", w: 1280, h: 853 },
@@ -55,6 +60,22 @@ const SHOTS: Shot[] = [
   { src: "/photos/portfolio/tacos-beer-set.jpg", cat: "food", title: "クラフトビール / コラボ", w: 1280, h: 1920 },
   { src: "/photos/portfolio/tacos-shop.jpg", cat: "food", title: "店舗外観 / 夜", w: 1280, h: 720 },
   { src: "/photos/portfolio/burger-hand.jpg", cat: "food", title: "バーガー / 断面", w: 1280, h: 853 },
+  // ── space / storefront ──
+  { src: "/photos/portfolio/kominka-exterior-day.jpg", cat: "space", title: "古民家 / 外観", w: 1280, h: 853 },
+  { src: "/photos/portfolio/kominka-dining-night.jpg", cat: "space", title: "古民家 / 店内", w: 1280, h: 853 },
+  { src: "/photos/portfolio/kominka-moon-door.jpg", cat: "space", title: "円窓のディテール", w: 1280, h: 853 },
+  { src: "/photos/portfolio/kominka-lattice.jpg", cat: "space", title: "格子と余白", w: 1280, h: 853 },
+  { src: "/photos/portfolio/kominka-chair.jpg", cat: "space", title: "くつろぎの空間", w: 1280, h: 1920 },
+  { src: "/photos/portfolio/cafe-counter.jpg", cat: "space", title: "喫茶店 / カウンター", w: 1280, h: 1920 },
+  // ── more food ──
+  { src: "/photos/portfolio/bagel-stack.jpg", cat: "food", title: "ベーグル", w: 1280, h: 1920 },
+  { src: "/photos/portfolio/bagel-sando.jpg", cat: "food", title: "ベーグルサンド", w: 1280, h: 1920 },
+  { src: "/photos/portfolio/diner-burger.jpg", cat: "food", title: "バーガー / ダイナー", w: 1280, h: 1280 },
+  { src: "/photos/portfolio/taco-flatlay.jpg", cat: "food", title: "タコス / スタイリング", w: 1280, h: 1920 },
+  { src: "/photos/portfolio/donut-blue.jpg", cat: "food", title: "ドーナツ / 商品", w: 1280, h: 1920 },
+  { src: "/photos/portfolio/cafe-pourover.jpg", cat: "food", title: "コーヒーの手仕事", w: 1280, h: 1920 },
+  // ── brand / people ──
+  { src: "/photos/portfolio/brand-donut-model.jpg", cat: "fashion", title: "ブランド / ライフスタイル", w: 1280, h: 853 },
   { src: "/photos/portfolio/portrait-chris.jpg", cat: "studio", title: "フォトグラファー", w: 1280, h: 1280 },
   { src: "/photos/portfolio/studio-rig.jpg", cat: "studio", title: "商品撮影セット", w: 1280, h: 1920 },
   { src: "/photos/portfolio/studio-corner.jpg", cat: "studio", title: "撮影スペース", w: 1280, h: 1920 },
