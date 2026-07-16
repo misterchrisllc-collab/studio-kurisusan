@@ -137,7 +137,7 @@ export default function Home() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/photos/kansai-snaps-portrait.jpg"
-            alt="Kansai Snaps によるポートレート。あたたかい光の人物写真"
+            alt="Kansai Snaps によるポートレート。関西の街並みで撮る、エディトリアルな人物写真"
           />
         </a>
         <div className="ks-txt">
