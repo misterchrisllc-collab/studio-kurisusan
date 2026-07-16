@@ -15,15 +15,17 @@ const SOLUTIONS = [
 export default function Home() {
   return (
     <div className="page">
-      {/* HERO — full-bleed rotating photography, bold statement over the image */}
+      {/* HERO — full-bleed slideshow: welcome → atmosphere → food → space → craft → people */}
       <section className="ih">
         <div className="ih-bg" aria-hidden="true">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
+          {/* eslint-disable @next/next/no-img-element */}
           <img src="/photos/hero-cafe.jpg" alt="" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/photos/portfolio/tacos-event-venue.jpg" alt="" />
           <img src="/photos/portfolio/tonkatsu-plate.jpg" alt="" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/photos/portfolio/kominka-moon-door.jpg" alt="" />
+          <img src="/photos/portfolio/kominka-exterior-night.jpg" alt="" />
+          <img src="/photos/portfolio/cafe-pourover.jpg" alt="" />
+          <img src="/photos/portfolio/tonkatsu-chef.jpg" alt="" />
+          {/* eslint-enable @next/next/no-img-element */}
         </div>
         <div className="ih-in">
           <span className="ih-eyebrow">商業写真 ・ ビジュアルブランディング</span>
@@ -42,9 +44,9 @@ export default function Home() {
         <span className="ih-scroll" aria-hidden="true">SCROLL</span>
       </section>
 
-      {/* THESIS — why visuals. The problem, in the client's own words. */}
-      <section className="ithesis">
-        <div className="ithesis-in">
+      {/* PHILOSOPHY — two-column: the studio's belief + a warm human frame */}
+      <section className="iphil">
+        <div className="iphil-txt">
           <span className="ith-eyebrow">PHILOSOPHY ・ 私たちの考え</span>
           <h2>
             ビジュアルは、<br />
@@ -55,54 +57,109 @@ export default function Home() {
             時代は変わっていく。人がお店を見つける方法も、選ぶ理由も。お客様が「いらっしゃいませ」と迎えられる前に、ホームページも、Googleビジネスも、Instagramも、店先も、もう語りはじめています。ビジュアルは、いわば、お客様が最初に出会うスタッフ。私たちの仕事は、その第一声を、あなたのお店らしさで満たすことです。
           </p>
         </div>
+        <div className="iphil-img">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/photos/portfolio/cafe-owner.jpg" alt="喫茶店の店主のポートレート。店の人柄が伝わる一枚" />
+        </div>
       </section>
 
-      {/* WORK — proof. Big, full-bleed, bold captions. */}
-      <section className="iwork">
-        <div className="iwork-hd">
-          <span className="ieyebrow">SELECTED WORK ・ 実績</span>
-          <Link href="/works" className="ilink">
-            作品をすべて見る →
-          </Link>
+      {/* PEOPLE — the feeling. Atmosphere, customers, staff working. */}
+      <section className="ifeel">
+        <div className="ifeel-lead">
+          <span className="ieyebrow">PEOPLE ・ 人と、その空気</span>
         </div>
-
-        {/* Full-bleed food */}
-        <Link href="/works" className="iplate-full">
+        <div className="ifeel-hero">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/photos/portfolio/diner-burger.jpg" alt="飲食店のフード撮影、シズル感のあるビジュアル" />
-          <div className="ipl-cap">
-            <span className="ipl-k light">飲食・フード</span>
-            <span className="ipl-t">おいしさも、人柄も。</span>
-          </div>
-        </Link>
-
-        {/* Split — product + bold line */}
-        <div className="iplate-split">
-          <Link href="/works" className="ips-img">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/photos/portfolio/candles-lit.jpg" alt="商品・EC向けのプロダクト撮影" />
-          </Link>
-          <div className="ips-txt">
-            <span className="ieyebrow">商品・EC</span>
-            <p>
-              そのこだわりを、<br />
-              まっすぐ伝える。
-            </p>
+          <img src="/photos/portfolio/tacos-event-guests.jpg" alt="お店で笑い合うお客様たち。店の空気が伝わる一枚" />
+          <div className="ifeel-cap">
+            <span className="ipl-t">
+              「また来たい」は、<br />
+              空気からはじまる。
+            </span>
           </div>
         </div>
+        <div className="ifeel-row">
+          {/* eslint-disable @next/next/no-img-element */}
+          <div className="ife-c">
+            <img src="/photos/portfolio/brand-donut-model.jpg" alt="商品を手に笑うお客様" />
+          </div>
+          <div className="ife-c">
+            <img src="/photos/portfolio/tonkatsu-staff.jpg" alt="笑顔で働くお店のスタッフ" />
+          </div>
+          <div className="ife-c">
+            <img src="/photos/portfolio/tacos-event-staff.jpg" alt="店を切り盛りするスタッフ" />
+          </div>
+          {/* eslint-enable @next/next/no-img-element */}
+        </div>
+      </section>
 
-        {/* Duo — space + people */}
-        <div className="iplate-duo">
-          <Link href="/works" className="ipd-a">
+      {/* FOOD — appetizing energy, asymmetric editorial */}
+      <section className="ifood">
+        <div className="ifood-hd">
+          <span className="ieyebrow">FOOD ・ 飲食</span>
+        </div>
+        <div className="ifood-grid">
+          <Link href="/works" className="ifood-a">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/photos/portfolio/kominka-moon-door.jpg" alt="空間・店舗の撮影、古民家を改装した空間" />
-            <span className="ipl-k light">空間・店舗</span>
+            <img src="/photos/portfolio/burger-hand.jpg" alt="飲食店のフード撮影。シズル感のあるビジュアル" />
           </Link>
-          <Link href="/works" className="ipd-b">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/photos/portfolio/tonkatsu-chef.jpg" alt="働く人・ブランドの撮影、職人のポートレート" />
-            <span className="ipl-k light">人・ブランド</span>
+          <div className="ifood-txt">
+            <p className="ipl-t dark">
+              おいしさも、<br />
+              人柄も。
+            </p>
+            <Link href="/works" className="ifood-b">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/photos/portfolio/tacos-table.jpg" alt="料理を囲むテーブルの撮影" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* PRODUCTS — a quiet lineup, natural aspect, no crops */}
+      <section className="iprod">
+        <div className="iprod-hd">
+          <span className="ieyebrow">PRODUCT ・ 商品・EC</span>
+          <span className="iprod-line">そのこだわりを、まっすぐ。</span>
+        </div>
+        <div className="iprod-row">
+          {/* eslint-disable @next/next/no-img-element */}
+          <Link href="/works" className="iprod-c">
+            <img src="/photos/portfolio/sriracha-lying.jpg" alt="ホットソースの商品撮影" />
           </Link>
+          <Link href="/works" className="iprod-c">
+            <img src="/photos/portfolio/donut-blue.jpg" alt="ドーナツの商品撮影" />
+          </Link>
+          <Link href="/works" className="iprod-c">
+            <img src="/photos/portfolio/natto-lift.jpg" alt="納豆の商品撮影" />
+          </Link>
+          {/* eslint-enable @next/next/no-img-element */}
+        </div>
+      </section>
+
+      {/* SPACES — clean 2×2 landscape grid, natural composition */}
+      <section className="ispace">
+        <div className="ispace-hd">
+          <span className="ieyebrow">SPACE ・ 空間・店舗</span>
+          <Link href="/works" className="ilink">
+            すべての作品を見る →
+          </Link>
+        </div>
+        <div className="ispace-grid">
+          {/* eslint-disable @next/next/no-img-element */}
+          <Link href="/works" className="isp-c">
+            <img src="/photos/portfolio/kominka-exterior-day.jpg" alt="古民家を改装した店舗の外観" />
+          </Link>
+          <Link href="/works" className="isp-c">
+            <img src="/photos/portfolio/kominka-lattice.jpg" alt="格子と設えのある店内" />
+          </Link>
+          <Link href="/works" className="isp-c">
+            <img src="/photos/portfolio/kominka-dining-night.jpg" alt="夜の店内、あたたかい灯り" />
+          </Link>
+          <Link href="/works" className="isp-c">
+            <img src="/photos/portfolio/kominka-moon-door.jpg" alt="円窓のある空間" />
+          </Link>
+          {/* eslint-enable @next/next/no-img-element */}
         </div>
       </section>
 

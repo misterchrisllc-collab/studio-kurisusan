@@ -82,11 +82,14 @@ header{
 /* HERO — full-bleed rotating photography, bold statement over the image */
 .ih{position:relative;min-height:calc(100dvh - 56px);overflow:hidden;background:var(--bk);display:flex;align-items:flex-end;}
 .ih-bg{position:absolute;inset:0;z-index:0;}
-.ih-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:ihfade 21s infinite;}
+.ih-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:ihfade 42s infinite;}
 .ih-bg img:nth-child(1){animation-delay:0s;}
 .ih-bg img:nth-child(2){animation-delay:7s;}
 .ih-bg img:nth-child(3){animation-delay:14s;}
-@keyframes ihfade{0%{opacity:0;}2%{opacity:1;}30%{opacity:1;}35%{opacity:0;}100%{opacity:0;}}
+.ih-bg img:nth-child(4){animation-delay:21s;}
+.ih-bg img:nth-child(5){animation-delay:28s;}
+.ih-bg img:nth-child(6){animation-delay:35s;}
+@keyframes ihfade{0%{opacity:0;}1.5%{opacity:1;}14%{opacity:1;}16.5%{opacity:0;}100%{opacity:0;}}
 .ih::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
   background:linear-gradient(90deg,rgba(0,0,0,.74),rgba(0,0,0,.34) 46%,rgba(0,0,0,.04) 78%),
              linear-gradient(0deg,rgba(0,0,0,.72),rgba(0,0,0,.1) 46%,transparent 70%);}
@@ -110,56 +113,74 @@ header{
 .ibtn.light{background:#fff;color:var(--bk);}
 .ibtn.light:hover{background:var(--mg);color:#fff;}
 
-/* THESIS — the problem in the client's own words. Bold, high-contrast. */
-.ithesis{background:var(--off);padding:clamp(72px,13vh,168px) clamp(24px,5vw,80px);}
-.ithesis-in{max-width:1040px;}
-.ith-eyebrow{display:block;font-family:'Inter','Noto Sans JP',sans-serif;font-size:clamp(10px,1vw,12px);font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--mg);margin-bottom:clamp(20px,3vw,38px);}
-.ithesis h2{
+/* PHILOSOPHY — two-column: the studio's belief + a warm human frame */
+.iphil{display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;background:var(--off);}
+.iphil-txt{padding:clamp(56px,10vh,140px) clamp(28px,5vw,88px);display:flex;flex-direction:column;justify-content:center;}
+.ith-eyebrow{display:block;font-family:'Inter','Noto Sans JP',sans-serif;font-size:clamp(10px,1vw,12px);font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--mg);margin-bottom:clamp(20px,3vw,36px);}
+.iphil-txt h2{
   font-family:'Noto Sans JP',sans-serif;
-  font-weight:900;font-size:clamp(28px,4.8vw,68px);line-height:1.2;letter-spacing:-.01em;color:var(--bk);word-break:keep-all;
+  font-weight:900;font-size:clamp(26px,3.4vw,52px);line-height:1.22;letter-spacing:-.01em;color:var(--bk);word-break:keep-all;
 }
-.ithesis h2 em{color:var(--mg);font-style:normal;}
-.ithesis p{
-  margin-top:clamp(24px,3.5vw,46px);max-width:58ch;
+.iphil-txt h2 em{color:var(--mg);font-style:normal;}
+.iphil-txt p{
+  margin-top:clamp(22px,3vw,38px);max-width:46ch;
   font-family:'Noto Sans JP',sans-serif;
-  font-size:clamp(14px,1.35vw,17px);color:#555;font-weight:400;line-height:2;
+  font-size:clamp(14px,1.2vw,16px);color:#555;font-weight:400;line-height:2;
 }
+.iphil-img{position:relative;overflow:hidden;min-height:clamp(440px,72vh,760px);}
+.iphil-img img{width:100%;height:100%;object-fit:cover;object-position:center 28%;}
 
-/* WORK — proof. Big, full-bleed, bold captions. */
-.iwork{padding:clamp(60px,9vw,120px) 0 clamp(36px,5vw,72px);}
-.iwork-hd{
-  display:flex;justify-content:space-between;align-items:baseline;gap:24px;
-  padding:0 clamp(24px,5vw,80px) clamp(28px,4vw,52px);
-}
+/* shared editorial labels + captions */
 .ieyebrow{font-family:'Inter','Noto Sans JP',sans-serif;font-size:clamp(10px,1vw,12px);font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mg);}
 .ilink{
   font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
   color:#999;text-decoration:none;white-space:nowrap;transition:color .2s;
 }
 .ilink:hover{color:var(--mg);}
+.ipl-t{font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(24px,3.2vw,46px);line-height:1.18;color:#fff;letter-spacing:-.01em;word-break:keep-all;}
+.ipl-t.dark{color:var(--bk);}
 
-.iplate-full{position:relative;display:block;overflow:hidden;height:clamp(420px,74vh,780px);}
-.iplate-full img{width:100%;height:100%;object-fit:cover;transition:transform 1.3s cubic-bezier(.2,.7,.2,1);}
-.iplate-full:hover img{transform:scale(1.05);}
-.iplate-full::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.66),rgba(0,0,0,.05) 48%,transparent);}
-.ipl-cap{position:absolute;left:clamp(24px,5vw,80px);bottom:clamp(30px,4vw,60px);z-index:2;display:flex;flex-direction:column;gap:clamp(8px,1.2vw,14px);}
-.ipl-k{font-family:'Inter','Noto Sans JP',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mg);}
-.ipl-k.light{color:#fff;}
-.ipl-t{font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(24px,3.2vw,48px);line-height:1.14;color:#fff;letter-spacing:-.01em;}
+/* PEOPLE — the feeling. Atmosphere, customers, staff. */
+.ifeel{padding:clamp(60px,9vw,120px) 0 clamp(40px,6vw,80px);background:#fff;}
+.ifeel-lead{padding:0 clamp(24px,5vw,80px) clamp(22px,3vw,40px);}
+.ifeel-hero{position:relative;overflow:hidden;height:clamp(380px,62vh,620px);}
+.ifeel-hero img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 1.4s cubic-bezier(.2,.7,.2,1);}
+.ifeel-hero:hover img{transform:scale(1.04);}
+.ifeel-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.6),rgba(0,0,0,.04) 44%,transparent);}
+.ifeel-cap{position:absolute;left:clamp(24px,5vw,80px);bottom:clamp(28px,4vw,54px);z-index:2;}
+.ifeel-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(12px,1.6vw,24px);padding:clamp(12px,1.6vw,24px) clamp(24px,5vw,80px) 0;}
+.ife-c{overflow:hidden;aspect-ratio:3/2;}
+.ife-c img{width:100%;height:100%;object-fit:cover;transition:transform 1.3s cubic-bezier(.2,.7,.2,1);}
+.ife-c:hover img{transform:scale(1.05);}
 
-.iplate-split{display:grid;grid-template-columns:1.25fr 1fr;align-items:center;gap:clamp(28px,5vw,80px);padding:clamp(52px,7vw,110px) clamp(24px,5vw,80px);}
-.ips-img{display:block;overflow:hidden;aspect-ratio:4/5;}
-.ips-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.3s cubic-bezier(.2,.7,.2,1);}
-.ips-img:hover img{transform:scale(1.05);}
-.ips-txt .ieyebrow{display:block;margin-bottom:clamp(14px,2vw,22px);}
-.ips-txt p{font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(24px,3vw,44px);line-height:1.22;color:var(--bk);letter-spacing:-.01em;}
+/* FOOD — appetizing energy, asymmetric editorial */
+.ifood{padding:clamp(56px,8vw,116px) clamp(24px,5vw,80px);background:var(--off);}
+.ifood-hd{padding-bottom:clamp(20px,2.6vw,38px);}
+.ifood-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(24px,4vw,60px);align-items:center;}
+.ifood-a{display:block;overflow:hidden;aspect-ratio:3/2;}
+.ifood-a img{width:100%;height:100%;object-fit:cover;transition:transform 1.3s cubic-bezier(.2,.7,.2,1);}
+.ifood-a:hover img{transform:scale(1.05);}
+.ifood-txt{display:flex;flex-direction:column;gap:clamp(22px,3vw,40px);}
+.ifood-b{display:block;overflow:hidden;aspect-ratio:4/5;}
+.ifood-b img{width:100%;height:100%;object-fit:cover;transition:transform 1.3s cubic-bezier(.2,.7,.2,1);}
+.ifood-b:hover img{transform:scale(1.05);}
 
-.iplate-duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,24px);padding:0 clamp(24px,5vw,80px);}
-.ipd-a,.ipd-b{position:relative;display:block;overflow:hidden;aspect-ratio:3/4;}
-.ipd-a img,.ipd-b img{width:100%;height:100%;object-fit:cover;transition:transform 1.3s cubic-bezier(.2,.7,.2,1);}
-.ipd-a:hover img,.ipd-b:hover img{transform:scale(1.05);}
-.ipd-a::after,.ipd-b::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.56),transparent 42%);}
-.iplate-duo .ipl-k{position:absolute;left:clamp(16px,2.4vw,28px);bottom:clamp(16px,2.4vw,26px);z-index:2;}
+/* PRODUCT — a quiet lineup, natural aspect, no forced crops */
+.iprod{padding:clamp(56px,8vw,116px) clamp(24px,5vw,80px);background:var(--warm);}
+.iprod-hd{display:flex;align-items:baseline;gap:clamp(14px,2vw,26px);flex-wrap:wrap;padding-bottom:clamp(28px,4vw,52px);}
+.iprod-line{font-family:'Noto Sans JP',sans-serif;font-weight:700;font-size:clamp(15px,1.5vw,20px);color:var(--bk);letter-spacing:-.01em;}
+.iprod-row{display:flex;justify-content:center;align-items:flex-end;gap:clamp(16px,3vw,52px);flex-wrap:wrap;}
+.iprod-c{display:block;overflow:hidden;}
+.iprod-c img{height:clamp(260px,40vh,440px);width:auto;max-width:100%;display:block;transition:transform 1.3s cubic-bezier(.2,.7,.2,1);}
+.iprod-c:hover img{transform:scale(1.04);}
+
+/* SPACE — clean 2×2 landscape grid, natural composition */
+.ispace{padding:clamp(56px,8vw,116px) clamp(24px,5vw,80px);background:#fff;}
+.ispace-hd{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding-bottom:clamp(24px,3vw,44px);}
+.ispace-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,24px);}
+.isp-c{display:block;overflow:hidden;aspect-ratio:3/2;}
+.isp-c img{width:100%;height:100%;object-fit:cover;transition:transform 1.3s cubic-bezier(.2,.7,.2,1);}
+.isp-c:hover img{transform:scale(1.05);}
 
 /* WHAT WE DO — bold gothic index. Names only. */
 .isvc{padding:clamp(60px,9vw,120px) clamp(24px,5vw,80px);background:var(--warm);}
@@ -231,19 +252,21 @@ header{
 
 /* HOME responsive */
 @media(max-width:900px){
-  .iplate-split{grid-template-columns:1fr;gap:24px;}
-  .ips-img{aspect-ratio:16/11;}
+  .iphil{grid-template-columns:1fr;}
+  .iphil-img{min-height:0;aspect-ratio:4/3;order:-1;}
+  .ifood-grid{grid-template-columns:1fr;gap:24px;}
   .ksnap{grid-template-columns:1fr;}
   .ks-img{min-height:0;aspect-ratio:4/5;order:-1;}
 }
 @media(max-width:680px){
   .ih-in{max-width:100%;padding-left:24px;padding-right:24px;}
   .ih-scroll{display:none;}
-  .iplate-full{height:62vh;}
-  .iplate-duo{grid-template-columns:1fr;gap:12px;}
-  .ipd-a,.ipd-b{aspect-ratio:4/3;}
+  .ifeel-hero{height:52vh;}
+  .ifeel-row{grid-template-columns:1fr 1fr;}
+  .ispace-grid{grid-template-columns:1fr;}
+  .iprod-c img{height:clamp(220px,44vh,340px);}
   .iclose::after{background:linear-gradient(0deg,rgba(0,0,0,.86),rgba(0,0,0,.3) 68%,transparent);}
-  .iwork-hd,.isvc-hd{flex-direction:column;align-items:flex-start;gap:8px;}
+  .ispace-hd,.isvc-hd,.iprod-hd{flex-direction:column;align-items:flex-start;gap:8px;}
   .isvc-list li a{flex-direction:column;align-items:flex-start;gap:6px;}
 }
 
