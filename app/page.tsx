@@ -19,19 +19,19 @@ export default function Home() {
       <section className="ih">
         <div className="ih-bg" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/photos/hero-cafe.jpg" alt="" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/photos/portfolio/tonkatsu-plate.jpg" alt="" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/photos/portfolio/sriracha-lying.jpg" alt="" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/photos/hero-cafe.jpg" alt="" />
+          <img src="/photos/portfolio/kominka-moon-door.jpg" alt="" />
         </div>
         <div className="ih-in">
           <span className="ih-eyebrow">商業写真 ・ ビジュアルブランディング</span>
           <h1 className="ih-title">
-            ビジュアルで、<br />
-            <em>選ばれる</em>。
+            <em>「ようこそ」</em>は、<br />
+            言葉より先に。
           </h1>
-          <span className="ih-triad">IMPACT ・ TRUST ・ SALES</span>
+          <span className="ih-triad">Welcome, before a word is spoken.</span>
           <div className="ih-cta">
             <Link href="/contact" className="ibtn">
               相談する
@@ -45,13 +45,14 @@ export default function Home() {
       {/* THESIS — why visuals. The problem, in the client's own words. */}
       <section className="ithesis">
         <div className="ithesis-in">
-          <span className="ith-eyebrow">WHY VISUALS ・ なぜ、ビジュアルなのか</span>
+          <span className="ith-eyebrow">PHILOSOPHY ・ 私たちの考え</span>
           <h2>
-            見られなければ、<br />
-            存在しないのと<em>同じ</em>。
+            ビジュアルは、<br />
+            「ようこそ」と<em>「おかえり」</em>を、<br />
+            伝えている。
           </h2>
           <p>
-            人は、ネットで店を探し、写真で選ぶ時代。どれだけ良い商品やサービスでも、印象に残らなければ選ばれません。同じ店の前を何度通り過ぎても、記憶に残らなければ、無いのと同じ。私たちは、スクロールを止める一枚で、「見られる・信頼される・選ばれる」をつくります。
+            時代は変わっていく。人がお店を見つける方法も、選ぶ理由も。お客様が「いらっしゃいませ」と迎えられる前に、ホームページも、Googleビジネスも、Instagramも、店先も、もう語りはじめています。ビジュアルは、いわば、お客様が最初に出会うスタッフ。私たちの仕事は、その第一声を、あなたのお店らしさで満たすことです。
           </p>
         </div>
       </section>
@@ -71,7 +72,7 @@ export default function Home() {
           <img src="/photos/portfolio/diner-burger.jpg" alt="飲食店のフード撮影、シズル感のあるビジュアル" />
           <div className="ipl-cap">
             <span className="ipl-k light">飲食・フード</span>
-            <span className="ipl-t">シズル感で、来店を増やす。</span>
+            <span className="ipl-t">おいしさも、人柄も。</span>
           </div>
         </Link>
 
@@ -84,8 +85,8 @@ export default function Home() {
           <div className="ips-txt">
             <span className="ieyebrow">商品・EC</span>
             <p>
-              手に取りたくなる、<br />
-              一枚をつくる。
+              そのこだわりを、<br />
+              まっすぐ伝える。
             </p>
           </div>
         </div>
@@ -133,12 +134,12 @@ export default function Home() {
         </div>
         <div className="iclose-in">
           <h2>
-            その一枚を、<br />
-            <em>つくりましょう。</em>
+            その<em>「らしさ」</em>を、<br />
+            一緒に見つけましょう。
           </h2>
-          <p>撮影内容が決まっていなくても構いません。相談は無料です。</p>
+          <p>何を撮るか決まっていなくても大丈夫です。まずは、お店のことを聞かせてください。ご相談は無料です。</p>
           <Link href="/contact" className="ibtn light">
-            プロジェクトを相談する
+            相談する
           </Link>
         </div>
       </section>
