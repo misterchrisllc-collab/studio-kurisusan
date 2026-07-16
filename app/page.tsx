@@ -25,8 +25,12 @@ export default function Home() {
           />
         </div>
         <div className="eh-txt">
+          <h1 className="eh-line">
+            お店やブランドを、<br />
+            もっと<em>選ばれる</em>存在へ。
+          </h1>
           <span className="eh-kicker">商業写真 · ビジュアルブランディング</span>
-          <span className="eh-place">大阪・関西 &mdash; 日本語 / English</span>
+          <span className="eh-place">大阪・関西 ／ 日本語・English</span>
         </div>
         <span className="eh-scroll" aria-hidden="true">Scroll</span>
       </section>
@@ -35,11 +39,10 @@ export default function Home() {
       <section className="estmt">
         <div className="estmt-in">
           <h2>
-            お店やブランドが、<br />
-            <em>もっと選ばれる理由</em>を、<br />
-            つくる。
+            「らしさ」を、<br />
+            <em>伝わる</em>形に。
           </h2>
-          <p>写真とデザインで、小さなビジネスの「伝わらない」を解決する。</p>
+          <p>写真・デザイン・戦略で、小さなビジネスの「伝わらない」を解決する。</p>
         </div>
       </section>
 
@@ -110,7 +113,7 @@ export default function Home() {
       <section className="eclose">
         <div className="eclose-img">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/photos/portfolio/cafe-pourover.jpg" alt="喫茶店で一杯を淹れる手元、コーヒーの湯気" />
+          <img src="/photos/hero-kominka.jpg" alt="夜の古民家を改装した空間、あたたかい灯りの外観。飲食・宿・物販・ブランドに通じる佇まい" />
         </div>
         <div className="eclose-in">
           <h2>
@@ -120,6 +123,48 @@ export default function Home() {
           <Link href="/contact" className="btn-p">
             プロジェクトを相談する
           </Link>
+        </div>
+      </section>
+
+      {/* KANSAI SNAPS — one studio, two brands. A quiet transition, not an ad. */}
+      <section className="ksnap">
+        <a
+          className="ks-img"
+          href="https://kansai-snaps.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/photos/kansai-snaps-portrait.jpg"
+            alt="Kansai Snaps によるポートレート。あたたかい光の人物写真"
+          />
+        </a>
+        <div className="ks-txt">
+          <span className="ks-eyebrow">私たちのもうひとつのブランド</span>
+          <div className="ks-rel">
+            <span className="ks-parent">
+              Studio くりすさん
+              <i>企業・店舗向けクリエイティブスタジオ</i>
+            </span>
+            <span className="ks-arrow" aria-hidden="true">↓</span>
+            <span className="ks-child">
+              Kansai Snaps
+              <i>個人向けポートレートブランド</i>
+            </span>
+          </div>
+          <h2 className="ks-line">ポートレートをお探しですか？</h2>
+          <p>
+            Studio くりすさんでは企業・店舗向けのクリエイティブ制作を行っています。個人向けのポートレート撮影は、私たちのポートレートブランド Kansai Snaps でご案内しています。
+          </p>
+          <a
+            className="ks-link"
+            href="https://kansai-snaps.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Kansai Snaps を見る →
+          </a>
         </div>
       </section>
 

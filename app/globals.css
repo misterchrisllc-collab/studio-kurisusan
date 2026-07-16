@@ -89,8 +89,15 @@ header{
 .eh-txt{
   position:absolute;left:0;bottom:0;z-index:2;
   padding:0 0 clamp(40px,7vh,84px) clamp(24px,5vw,80px);
-  max-width:44%;display:flex;flex-direction:column;gap:10px;
+  max-width:46%;display:flex;flex-direction:column;gap:10px;
 }
+.eh-line{
+  font-family:'Noto Serif JP',serif;
+  font-size:clamp(28px,3.5vw,48px);font-weight:200;line-height:1.32;
+  letter-spacing:-.5px;color:var(--bk);margin-bottom:clamp(10px,1.6vw,20px);
+  word-break:keep-all;
+}
+.eh-line em{color:var(--mg);font-style:normal;font-weight:300;}
 .eh-kicker{
   font-family:'Inter','Noto Sans JP',sans-serif;
   font-size:clamp(11px,1vw,13px);letter-spacing:.16em;text-transform:uppercase;color:var(--bk);
@@ -190,6 +197,36 @@ header{
 .eclose-in h2 em{color:var(--mg);font-style:normal;font-weight:300;}
 .eclose-in p{font-family:'Inter','Noto Sans JP',sans-serif;font-size:14px;color:rgba(255,255,255,.6);font-weight:300;line-height:1.8;margin-bottom:34px;max-width:38ch;}
 
+/* KANSAI SNAPS — one studio, two brands. Discovery, not an ad. */
+.ksnap{
+  display:grid;grid-template-columns:.82fr 1.18fr;align-items:stretch;background:var(--off);
+}
+.ks-img{position:relative;display:block;overflow:hidden;min-height:clamp(440px,62vh,660px);}
+.ks-img img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1);}
+.ks-img:hover img{transform:scale(1.04);}
+.ks-txt{
+  padding:clamp(48px,7vw,104px) clamp(24px,5vw,80px);
+  display:flex;flex-direction:column;justify-content:center;gap:clamp(18px,2.4vw,26px);max-width:660px;
+}
+.ks-eyebrow{font-family:'Inter','Noto Sans JP',sans-serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mg);}
+.ks-rel{display:flex;flex-direction:column;gap:5px;}
+.ks-parent,.ks-child{
+  display:flex;flex-direction:column;
+  font-family:'Noto Serif JP',serif;font-weight:300;font-size:clamp(18px,2vw,25px);
+  letter-spacing:-.3px;line-height:1.15;color:var(--bk);
+}
+.ks-child{color:var(--mg);}
+.ks-rel i{font-family:'Inter','Noto Sans JP',sans-serif;font-style:normal;font-weight:400;font-size:11px;letter-spacing:.06em;color:var(--mid);margin-top:4px;}
+.ks-arrow{color:#c9c1b8;font-size:15px;line-height:1;margin:1px 0;}
+.ks-line{font-family:'Noto Serif JP',serif;font-size:clamp(26px,3.4vw,44px);font-weight:200;line-height:1.28;letter-spacing:-.8px;color:var(--bk);}
+.ks-txt p{font-family:'Inter','Noto Sans JP',sans-serif;font-size:clamp(13px,1.15vw,15px);color:#555;font-weight:300;line-height:1.9;max-width:44ch;}
+.ks-link{
+  font-family:'Inter',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--mg);text-decoration:none;width:fit-content;
+  border-bottom:1px solid transparent;padding-bottom:4px;transition:border-color .2s;
+}
+.ks-link:hover{border-bottom-color:var(--mg);}
+
 /* shared image slot — used by About + WorkGrid (keep) */
 .slot-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;}
 
@@ -207,6 +244,8 @@ header{
 @media(max-width:900px){
   .plate-split{grid-template-columns:1fr;gap:24px;}
   .ps-img{aspect-ratio:16/11 !important;}
+  .ksnap{grid-template-columns:1fr;}
+  .ks-img{min-height:0;aspect-ratio:4/5;order:-1;}
 }
 @media(max-width:680px){
   .eh{min-height:0;}
