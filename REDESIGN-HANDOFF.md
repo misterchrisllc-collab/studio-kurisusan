@@ -1,6 +1,6 @@
 # Studio くりすさん — Homepage Redesign Handoff
 
-_New tab? Read this first, then `HANDOFF.md` (durable project + infra facts; note its §5 "home" description is now superseded by this doc). Last updated 2026-07-17._
+_New tab? For the quick "where are we" snapshot see the latest **`.planning/SESSION-N.md`** (numbered session log). This doc is the detailed source of truth — read it, then `HANDOFF.md` (durable project + infra facts; note its §5 "home" description is now superseded by this doc). Last updated 2026-07-17._
 
 ---
 
