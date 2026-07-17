@@ -4,11 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const NAV = [
-  { href: "/", label: "ホーム" },
-  { href: "/works", label: "作品" },
-  { href: "/services", label: "できること" },
-  { href: "/about", label: "私たちについて" },
-  { href: "/contact", label: "お問い合わせ" },
+  { href: "/", label: "Home" },
+  { href: "/works", label: "Works" },
+  { href: "/services", label: "Service" },
+  { href: "/about", label: "About" },
 ];
 
 export default function Header() {
@@ -19,7 +18,7 @@ export default function Header() {
 
   return (
     <header>
-      <Link href="/" className="logo">
+      <Link href="/" className="logo" aria-label="Studio くりすさん ホームへ">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo.png" alt="Studio くりすさん" />
       </Link>
@@ -35,8 +34,23 @@ export default function Header() {
         ))}
       </nav>
       <div className="hr">
+        <a
+          href="https://instagram.com/studio_kurisusan"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hsns"
+          aria-label="Instagram"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
+            <circle cx="12" cy="12" r="4.2" />
+            <circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none" />
+          </svg>
+        </a>
         <Link href="/contact" className="hcta">
-          相談する
+          <span>Contact</span>
+          <span className="bar" />
+          <span className="arw">→</span>
         </Link>
       </div>
     </header>

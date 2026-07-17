@@ -1,8 +1,17 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import PortfolioImage, { resolvePhoto, type Ratio } from "./PortfolioImage";
 
-type Shot = { src: string; cat: string; title: string; w: number; h: number };
+/* Layout first. `span` is the grid decision (how much room the photo gets);
+   `ratio` is the shape the photo will eventually be cropped to. They are
+   separate on purpose: retune rhythm without touching a photo, re-crop a photo
+   without touching the layout.
+
+   Rows below are kept ratio-homogeneous so tiles align both now (originals at
+   natural aspect) and later (dedicated crops at the declared ratio). */
+type Span = 3 | 4 | 6 | 8 | 12;
+type Shot = { base: string; ratio: Ratio; span: Span; cat: string; title: string };
 
 const CAT_LABEL: Record<string, string> = {
   food: "飲食店・フード",
@@ -23,74 +32,88 @@ const FILTERS = [
   { cat: "studio", label: "スタジオ" },
 ];
 
-// Ordered so the first 12 (the default preview) are a strong mix of categories.
+const SIZES: Record<Span, string> = {
+  12: "100vw",
+  8: "(max-width:640px) 100vw, 67vw",
+  6: "(max-width:640px) 100vw, 50vw",
+  4: "(max-width:640px) 50vw, 33vw",
+  3: "(max-width:640px) 50vw, 25vw",
+};
+
 const SHOTS: Shot[] = [
-  { src: "/photos/portfolio/tonkatsu-staff.jpg", cat: "food", title: "とんかつ専門店 / スタッフ", w: 1280, h: 853 },
-  { src: "/photos/portfolio/candles-lit.jpg", cat: "product", title: "キャンドル", w: 1280, h: 1280 },
-  { src: "/photos/portfolio/fashion-pink-look.jpg", cat: "fashion", title: "ファッション / ルック", w: 1280, h: 1282 },
-  { src: "/photos/portfolio/tonkatsu-plate.jpg", cat: "food", title: "とんかつ定食", w: 1280, h: 853 },
-  { src: "/photos/portfolio/sriracha-lying.jpg", cat: "product", title: "ホットソース", w: 1280, h: 1600 },
-  { src: "/photos/portfolio/model-natural.jpg", cat: "fashion", title: "ポートレート", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/kominka-exterior-night.jpg", cat: "space", title: "古民家 / 夜の佇まい", w: 1280, h: 853 },
-  { src: "/photos/portfolio/tacos-event-chef.jpg", cat: "event", title: "タコス店 / つくり手", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/tacos-platter.jpg", cat: "food", title: "タコス / プレート", w: 1280, h: 1600 },
-  { src: "/photos/portfolio/tacos-event-guests.jpg", cat: "event", title: "ポップアップ / 来場者", w: 1280, h: 853 },
-  { src: "/photos/portfolio/natto-lift.jpg", cat: "product", title: "納豆 / シズル", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/fashion-pink-hold.jpg", cat: "fashion", title: "エディトリアル", w: 1280, h: 853 },
-  { src: "/photos/portfolio/burger-cross.jpg", cat: "food", title: "スマッシュバーガー", w: 1280, h: 1425 },
-  { src: "/photos/portfolio/wagashi-dorayaki.jpg", cat: "food", title: "和菓子 / どら焼き", w: 1280, h: 1280 },
-  { src: "/photos/portfolio/candles-jars.jpg", cat: "product", title: "商品ラインナップ", w: 1280, h: 853 },
-  { src: "/photos/portfolio/cafe-owner.jpg", cat: "fashion", title: "店主 / ポートレート", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/model-speaker.jpg", cat: "fashion", title: "ライフスタイル", w: 1280, h: 1920 },
-  // ── revealed on expand ──
-  { src: "/photos/portfolio/tonkatsu-chef.jpg", cat: "food", title: "調理風景", w: 1280, h: 853 },
-  { src: "/photos/portfolio/sriracha-bottle.jpg", cat: "product", title: "パッケージ", w: 1280, h: 1707 },
-  { src: "/photos/portfolio/fashion-pink-eye.jpg", cat: "fashion", title: "ビューティ", w: 1280, h: 1921 },
-  { src: "/photos/portfolio/tacos-macro.jpg", cat: "food", title: "タコス", w: 1280, h: 1600 },
-  { src: "/photos/portfolio/natto-bowl.jpg", cat: "product", title: "納豆", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/model-camera.jpg", cat: "fashion", title: "ポートレート", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/tonkatsu-shop.jpg", cat: "food", title: "店舗外観", w: 1280, h: 853 },
-  { src: "/photos/portfolio/mayo-bottle.jpg", cat: "product", title: "調味料", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/burger-set.jpg", cat: "food", title: "セットメニュー", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/mayo-cap.jpg", cat: "product", title: "ディテール", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/tacos-table.jpg", cat: "food", title: "テーブルセット", w: 1280, h: 1600 },
-  { src: "/photos/portfolio/tacos-event-table.jpg", cat: "event", title: "ポップアップ / 相席の様子", w: 1280, h: 853 },
-  { src: "/photos/portfolio/tacos-event-staff.jpg", cat: "event", title: "イベント / スタッフ", w: 1280, h: 853 },
-  { src: "/photos/portfolio/tacos-event-night.jpg", cat: "event", title: "イベント / 会場の熱気", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/tacos-beer-set.jpg", cat: "food", title: "クラフトビール / コラボ", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/tacos-shop.jpg", cat: "food", title: "店舗外観 / 夜", w: 1280, h: 720 },
-  { src: "/photos/portfolio/burger-hand.jpg", cat: "food", title: "バーガー / 断面", w: 1280, h: 853 },
-  // ── space / storefront ──
-  { src: "/photos/portfolio/kominka-exterior-day.jpg", cat: "space", title: "古民家 / 外観", w: 1280, h: 853 },
-  { src: "/photos/portfolio/kominka-dining-night.jpg", cat: "space", title: "古民家 / 店内", w: 1280, h: 853 },
-  { src: "/photos/portfolio/kominka-moon-door.jpg", cat: "space", title: "円窓のディテール", w: 1280, h: 853 },
-  { src: "/photos/portfolio/kominka-lattice.jpg", cat: "space", title: "格子と余白", w: 1280, h: 853 },
-  { src: "/photos/portfolio/kominka-chair.jpg", cat: "space", title: "くつろぎの空間", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/cafe-counter.jpg", cat: "space", title: "喫茶店 / カウンター", w: 1280, h: 1920 },
-  // ── more food ──
-  { src: "/photos/portfolio/bagel-stack.jpg", cat: "food", title: "ベーグル", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/bagel-sando.jpg", cat: "food", title: "ベーグルサンド", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/diner-burger.jpg", cat: "food", title: "バーガー / ダイナー", w: 1280, h: 1280 },
-  { src: "/photos/portfolio/taco-flatlay.jpg", cat: "food", title: "タコス / スタイリング", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/donut-blue.jpg", cat: "food", title: "ドーナツ / 商品", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/cafe-pourover.jpg", cat: "food", title: "コーヒーの手仕事", w: 1280, h: 1920 },
-  // ── brand / people ──
-  { src: "/photos/portfolio/brand-donut-model.jpg", cat: "fashion", title: "ブランド / ライフスタイル", w: 1280, h: 853 },
-  { src: "/photos/portfolio/portrait-chris.jpg", cat: "studio", title: "フォトグラファー", w: 1280, h: 1280 },
-  { src: "/photos/portfolio/studio-rig.jpg", cat: "studio", title: "商品撮影セット", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/studio-corner.jpg", cat: "studio", title: "撮影スペース", w: 1280, h: 1920 },
-  { src: "/photos/portfolio/studio-shelf.jpg", cat: "studio", title: "スタジオ・機材", w: 1280, h: 1921 },
+  // ── statement ──
+  { base: "tacos-shop", ratio: "wide", span: 12, cat: "food", title: "店舗外観 / 夜" },
+  // ── dense portrait row ──
+  { base: "cafe-owner", ratio: "portrait", span: 3, cat: "fashion", title: "店主 / ポートレート" },
+  { base: "tacos-event-chef", ratio: "portrait", span: 3, cat: "event", title: "タコス店 / つくり手" },
+  { base: "natto-lift", ratio: "portrait", span: 3, cat: "product", title: "納豆 / シズル" },
+  { base: "bagel-stack", ratio: "portrait", span: 3, cat: "food", title: "ベーグル" },
+  // ── paired landscape ──
+  { base: "tonkatsu-staff", ratio: "landscape", span: 6, cat: "food", title: "とんかつ専門店 / スタッフ" },
+  { base: "kominka-exterior-night", ratio: "landscape", span: 6, cat: "space", title: "古民家 / 夜の佇まい" },
+  // ── square row ──
+  { base: "candles-lit", ratio: "square", span: 4, cat: "product", title: "キャンドル" },
+  { base: "wagashi-dorayaki", ratio: "square", span: 4, cat: "food", title: "和菓子 / どら焼き" },
+  { base: "fashion-pink-look", ratio: "square", span: 4, cat: "fashion", title: "ファッション / ルック" },
+  // ── wide + vertical ──
+  { base: "tacos-event-guests", ratio: "landscape", span: 8, cat: "event", title: "ポップアップ / 来場者" },
+  { base: "model-speaker", ratio: "tall", span: 4, cat: "fashion", title: "ライフスタイル" },
+  // ── dense portrait row ──
+  { base: "sriracha-lying", ratio: "portrait", span: 3, cat: "product", title: "ホットソース" },
+  { base: "tacos-platter", ratio: "portrait", span: 3, cat: "food", title: "タコス / プレート" },
+  { base: "cafe-counter", ratio: "portrait", span: 3, cat: "space", title: "喫茶店 / カウンター" },
+  { base: "model-camera", ratio: "portrait", span: 3, cat: "fashion", title: "ポートレート" },
+  // ── paired landscape ──
+  { base: "tonkatsu-plate", ratio: "landscape", span: 6, cat: "food", title: "とんかつ定食" },
+  { base: "kominka-dining-night", ratio: "landscape", span: 6, cat: "space", title: "古民家 / 店内" },
+  // ── dense portrait row ──
+  { base: "burger-set", ratio: "portrait", span: 3, cat: "food", title: "セットメニュー" },
+  { base: "mayo-bottle", ratio: "portrait", span: 3, cat: "product", title: "調味料" },
+  { base: "taco-flatlay", ratio: "portrait", span: 3, cat: "food", title: "タコス / スタイリング" },
+  { base: "fashion-pink-eye", ratio: "portrait", span: 3, cat: "fashion", title: "ビューティ" },
+  // ── square row ──
+  { base: "diner-burger", ratio: "square", span: 4, cat: "food", title: "バーガー / ダイナー" },
+  { base: "portrait-chris", ratio: "square", span: 4, cat: "studio", title: "フォトグラファー" },
+  { base: "burger-cross", ratio: "square", span: 4, cat: "food", title: "スマッシュバーガー" },
+
+  // ───────────── revealed on expand ─────────────
+  { base: "kominka-exterior-day", ratio: "landscape", span: 6, cat: "space", title: "古民家 / 外観" },
+  { base: "kominka-moon-door", ratio: "landscape", span: 6, cat: "space", title: "円窓のディテール" },
+  { base: "kominka-chair", ratio: "tall", span: 4, cat: "space", title: "くつろぎの空間" },
+  { base: "tacos-event-night", ratio: "tall", span: 4, cat: "event", title: "イベント / 会場の熱気" },
+  { base: "studio-rig", ratio: "tall", span: 4, cat: "studio", title: "商品撮影セット" },
+  { base: "tonkatsu-chef", ratio: "landscape", span: 6, cat: "food", title: "調理風景" },
+  { base: "kominka-lattice", ratio: "landscape", span: 6, cat: "space", title: "格子と余白" },
+  { base: "cafe-pourover", ratio: "portrait", span: 3, cat: "food", title: "コーヒーの手仕事" },
+  { base: "donut-blue", ratio: "portrait", span: 3, cat: "food", title: "ドーナツ / 商品" },
+  { base: "natto-bowl", ratio: "portrait", span: 3, cat: "product", title: "納豆" },
+  { base: "model-natural", ratio: "portrait", span: 3, cat: "fashion", title: "ポートレート" },
+  { base: "candles-jars", ratio: "landscape", span: 6, cat: "product", title: "商品ラインナップ" },
+  { base: "brand-donut-model", ratio: "landscape", span: 6, cat: "fashion", title: "ブランド / ライフスタイル" },
+  { base: "bagel-sando", ratio: "portrait", span: 3, cat: "food", title: "ベーグルサンド" },
+  { base: "mayo-cap", ratio: "portrait", span: 3, cat: "product", title: "ディテール" },
+  { base: "tacos-macro", ratio: "portrait", span: 3, cat: "food", title: "タコス" },
+  { base: "sriracha-bottle", ratio: "portrait", span: 3, cat: "product", title: "パッケージ" },
+  { base: "tacos-event-table", ratio: "landscape", span: 6, cat: "event", title: "ポップアップ / 相席の様子" },
+  { base: "tacos-event-staff", ratio: "landscape", span: 6, cat: "event", title: "イベント / スタッフ" },
+  { base: "tacos-table", ratio: "portrait", span: 3, cat: "food", title: "テーブルセット" },
+  { base: "tacos-beer-set", ratio: "portrait", span: 3, cat: "food", title: "クラフトビール / コラボ" },
+  { base: "studio-corner", ratio: "portrait", span: 3, cat: "studio", title: "撮影スペース" },
+  { base: "studio-shelf", ratio: "portrait", span: 3, cat: "studio", title: "スタジオ・機材" },
+  { base: "tonkatsu-shop", ratio: "landscape", span: 6, cat: "food", title: "店舗外観" },
+  { base: "burger-hand", ratio: "landscape", span: 6, cat: "food", title: "バーガー / 断面" },
+  { base: "fashion-pink-hold", ratio: "landscape", span: 6, cat: "fashion", title: "エディトリアル" },
+  { base: "tacos-event-venue", ratio: "landscape", span: 6, cat: "event", title: "会場の様子" },
 ];
 
-const INITIAL = 12;
+const INITIAL = 25;
 
 export default function PortfolioGallery() {
   const [active, setActive] = useState("all");
   const [expanded, setExpanded] = useState(false);
   const [lightbox, setLightbox] = useState<number | null>(null);
 
-  const filtered =
-    active === "all" ? SHOTS : SHOTS.filter((s) => s.cat === active);
+  const filtered = active === "all" ? SHOTS : SHOTS.filter((s) => s.cat === active);
   const showAll = expanded || filtered.length <= INITIAL;
   const visible = showAll ? filtered : filtered.slice(0, INITIAL);
   const remaining = filtered.length - INITIAL;
@@ -131,9 +154,7 @@ export default function PortfolioGallery() {
       <div className="pf-intro">
         <span className="pre">PORTFOLIO</span>
         <h2>作品集</h2>
-        <p>
-          飲食店・商品・ファッション・人物。大阪を拠点に撮影した実際の作品から。
-        </p>
+        <p>飲食店・商品・ファッション・人物。大阪を拠点に撮影した実際の作品から。</p>
       </div>
 
       <div className="pf-filters">
@@ -151,9 +172,9 @@ export default function PortfolioGallery() {
       <div className="pf-grid" key={active}>
         {visible.map((s, i) => (
           <figure
-            className="pf-item"
-            key={s.src}
-            style={{ animationDelay: `${Math.min(i, 12) * 0.035}s` }}
+            className={`pf-item s${s.span}`}
+            key={s.base}
+            style={{ animationDelay: `${Math.min(i, 12) * 0.03}s` }}
             role="button"
             tabIndex={0}
             aria-label={`${CAT_LABEL[s.cat]}・${s.title} を拡大表示`}
@@ -165,13 +186,12 @@ export default function PortfolioGallery() {
               }
             }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={s.src}
+            <PortfolioImage
+              base={s.base}
+              ratio={s.ratio}
               alt={s.title}
-              width={s.w}
-              height={s.h}
-              loading="lazy"
+              sizes={SIZES[s.span]}
+              priority={i < 3}
             />
             <figcaption>
               <span className="pf-cat">{CAT_LABEL[s.cat]}</span>
@@ -211,8 +231,9 @@ export default function PortfolioGallery() {
             ‹
           </button>
           <figure className="pf-lb-fig" onClick={(e) => e.stopPropagation()}>
+            {/* Lightbox always shows the uncropped original. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={current.src} alt={current.title} />
+            <img src={resolvePhoto(current.base, current.ratio).src} alt={current.title} />
             <figcaption>
               <span className="pf-cat">{CAT_LABEL[current.cat]}</span>
               <span className="pf-title">{current.title}</span>

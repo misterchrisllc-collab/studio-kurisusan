@@ -1,0 +1,366 @@
+{
+  "bagel-sando": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "bagel-stack": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "brand-donut-model": {
+    "natural": {
+      "w": 2560,
+      "h": 1706
+    },
+    "crops": []
+  },
+  "burger-cross": {
+    "natural": {
+      "w": 2300,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "burger-hand": {
+    "natural": {
+      "w": 2560,
+      "h": 1706
+    },
+    "crops": []
+  },
+  "burger-set": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "cafe-counter": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "cafe-owner": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "cafe-pourover": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "candles-jars": {
+    "natural": {
+      "w": 2560,
+      "h": 1706
+    },
+    "crops": []
+  },
+  "candles-lit": {
+    "natural": {
+      "w": 2560,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "diner-burger": {
+    "natural": {
+      "w": 2560,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "donut-blue": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "fashion-pink-eye": {
+    "natural": {
+      "w": 1706,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "fashion-pink-hold": {
+    "natural": {
+      "w": 2560,
+      "h": 1706
+    },
+    "crops": []
+  },
+  "fashion-pink-look": {
+    "natural": {
+      "w": 2556,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "kominka-chair": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "kominka-dining-night": {
+    "natural": {
+      "w": 2560,
+      "h": 1706
+    },
+    "crops": []
+  },
+  "kominka-exterior-day": {
+    "natural": {
+      "w": 2560,
+      "h": 1706
+    },
+    "crops": []
+  },
+  "kominka-exterior-night": {
+    "natural": {
+      "w": 2560,
+      "h": 1706
+    },
+    "crops": []
+  },
+  "kominka-lattice": {
+    "natural": {
+      "w": 2560,
+      "h": 1706
+    },
+    "crops": []
+  },
+  "kominka-moon-door": {
+    "natural": {
+      "w": 2560,
+      "h": 1706
+    },
+    "crops": []
+  },
+  "mayo-bottle": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "mayo-cap": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "model-camera": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "model-natural": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "model-speaker": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "natto-bowl": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "natto-lift": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "portrait-chris": {
+    "natural": {
+      "w": 2560,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "sriracha-bottle": {
+    "natural": {
+      "w": 1920,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "sriracha-lying": {
+    "natural": {
+      "w": 2048,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "studio-corner": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "studio-rig": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "studio-shelf": {
+    "natural": {
+      "w": 1706,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "taco-flatlay": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "tacos-beer-set": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "tacos-event-chef": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "tacos-event-guests": {
+    "natural": {
+      "w": 2560,
+      "h": 1706
+    },
+    "crops": []
+  },
+  "tacos-event-night": {
+    "natural": {
+      "w": 1707,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "tacos-event-staff": {
+    "natural": {
+      "w": 2560,
+      "h": 1706
+    },
+    "crops": []
+  },
+  "tacos-event-table": {
+    "natural": {
+      "w": 2560,
+      "h": 1706
+    },
+    "crops": []
+  },
+  "tacos-event-venue": {
+    "natural": {
+      "w": 2560,
+      "h": 1706
+    },
+    "crops": []
+  },
+  "tacos-macro": {
+    "natural": {
+      "w": 2048,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "tacos-platter": {
+    "natural": {
+      "w": 2048,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "tacos-shop": {
+    "natural": {
+      "w": 2560,
+      "h": 1440
+    },
+    "crops": []
+  },
+  "tacos-table": {
+    "natural": {
+      "w": 2048,
+      "h": 2560
+    },
+    "crops": []
+  },
+  "tonkatsu-chef": {
+    "natural": {
+      "w": 2560,
+      "h": 1706
+    },
+    "crops": []
+  },
+  "tonkatsu-plate": {
+    "natural": {
+      "w": 2560,
+      "h": 1706
+    },
+    "crops": []
+  },
+  "tonkatsu-shop": {
+    "natural": {
+      "w": 2560,
+      "h": 1706
+    },
+    "crops": []
+  },
+  "tonkatsu-staff": {
+    "natural": {
+      "w": 2560,
+      "h": 1706
+    },
+    "crops": []
+  },
+  "wagashi-dorayaki": {
+    "natural": {
+      "w": 2560,
+      "h": 2560
+    },
+    "crops": []
+  }
+}
