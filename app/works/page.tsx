@@ -24,6 +24,16 @@ export default function WorksPage() {
       </div>
       <WorkGrid />
       <PortfolioGallery />
+      <section className="wk-phil">
+        <span className="pre">PHILOSOPHY</span>
+        <h2>
+          写真や動画ではなく、<br />
+          <em>仕事の武器</em>を。
+        </h2>
+        <p>
+          SNS、Googleマップ、Webサイト。ビジュアルを「飾り」ではなく、仕事の成果につながる道具として考えます。
+        </p>
+      </section>
       <Footer />
     </div>
   );

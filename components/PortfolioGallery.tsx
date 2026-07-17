@@ -42,7 +42,7 @@ const SIZES: Record<Span, string> = {
 
 const SHOTS: Shot[] = [
   // ── statement ──
-  { base: "tacos-shop", ratio: "wide", span: 12, cat: "food", title: "店舗外観 / 夜" },
+  { base: "kominka-exterior-night", ratio: "wide", span: 12, cat: "space", title: "古民家 / 夜の佇まい" },
   // ── dense portrait row ──
   { base: "cafe-owner", ratio: "portrait", span: 3, cat: "fashion", title: "店主 / ポートレート" },
   { base: "tacos-event-chef", ratio: "portrait", span: 3, cat: "event", title: "タコス店 / つくり手" },
@@ -50,7 +50,7 @@ const SHOTS: Shot[] = [
   { base: "bagel-stack", ratio: "portrait", span: 3, cat: "food", title: "ベーグル" },
   // ── paired landscape ──
   { base: "tonkatsu-staff", ratio: "landscape", span: 6, cat: "food", title: "とんかつ専門店 / スタッフ" },
-  { base: "kominka-exterior-night", ratio: "landscape", span: 6, cat: "space", title: "古民家 / 夜の佇まい" },
+  { base: "tacos-shop", ratio: "landscape", span: 6, cat: "food", title: "店舗外観 / 夜" },
   // ── square row ──
   { base: "candles-lit", ratio: "square", span: 4, cat: "product", title: "キャンドル" },
   { base: "wagashi-dorayaki", ratio: "square", span: 4, cat: "food", title: "和菓子 / どら焼き" },
