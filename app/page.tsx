@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "@/components/Footer";
 
 // Seven solutions — named only on the homepage. The /services page explains and prices them.
@@ -12,20 +13,20 @@ const SOLUTIONS = [
   { name: "季節・スポットキャンペーン", en: "Seasonal Campaigns" },
 ];
 
+const cover = { objectFit: "cover" as const };
+
 export default function Home() {
   return (
     <div className="page">
       {/* HERO — full-bleed slideshow: welcome → atmosphere → food → space → craft → people */}
       <section className="ih">
         <div className="ih-bg" aria-hidden="true">
-          {/* eslint-disable @next/next/no-img-element */}
-          <img src="/photos/hero-cafe.jpg" alt="" />
-          <img src="/photos/portfolio/tacos-event-venue.jpg" alt="" />
-          <img src="/photos/portfolio/tonkatsu-plate.jpg" alt="" />
-          <img src="/photos/portfolio/kominka-exterior-night.jpg" alt="" />
-          <img src="/photos/portfolio/cafe-pourover.jpg" alt="" />
-          <img src="/photos/portfolio/tonkatsu-chef.jpg" alt="" />
-          {/* eslint-enable @next/next/no-img-element */}
+          <Image src="/photos/hero-cafe.jpg" alt="" fill priority sizes="100vw" quality={90} style={cover} />
+          <Image src="/photos/portfolio/tacos-event-venue.jpg" alt="" fill sizes="100vw" quality={82} style={cover} />
+          <Image src="/photos/portfolio/tonkatsu-plate.jpg" alt="" fill sizes="100vw" quality={82} style={cover} />
+          <Image src="/photos/portfolio/kominka-exterior-night.jpg" alt="" fill sizes="100vw" quality={82} style={cover} />
+          <Image src="/photos/portfolio/cafe-pourover.jpg" alt="" fill sizes="100vw" quality={82} style={cover} />
+          <Image src="/photos/portfolio/tonkatsu-chef.jpg" alt="" fill sizes="100vw" quality={82} style={cover} />
         </div>
         <div className="ih-in">
           <span className="ih-eyebrow">商業写真 ・ ビジュアルブランディング</span>
@@ -58,8 +59,14 @@ export default function Home() {
           </p>
         </div>
         <div className="iphil-img">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/photos/portfolio/cafe-owner.jpg" alt="喫茶店の店主のポートレート。店の人柄が伝わる一枚" />
+          <Image
+            src="/photos/portfolio/cafe-owner.jpg"
+            alt="喫茶店の店主のポートレート。店の人柄が伝わる一枚"
+            fill
+            sizes="(max-width:900px) 100vw, 48vw"
+            quality={82}
+            style={{ objectFit: "cover", objectPosition: "center 28%" }}
+          />
         </div>
       </section>
 
@@ -69,8 +76,14 @@ export default function Home() {
           <span className="ieyebrow">PEOPLE ・ 人と、その空気</span>
         </div>
         <div className="ifeel-hero">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/photos/portfolio/tacos-event-guests.jpg" alt="お店で笑い合うお客様たち。店の空気が伝わる一枚" />
+          <Image
+            src="/photos/portfolio/tacos-event-guests.jpg"
+            alt="お店で笑い合うお客様たち。店の空気が伝わる一枚"
+            fill
+            sizes="100vw"
+            quality={82}
+            style={cover}
+          />
           <div className="ifeel-cap">
             <span className="ipl-t">
               「また来たい」は、<br />
@@ -79,61 +92,59 @@ export default function Home() {
           </div>
         </div>
         <div className="ifeel-row">
-          {/* eslint-disable @next/next/no-img-element */}
           <div className="ife-c">
-            <img src="/photos/portfolio/brand-donut-model.jpg" alt="商品を手に笑うお客様" />
+            <Image src="/photos/portfolio/brand-donut-model.jpg" alt="商品を手に笑うお客様" fill sizes="(max-width:680px) 50vw, 33vw" quality={82} style={cover} />
           </div>
           <div className="ife-c">
-            <img src="/photos/portfolio/tonkatsu-staff.jpg" alt="笑顔で働くお店のスタッフ" />
+            <Image src="/photos/portfolio/tonkatsu-staff.jpg" alt="笑顔で働くお店のスタッフ" fill sizes="(max-width:680px) 50vw, 33vw" quality={82} style={cover} />
           </div>
           <div className="ife-c">
-            <img src="/photos/portfolio/tacos-event-staff.jpg" alt="店を切り盛りするスタッフ" />
+            <Image src="/photos/portfolio/tacos-event-staff.jpg" alt="店を切り盛りするスタッフ" fill sizes="(max-width:680px) 50vw, 33vw" quality={82} style={cover} />
           </div>
-          {/* eslint-enable @next/next/no-img-element */}
         </div>
       </section>
 
-      {/* FOOD — appetizing energy, asymmetric editorial */}
+      {/* FOOD — an editorial story: signature → preparation → detail → dish → people */}
       <section className="ifood">
         <div className="ifood-hd">
           <span className="ieyebrow">FOOD ・ 飲食</span>
+          <span className="ifood-line">おいしさも、人柄も、一皿に。</span>
         </div>
-        <div className="ifood-grid">
-          <Link href="/works" className="ifood-a">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/photos/portfolio/burger-hand.jpg" alt="飲食店のフード撮影。シズル感のあるビジュアル" />
+        <Link href="/works" className="ifood-hero">
+          <Image src="/photos/portfolio/burger-hand.jpg" alt="看板メニューのフード撮影。シズル感のあるビジュアル" fill sizes="100vw" quality={82} style={cover} />
+        </Link>
+        <div className="ifood-row">
+          <Link href="/works" className="ifd-c">
+            <Image src="/photos/portfolio/tonkatsu-chef.jpg" alt="調理する職人。仕込みの風景" fill sizes="(max-width:680px) 50vw, 25vw" quality={82} style={cover} />
           </Link>
-          <div className="ifood-txt">
-            <p className="ipl-t dark">
-              おいしさも、<br />
-              人柄も。
-            </p>
-            <Link href="/works" className="ifood-b">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/photos/portfolio/tacos-table.jpg" alt="料理を囲むテーブルの撮影" />
-            </Link>
-          </div>
+          <Link href="/works" className="ifd-c">
+            <Image src="/photos/portfolio/tacos-macro.jpg" alt="料理のディテール、寄りの一枚" fill sizes="(max-width:680px) 50vw, 25vw" quality={82} style={cover} />
+          </Link>
+          <Link href="/works" className="ifd-c">
+            <Image src="/photos/portfolio/wagashi-dorayaki.jpg" alt="和菓子の一皿" fill sizes="(max-width:680px) 50vw, 25vw" quality={82} style={cover} />
+          </Link>
+          <Link href="/works" className="ifd-c">
+            <Image src="/photos/portfolio/tacos-event-table.jpg" alt="料理を囲むお客様" fill sizes="(max-width:680px) 50vw, 25vw" quality={82} style={cover} />
+          </Link>
         </div>
       </section>
 
-      {/* PRODUCTS — a quiet lineup, natural aspect, no crops */}
+      {/* PRODUCTS — an aligned grid, secondary to the atmosphere */}
       <section className="iprod">
         <div className="iprod-hd">
           <span className="ieyebrow">PRODUCT ・ 商品・EC</span>
           <span className="iprod-line">そのこだわりを、まっすぐ。</span>
         </div>
-        <div className="iprod-row">
-          {/* eslint-disable @next/next/no-img-element */}
-          <Link href="/works" className="iprod-c">
-            <img src="/photos/portfolio/sriracha-lying.jpg" alt="ホットソースの商品撮影" />
+        <div className="iprod-grid">
+          <Link href="/works" className="iprd-c">
+            <Image src="/photos/portfolio/sriracha-lying.jpg" alt="ホットソースの商品撮影" fill sizes="(max-width:680px) 100vw, 33vw" quality={82} style={cover} />
           </Link>
-          <Link href="/works" className="iprod-c">
-            <img src="/photos/portfolio/donut-blue.jpg" alt="ドーナツの商品撮影" />
+          <Link href="/works" className="iprd-c">
+            <Image src="/photos/portfolio/donut-blue.jpg" alt="ドーナツの商品撮影" fill sizes="(max-width:680px) 100vw, 33vw" quality={82} style={cover} />
           </Link>
-          <Link href="/works" className="iprod-c">
-            <img src="/photos/portfolio/natto-lift.jpg" alt="納豆の商品撮影" />
+          <Link href="/works" className="iprd-c">
+            <Image src="/photos/portfolio/natto-lift.jpg" alt="納豆の商品撮影" fill sizes="(max-width:680px) 100vw, 33vw" quality={82} style={cover} />
           </Link>
-          {/* eslint-enable @next/next/no-img-element */}
         </div>
       </section>
 
@@ -146,20 +157,18 @@ export default function Home() {
           </Link>
         </div>
         <div className="ispace-grid">
-          {/* eslint-disable @next/next/no-img-element */}
           <Link href="/works" className="isp-c">
-            <img src="/photos/portfolio/kominka-exterior-day.jpg" alt="古民家を改装した店舗の外観" />
+            <Image src="/photos/portfolio/kominka-exterior-day.jpg" alt="古民家を改装した店舗の外観" fill sizes="(max-width:680px) 100vw, 50vw" quality={82} style={cover} />
           </Link>
           <Link href="/works" className="isp-c">
-            <img src="/photos/portfolio/kominka-lattice.jpg" alt="格子と設えのある店内" />
+            <Image src="/photos/portfolio/kominka-lattice.jpg" alt="格子と設えのある店内" fill sizes="(max-width:680px) 100vw, 50vw" quality={82} style={cover} />
           </Link>
           <Link href="/works" className="isp-c">
-            <img src="/photos/portfolio/kominka-dining-night.jpg" alt="夜の店内、あたたかい灯り" />
+            <Image src="/photos/portfolio/kominka-dining-night.jpg" alt="夜の店内、あたたかい灯り" fill sizes="(max-width:680px) 100vw, 50vw" quality={82} style={cover} />
           </Link>
           <Link href="/works" className="isp-c">
-            <img src="/photos/portfolio/kominka-moon-door.jpg" alt="円窓のある空間" />
+            <Image src="/photos/portfolio/kominka-moon-door.jpg" alt="円窓のある空間" fill sizes="(max-width:680px) 100vw, 50vw" quality={82} style={cover} />
           </Link>
-          {/* eslint-enable @next/next/no-img-element */}
         </div>
       </section>
 
@@ -186,8 +195,7 @@ export default function Home() {
       {/* CLOSE — full-bleed, bold CTA */}
       <section className="iclose">
         <div className="iclose-bg" aria-hidden="true">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/photos/hero-kominka.jpg" alt="" />
+          <Image src="/photos/hero-kominka.jpg" alt="" fill sizes="100vw" quality={82} style={cover} />
         </div>
         <div className="iclose-in">
           <h2>
@@ -209,10 +217,13 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/photos/kansai-snaps-portrait.jpg"
             alt="Kansai Snaps によるポートレート。関西の街並みで撮る、エディトリアルな人物写真"
+            fill
+            sizes="(max-width:900px) 100vw, 42vw"
+            quality={82}
+            style={{ objectFit: "cover", objectPosition: "center 30%" }}
           />
         </a>
         <div className="ks-txt">

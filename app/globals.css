@@ -8,6 +8,7 @@
   --mid:#888;
   --bd:#E0DDDA;
   --text:#1A1A1A;
+  --gut:clamp(24px,5vw,80px); /* one consistent page gutter — everything aligns to it */
 }
 html{scroll-behavior:smooth;}
 body{
@@ -113,9 +114,9 @@ header{
 .ibtn.light{background:#fff;color:var(--bk);}
 .ibtn.light:hover{background:var(--mg);color:#fff;}
 
-/* PHILOSOPHY — two-column: the studio's belief + a warm human frame */
-.iphil{display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;background:var(--off);}
-.iphil-txt{padding:clamp(56px,10vh,140px) clamp(28px,5vw,88px);display:flex;flex-direction:column;justify-content:center;}
+/* PHILOSOPHY — a framed two-column spread: belief + a warm human frame */
+.iphil{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(28px,4vw,64px);align-items:stretch;background:var(--off);padding:clamp(56px,10vh,132px) var(--gut);}
+.iphil-txt{display:flex;flex-direction:column;justify-content:center;}
 .ith-eyebrow{display:block;font-family:'Inter','Noto Sans JP',sans-serif;font-size:clamp(10px,1vw,12px);font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--mg);margin-bottom:clamp(20px,3vw,36px);}
 .iphil-txt h2{
   font-family:'Noto Sans JP',sans-serif;
@@ -127,8 +128,7 @@ header{
   font-family:'Noto Sans JP',sans-serif;
   font-size:clamp(14px,1.2vw,16px);color:#555;font-weight:400;line-height:2;
 }
-.iphil-img{position:relative;overflow:hidden;min-height:clamp(440px,72vh,760px);}
-.iphil-img img{width:100%;height:100%;object-fit:cover;object-position:center 28%;}
+.iphil-img{position:relative;overflow:hidden;min-height:clamp(420px,58vh,600px);}
 
 /* shared editorial labels + captions */
 .ieyebrow{font-family:'Inter','Noto Sans JP',sans-serif;font-size:clamp(10px,1vw,12px);font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mg);}
@@ -142,44 +142,44 @@ header{
 
 /* PEOPLE — the feeling. Atmosphere, customers, staff. */
 .ifeel{padding:clamp(60px,9vw,120px) 0 clamp(40px,6vw,80px);background:#fff;}
-.ifeel-lead{padding:0 clamp(24px,5vw,80px) clamp(22px,3vw,40px);}
+.ifeel-lead{padding:0 var(--gut) clamp(22px,3vw,40px);}
 .ifeel-hero{position:relative;overflow:hidden;height:clamp(380px,62vh,620px);}
-.ifeel-hero img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 1.4s cubic-bezier(.2,.7,.2,1);}
+.ifeel-hero img{transition:transform 1.4s cubic-bezier(.2,.7,.2,1);}
 .ifeel-hero:hover img{transform:scale(1.04);}
-.ifeel-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.6),rgba(0,0,0,.04) 44%,transparent);}
-.ifeel-cap{position:absolute;left:clamp(24px,5vw,80px);bottom:clamp(28px,4vw,54px);z-index:2;}
-.ifeel-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(12px,1.6vw,24px);padding:clamp(12px,1.6vw,24px) clamp(24px,5vw,80px) 0;}
-.ife-c{overflow:hidden;aspect-ratio:3/2;}
-.ife-c img{width:100%;height:100%;object-fit:cover;transition:transform 1.3s cubic-bezier(.2,.7,.2,1);}
+.ifeel-hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(0,0,0,.6),rgba(0,0,0,.04) 44%,transparent);}
+.ifeel-cap{position:absolute;left:var(--gut);bottom:clamp(28px,4vw,54px);z-index:2;}
+.ifeel-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(12px,1.6vw,24px);padding:clamp(12px,1.6vw,24px) var(--gut) 0;}
+.ife-c{position:relative;overflow:hidden;aspect-ratio:3/2;}
+.ife-c img{transition:transform 1.3s cubic-bezier(.2,.7,.2,1);}
 .ife-c:hover img{transform:scale(1.05);}
 
-/* FOOD — appetizing energy, asymmetric editorial */
-.ifood{padding:clamp(56px,8vw,116px) clamp(24px,5vw,80px);background:var(--off);}
-.ifood-hd{padding-bottom:clamp(20px,2.6vw,38px);}
-.ifood-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(24px,4vw,60px);align-items:center;}
-.ifood-a{display:block;overflow:hidden;aspect-ratio:3/2;}
-.ifood-a img{width:100%;height:100%;object-fit:cover;transition:transform 1.3s cubic-bezier(.2,.7,.2,1);}
-.ifood-a:hover img{transform:scale(1.05);}
-.ifood-txt{display:flex;flex-direction:column;gap:clamp(22px,3vw,40px);}
-.ifood-b{display:block;overflow:hidden;aspect-ratio:4/5;}
-.ifood-b img{width:100%;height:100%;object-fit:cover;transition:transform 1.3s cubic-bezier(.2,.7,.2,1);}
-.ifood-b:hover img{transform:scale(1.05);}
+/* FOOD — an editorial story: signature dish, then prep / detail / dish / people */
+.ifood{padding:clamp(56px,8vw,116px) 0;background:var(--off);}
+.ifood-hd{display:flex;align-items:baseline;gap:clamp(14px,2vw,26px);flex-wrap:wrap;padding:0 var(--gut) clamp(24px,3vw,44px);}
+.ifood-line{font-family:'Noto Sans JP',sans-serif;font-weight:700;font-size:clamp(15px,1.5vw,20px);color:var(--bk);letter-spacing:-.01em;}
+.ifood-hero{position:relative;display:block;overflow:hidden;height:clamp(340px,56vh,580px);margin:0 var(--gut);}
+.ifood-hero img{transition:transform 1.4s cubic-bezier(.2,.7,.2,1);}
+.ifood-hero:hover img{transform:scale(1.04);}
+.ifood-row{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.6vw,24px);padding:clamp(12px,1.6vw,24px) var(--gut) 0;}
+.ifd-c{position:relative;display:block;overflow:hidden;aspect-ratio:1/1;}
+.ifd-c img{transition:transform 1.3s cubic-bezier(.2,.7,.2,1);}
+.ifd-c:hover img{transform:scale(1.05);}
 
-/* PRODUCT — a quiet lineup, natural aspect, no forced crops */
-.iprod{padding:clamp(56px,8vw,116px) clamp(24px,5vw,80px);background:var(--warm);}
-.iprod-hd{display:flex;align-items:baseline;gap:clamp(14px,2vw,26px);flex-wrap:wrap;padding-bottom:clamp(28px,4vw,52px);}
+/* PRODUCT — an aligned grid, secondary to the atmosphere */
+.iprod{padding:clamp(56px,8vw,116px) var(--gut);background:var(--warm);}
+.iprod-hd{display:flex;align-items:baseline;gap:clamp(14px,2vw,26px);flex-wrap:wrap;padding-bottom:clamp(24px,3vw,44px);}
 .iprod-line{font-family:'Noto Sans JP',sans-serif;font-weight:700;font-size:clamp(15px,1.5vw,20px);color:var(--bk);letter-spacing:-.01em;}
-.iprod-row{display:flex;justify-content:center;align-items:flex-end;gap:clamp(16px,3vw,52px);flex-wrap:wrap;}
-.iprod-c{display:block;overflow:hidden;}
-.iprod-c img{height:clamp(260px,40vh,440px);width:auto;max-width:100%;display:block;transition:transform 1.3s cubic-bezier(.2,.7,.2,1);}
-.iprod-c:hover img{transform:scale(1.04);}
+.iprod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,24px);}
+.iprd-c{position:relative;display:block;overflow:hidden;aspect-ratio:4/5;}
+.iprd-c img{transition:transform 1.3s cubic-bezier(.2,.7,.2,1);}
+.iprd-c:hover img{transform:scale(1.05);}
 
 /* SPACE — clean 2×2 landscape grid, natural composition */
-.ispace{padding:clamp(56px,8vw,116px) clamp(24px,5vw,80px);background:#fff;}
+.ispace{padding:clamp(56px,8vw,116px) var(--gut);background:#fff;}
 .ispace-hd{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding-bottom:clamp(24px,3vw,44px);}
 .ispace-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,24px);}
-.isp-c{display:block;overflow:hidden;aspect-ratio:3/2;}
-.isp-c img{width:100%;height:100%;object-fit:cover;transition:transform 1.3s cubic-bezier(.2,.7,.2,1);}
+.isp-c{position:relative;display:block;overflow:hidden;aspect-ratio:3/2;}
+.isp-c img{transition:transform 1.3s cubic-bezier(.2,.7,.2,1);}
 .isp-c:hover img{transform:scale(1.05);}
 
 /* WHAT WE DO — bold gothic index. Names only. */
@@ -254,19 +254,19 @@ header{
 @media(max-width:900px){
   .iphil{grid-template-columns:1fr;}
   .iphil-img{min-height:0;aspect-ratio:4/3;order:-1;}
-  .ifood-grid{grid-template-columns:1fr;gap:24px;}
   .ksnap{grid-template-columns:1fr;}
   .ks-img{min-height:0;aspect-ratio:4/5;order:-1;}
 }
 @media(max-width:680px){
-  .ih-in{max-width:100%;padding-left:24px;padding-right:24px;}
+  .ih-in{max-width:100%;}
   .ih-scroll{display:none;}
   .ifeel-hero{height:52vh;}
   .ifeel-row{grid-template-columns:1fr 1fr;}
+  .ifood-hero{height:48vh;}
+  .ifood-row{grid-template-columns:1fr 1fr;}
   .ispace-grid{grid-template-columns:1fr;}
-  .iprod-c img{height:clamp(220px,44vh,340px);}
   .iclose::after{background:linear-gradient(0deg,rgba(0,0,0,.86),rgba(0,0,0,.3) 68%,transparent);}
-  .ispace-hd,.isvc-hd,.iprod-hd{flex-direction:column;align-items:flex-start;gap:8px;}
+  .ispace-hd,.isvc-hd,.iprod-hd,.ifood-hd{flex-direction:column;align-items:flex-start;gap:8px;}
   .isvc-list li a{flex-direction:column;align-items:flex-start;gap:6px;}
 }
 
