@@ -86,7 +86,7 @@ export default function ServiceCategories() {
               src={`/photos/${c.img}.jpg`}
               alt={c.alt}
               fill
-              sizes="(max-width:900px) 100vw, 58vw"
+              sizes="100vw"
               quality={82}
               style={{ objectFit: "cover", objectPosition: c.objectPosition ?? "center" }}
             />
