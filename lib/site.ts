@@ -1,6 +1,6 @@
 // Central site constants. If a custom domain is added later, update SITE_URL
 // here only — layout metadata, sitemap, robots, and the JSON-LD all read from this.
-export const SITE_URL = "https://studio-kurisusan.vercel.app";
+export const SITE_URL = "https://studiokurisusan.com";
 export const SITE_NAME = "Studio くりすさん";
 export const SITE_DESCRIPTION =
   "集客・採用・ブランディングなど、小さなビジネスの課題を解決する大阪のクリエイティブパートナー。写真・デザイン・Googleビジネス・SNS・AIを手段に、継続的にご一緒します。";
