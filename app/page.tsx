@@ -29,7 +29,7 @@ export default function Home() {
           <Image src="/photos/portfolio/tonkatsu-chef.jpg" alt="" fill sizes="100vw" quality={82} style={cover} />
         </div>
         <div className="ih-in">
-          <span className="ih-eyebrow">商業写真 ・ ビジュアルブランディング</span>
+          <span className="ih-eyebrow">店舗・企業のビジュアルブランディング</span>
           <h1 className="ih-title">
             <em>「ようこそ」</em>は、<br />
             言葉より先に。
@@ -108,7 +108,7 @@ export default function Home() {
       <section className="ifood">
         <div className="ifood-hd">
           <span className="ieyebrow">FOOD ・ 飲食</span>
-          <span className="ifood-line">おいしさも、人柄も、一皿に。</span>
+          <span className="ifood-line">「食べたい」は、一皿から。</span>
         </div>
         <Link href="/works" className="ifood-hero">
           <Image src="/photos/portfolio/burger-hand.jpg" alt="看板メニューのフード撮影。シズル感のあるビジュアル" fill sizes="100vw" quality={82} style={cover} />
@@ -133,7 +133,7 @@ export default function Home() {
       <section className="iprod">
         <div className="iprod-hd">
           <span className="ieyebrow">PRODUCT ・ 商品・EC</span>
-          <span className="iprod-line">そのこだわりを、まっすぐ。</span>
+          <span className="iprod-line">選ばれる理由を、まっすぐ。</span>
         </div>
         <div className="iprod-grid">
           <Link href="/works" className="iprd-c">
@@ -202,7 +202,7 @@ export default function Home() {
             その<em>「らしさ」</em>を、<br />
             一緒に見つけましょう。
           </h2>
-          <p>何を撮るか決まっていなくても大丈夫です。まずは、お店のことを聞かせてください。ご相談は無料です。</p>
+          <p>何から始めればいいか決まっていなくても大丈夫です。まずは、お店のことを聞かせてください。ご相談は無料です。</p>
           <Link href="/contact" className="ibtn light">
             相談する
           </Link>
