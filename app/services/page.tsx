@@ -44,33 +44,36 @@ const PROCESS = [
 export default function ServicesPage() {
   return (
     <div className="page">
-      {/* HERO — split editorial: bold statement + large image */}
+      {/* HERO — type-led: confident statement on whitespace, no hero image */}
       <section className="svc-hero">
-        <div className="svc-hero-in">
-          <span className="pre">SERVICE ・ できること</span>
-          <h1>
-            写真や動画ではなく、
-            <br />
-            <em>仕事の武器</em>を。
-          </h1>
-          <p>
-            SNS、Googleマップ、Webサイト。見つけて、わかって、選んでもらう。その一歩を、ビジュアルでつくります。
-          </p>
-          <Link href="/contact" className="btn-big">
-            相談する
-          </Link>
-        </div>
-        <div className="svc-hero-img">
-          <Image
-            src="/photos/portfolio/tacos-shop.jpg"
-            alt="夜に灯る飲食店の店構え"
-            fill
-            priority
-            sizes="(max-width:900px) 100vw, 48vw"
-            quality={82}
-            style={{ objectFit: "cover", objectPosition: "center 55%" }}
-          />
-        </div>
+        <span className="pre">SERVICE ・ できること</span>
+        <h1>
+          写真や動画ではなく、
+          <br />
+          <em>仕事の武器</em>を。
+        </h1>
+        <p>
+          SNS、Googleマップ、Webサイト。見つけて、わかって、選んでもらう。その一歩を、ビジュアルでつくります。
+        </p>
+        <Link href="/contact" className="btn-big">
+          相談する
+        </Link>
+      </section>
+
+      {/* FIRST BREATH — full-bleed editorial plate */}
+      <section className="svc-breath">
+        <Image
+          src="/photos/portfolio/model-natural.jpg"
+          alt="自然な佇まいのポートレート撮影"
+          fill
+          priority
+          sizes="100vw"
+          quality={82}
+          style={{ objectFit: "cover", objectPosition: "center 22%" }}
+        />
+        <span className="svc-breath-cap">
+          ambitious businesses, seen clearly
+        </span>
       </section>
 
       <ServiceCategories />
@@ -146,22 +149,22 @@ export default function ServicesPage() {
       <PriceCalculator />
 
       {/* CTA */}
-      <section className="cta-f">
-        <div>
+      <section className="svc-cta">
+        <div className="svc-cta-in">
           <h2>
             まずは、<em>お店のことを聞かせてください。</em>
           </h2>
           <p>
             何から始めればいいか決まっていなくても大丈夫です。目的やご予算に合わせて、無料でご提案します。
           </p>
-        </div>
-        <div className="cta-actions">
-          <Link href="/contact" className="btn-big">
-            無料で相談する
-          </Link>
-          <Link href="/works" className="btn-txt">
-            実績を見る
-          </Link>
+          <div className="svc-cta-actions">
+            <Link href="/contact" className="btn-big">
+              無料で相談する
+            </Link>
+            <Link href="/works" className="btn-txt">
+              実績を見る
+            </Link>
+          </div>
         </div>
       </section>
 

@@ -1,75 +1,85 @@
 import Image from "next/image";
 
-/* Organized by business type / problem, not by photography service. Each block
-   opens with the client's problem (Works-page voice) over a large editorial
-   image. Only categories we can genuinely back with distinct imagery get a
-   block; the rest are named in the "also" line below. */
+/* Organized by business type / problem, not by photography service. Editorial
+   pacing: a couple of full-bleed immersive bands as punctuation, the rest
+   breathe as split / text-forward layouts on white — magazine rhythm, not six
+   identical hero banners. Only categories we can genuinely back with distinct
+   imagery get a block; the rest are named in the "also" line below. */
+type Img = { src: string; alt: string; pos?: string };
 type Category = {
+  layout: "bleed" | "split" | "feature";
   en: string;
   ja: string;
-  img: string;
-  alt: string;
   problem: string;
   body: string;
-  objectPosition?: string;
+  flip?: boolean; // split: image on the right instead of the left
+  img?: Img; // bleed + split
+  imgs?: Img[]; // feature (product cluster)
 };
 
 const CATEGORIES: Category[] = [
   {
+    layout: "bleed",
     en: "Restaurants",
     ja: "飲食店",
-    img: "portfolio/burger-cross",
-    alt: "断面の美しいスマッシュバーガー",
     problem: "いい店なのに、画面の中では素通りされている。",
     body: "料理も、店の空気も、ちゃんと伝われば「行ってみたい」に変わる。Googleマップ、SNS、メニュー。お客様が来店を決める場所を、強くします。",
-    objectPosition: "center 50%",
+    img: { src: "portfolio/burger-cross", alt: "断面の美しいスマッシュバーガー", pos: "center 50%" },
   },
   {
+    layout: "split",
     en: "Spaces & Architecture",
     ja: "空間・店舗・建築",
-    img: "portfolio/kominka-chair",
-    alt: "円窓のある古民家のくつろぎの空間",
     problem: "行く前に、その場所の心地よさは決まっている。",
     body: "内観、外観、灯り。予約サイトやGoogleマップで「ここがいい」と選ばれる入口をつくります。店舗、建築、不動産まで。",
-    objectPosition: "center 45%",
+    img: { src: "portfolio/kominka-chair", alt: "円窓のある古民家のくつろぎの空間", pos: "center 45%" },
   },
   {
+    layout: "feature",
     en: "Products & EC",
     ja: "商品・EC",
-    img: "portfolio/mayo-bottle",
-    alt: "調味料の商品撮影",
     problem: "自撮りの写真で、実際より安く見えていないか。",
     body: "その価値が、必要としている人にまっすぐ伝わること。それが、ECやSNSで選ばれる理由になります。",
-    objectPosition: "center 40%",
+    imgs: [
+      { src: "portfolio/sriracha-lying", alt: "調味料ボトルの商品撮影" },
+      { src: "portfolio/mayo-bottle", alt: "白背景の調味料の商品撮影" },
+    ],
   },
   {
+    layout: "split",
+    flip: true,
     en: "Retail & Apparel",
     ja: "アパレル・小売",
-    img: "portfolio/model-natural",
-    alt: "アパレルのモデル撮影、自然な佇まい",
     problem: "何を大切にしているか。伝われば、見つけてもらえる。",
     body: "トーンの合ったビジュアルで、SNSも、発信も、同じメッセージを届ける。ブランドを、必要としている人とつなぎます。",
-    objectPosition: "center 25%",
+    img: { src: "portfolio/fashion-pink-look", alt: "明るいスタジオでのアパレル撮影", pos: "center 25%" },
   },
   {
+    layout: "split",
     en: "Corporate & Recruitment",
     ja: "企業・採用",
-    img: "on-location",
-    alt: "現場で働く人、仕事の風景",
     problem: "「どんな会社か」が伝われば、合う人が集まる。",
     body: "働く人、現場、その文化。採用も、コーポレートも、価値観の合う人との出会いを増やします。",
-    objectPosition: "center 40%",
+    img: { src: "on-location", alt: "現場で働く人、仕事の風景", pos: "center 40%" },
   },
   {
+    layout: "bleed",
     en: "Events & PR",
     ja: "イベント・PR",
-    img: "portfolio/tacos-event-night",
-    alt: "夜のイベント会場の熱気",
     problem: "イベントは、当日で終わらせない。",
     body: "その日の熱を、次の集客・SNS・プレスへ。あとから使い続けられる素材にします。",
-    objectPosition: "center 45%",
+    img: { src: "portfolio/tacos-event-night", alt: "夜のイベント会場の熱気", pos: "center 40%" },
   },
 ];
+
+function Eyebrow({ en, ja, dark }: { en: string; ja: string; dark?: boolean }) {
+  return (
+    <span className={`sc-eyebrow${dark ? " on-dark" : ""}`}>
+      <span className="sc-eyebrow-en">{en}</span>
+      <span className="sc-eyebrow-ja">{ja}</span>
+    </span>
+  );
+}
 
 export default function ServiceCategories() {
   return (
@@ -79,28 +89,76 @@ export default function ServiceCategories() {
         <h2>あなたのビジネスから、考える。</h2>
       </div>
 
-      {CATEGORIES.map((c, i) => (
-        <article className={`sc-cat${i % 2 ? " flip" : ""}`} key={c.en}>
-          <div className="sc-cat-img">
-            <Image
-              src={`/photos/${c.img}.jpg`}
-              alt={c.alt}
-              fill
-              sizes="100vw"
-              quality={82}
-              style={{ objectFit: "cover", objectPosition: c.objectPosition ?? "center" }}
-            />
-          </div>
-          <div className="sc-cat-txt">
-            <span className="sc-cat-eyebrow">
-              <span className="sc-cat-en">{c.en}</span>
-              <span className="sc-cat-ja">{c.ja}</span>
-            </span>
-            <h3>{c.problem}</h3>
-            <p>{c.body}</p>
-          </div>
-        </article>
-      ))}
+      {CATEGORIES.map((c) => {
+        if (c.layout === "bleed") {
+          return (
+            <article className="sc-cat" key={c.en}>
+              <div className="sc-cat-img">
+                <Image
+                  src={`/photos/${c.img!.src}.jpg`}
+                  alt={c.img!.alt}
+                  fill
+                  sizes="100vw"
+                  quality={82}
+                  style={{ objectFit: "cover", objectPosition: c.img!.pos ?? "center" }}
+                />
+              </div>
+              <div className="sc-cat-txt">
+                <Eyebrow en={c.en} ja={c.ja} dark />
+                <h3>{c.problem}</h3>
+                <p>{c.body}</p>
+              </div>
+            </article>
+          );
+        }
+
+        if (c.layout === "feature") {
+          return (
+            <article className="sc-feat" key={c.en}>
+              <div className="sc-feat-txt">
+                <Eyebrow en={c.en} ja={c.ja} />
+                <h3>{c.problem}</h3>
+                <p>{c.body}</p>
+              </div>
+              <div className="sc-feat-imgs">
+                {c.imgs!.map((im, i) => (
+                  <div className={`sc-feat-img ${i === 0 ? "a" : "b"}`} key={im.src}>
+                    <Image
+                      src={`/photos/${im.src}.jpg`}
+                      alt={im.alt}
+                      fill
+                      sizes="(max-width:900px) 45vw, 24vw"
+                      quality={82}
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </article>
+          );
+        }
+
+        // split
+        return (
+          <article className={`sc-split${c.flip ? " flip" : ""}`} key={c.en}>
+            <div className="sc-split-img">
+              <Image
+                src={`/photos/${c.img!.src}.jpg`}
+                alt={c.img!.alt}
+                fill
+                sizes="(max-width:900px) 100vw, 50vw"
+                quality={82}
+                style={{ objectFit: "cover", objectPosition: c.img!.pos ?? "center" }}
+              />
+            </div>
+            <div className="sc-split-txt">
+              <Eyebrow en={c.en} ja={c.ja} />
+              <h3>{c.problem}</h3>
+              <p>{c.body}</p>
+            </div>
+          </article>
+        );
+      })}
 
       <p className="sc-also">
         宿・旅館、美容・サロン、観光・インバウンドなど、他の業種のご相談も歓迎します。
