@@ -13,6 +13,7 @@ type Category = {
   problem: string;
   body: string;
   flip?: boolean; // split: image on the right instead of the left
+  tall?: boolean; // bleed: extra height for negative space
   img?: Img; // bleed + split
   imgs?: Img[]; // feature (product cluster)
 };
@@ -38,7 +39,7 @@ const CATEGORIES: Category[] = [
     layout: "feature",
     en: "Products & EC",
     ja: "商品・EC",
-    problem: "自撮りの写真で、実際より安く見えていないか。",
+    problem: "いいものだと、ひと目で伝える。",
     body: "その価値が、必要としている人にまっすぐ伝わること。それが、ECやSNSで選ばれる理由になります。",
     imgs: [
       { src: "portfolio/sriracha-lying", alt: "調味料ボトルの商品撮影" },
@@ -50,9 +51,9 @@ const CATEGORIES: Category[] = [
     flip: true,
     en: "Retail & Apparel",
     ja: "アパレル・小売",
-    problem: "何を大切にしているか。伝われば、見つけてもらえる。",
+    problem: "見た目がそろうと、ブランドになる。",
     body: "トーンの合ったビジュアルで、SNSも、発信も、同じメッセージを届ける。ブランドを、必要としている人とつなぎます。",
-    img: { src: "portfolio/fashion-pink-look", alt: "明るいスタジオでのアパレル撮影", pos: "center 25%" },
+    img: { src: "portfolio/brand-donut-model", alt: "ブランドらしさが伝わるライフスタイル撮影", pos: "38% 22%" },
   },
   {
     layout: "split",
@@ -60,15 +61,16 @@ const CATEGORIES: Category[] = [
     ja: "企業・採用",
     problem: "「どんな会社か」が伝われば、合う人が集まる。",
     body: "働く人、現場、その文化。採用も、コーポレートも、価値観の合う人との出会いを増やします。",
-    img: { src: "on-location", alt: "現場で働く人、仕事の風景", pos: "center 40%" },
+    img: { src: "portfolio/cafe-owner", alt: "店を営む人のポートレート", pos: "center 30%" },
   },
   {
     layout: "bleed",
+    tall: true,
     en: "Events & PR",
     ja: "イベント・PR",
     problem: "イベントは、当日で終わらせない。",
     body: "その日の熱を、次の集客・SNS・プレスへ。あとから使い続けられる素材にします。",
-    img: { src: "portfolio/tacos-event-night", alt: "夜のイベント会場の熱気", pos: "center 40%" },
+    img: { src: "portfolio/tacos-event-night", alt: "夜のイベント会場の熱気", pos: "center 26%" },
   },
 ];
 
@@ -92,7 +94,7 @@ export default function ServiceCategories() {
       {CATEGORIES.map((c) => {
         if (c.layout === "bleed") {
           return (
-            <article className="sc-cat" key={c.en}>
+            <article className={`sc-cat${c.tall ? " tall" : ""}`} key={c.en}>
               <div className="sc-cat-img">
                 <Image
                   src={`/photos/${c.img!.src}.jpg`}
