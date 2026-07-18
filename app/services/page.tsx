@@ -62,13 +62,13 @@ export default function ServicesPage() {
         </div>
         <div className="svc-hero-img">
           <Image
-            src="/photos/portfolio/kominka-exterior-night.jpg"
-            alt="夜に灯る古民家を改装した店舗"
+            src="/photos/portfolio/tacos-shop.jpg"
+            alt="夜に灯る飲食店の店構え"
             fill
             priority
             sizes="(max-width:900px) 100vw, 48vw"
             quality={82}
-            style={{ objectFit: "cover", objectPosition: "center 58%" }}
+            style={{ objectFit: "cover", objectPosition: "center 55%" }}
           />
         </div>
       </section>
