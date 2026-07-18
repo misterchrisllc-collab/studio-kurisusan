@@ -649,19 +649,19 @@ footer p{font-size:11px;color:#8f8f8f;font-family:'Inter',sans-serif;}
 .pf-intro p{color:#999;font-size:13px;font-family:'Inter',sans-serif;font-weight:300;max-width:560px;line-height:1.8;}
 /* Works closing band — business-tool philosophy, gothic + warm (design system). */
 .wk-phil{
-  padding:clamp(72px,11vw,140px) var(--gut);
+  padding:clamp(96px,15vw,200px) var(--gut);
   border-top:1px solid var(--bd);background:var(--off);
 }
-.wk-phil .pre{font-size:11px;letter-spacing:3px;color:var(--mg);font-family:'Inter',sans-serif;text-transform:uppercase;margin-bottom:22px;display:block;}
+.wk-phil .pre{font-size:11px;letter-spacing:3px;color:var(--mg);font-family:'Inter',sans-serif;text-transform:uppercase;margin-bottom:34px;display:block;}
 .wk-phil h2{
   font-family:'Noto Sans JP',sans-serif;font-weight:900;
-  font-size:clamp(30px,5.2vw,64px);line-height:1.14;letter-spacing:-1px;
-  margin-bottom:26px;
+  font-size:clamp(40px,8vw,104px);line-height:1.42;letter-spacing:-2px;
+  margin-bottom:48px;
 }
 .wk-phil h2 em{font-style:normal;color:var(--mg);}
 .wk-phil p{
   font-family:'Noto Sans JP',sans-serif;font-weight:400;
-  font-size:clamp(14px,1.5vw,17px);color:#555;line-height:2;max-width:620px;
+  font-size:clamp(15px,1.6vw,19px);color:#555;line-height:2.1;max-width:640px;
 }
 
 /* filters: magenta is a seal, never a fill (design system). The active tab is

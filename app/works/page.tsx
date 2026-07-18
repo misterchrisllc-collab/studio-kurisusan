@@ -16,7 +16,7 @@ export default function WorksPage() {
         <span className="pre">WORKS</span>
         <h1>WORKS</h1>
         <p className="wk-lead">
-          撮った写真より、その先で起きたこと。
+          ビジュアルが変わると、仕事も変わる。
         </p>
         <p>
           業種ごとの課題に、どんなビジュアルで応えるか。作例と、これまでの取り組みから。実際のご依頼事例は、許可をいただいたものから順に掲載していきます。

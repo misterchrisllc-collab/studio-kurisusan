@@ -152,7 +152,7 @@ export default function PortfolioGallery() {
     <section className="pf" id="portfolio">
       <div className="pf-intro">
         <span className="pre">PORTFOLIO</span>
-        <h2>作品集</h2>
+        <h2>WORKS</h2>
         <p>飲食店・商品・ファッション・人物。大阪を拠点に撮影した実際の作品から。</p>
       </div>
 
