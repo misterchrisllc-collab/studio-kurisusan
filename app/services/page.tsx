@@ -1,61 +1,21 @@
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "@/components/Footer";
+import ServiceCategories from "@/components/ServiceCategories";
 import ServiceList from "@/components/ServiceList";
 import FAQ from "@/components/FAQ";
 import PriceCalculator from "@/components/PriceCalculator";
 
 export const metadata = {
-  title: "ビジネスソリューション・料金",
+  title: "できること・料金",
   description:
-    "開業ブランディング、ブランドリフレッシュ、Googleビジネス強化、採用ブランディング、クリエイティブパートナー、イベント・PR撮影、季節キャンペーン。大阪で、小さなビジネスの課題を解決するクリエイティブスタジオ。料金の目安・よくあるご質問。",
+    "集客・採用・ブランディングなど、小さなビジネスの課題を、ビジュアルで解決する大阪のクリエイティブスタジオ。飲食店・空間・商品・アパレル・企業・イベント。業種ごとの課題と、料金の目安・よくあるご質問。",
   alternates: { canonical: "/services" },
 };
 
-// Six flagship business solutions — the primary way we frame our work.
-// Not a service menu: outcomes and partnerships, all built on photography.
-type Solution = { name: string; en: string; desc: string; flagship?: boolean };
-const SOLUTIONS: Solution[] = [
-  {
-    name: "開業・オープンブランディング",
-    en: "Business Launch",
-    desc: "開業やリブランディングに合わせ、店名・世界観・写真・発信を一度に整えます。最初の第一印象から「らしさ」を。",
-  },
-  {
-    name: "ブランドリフレッシュ",
-    en: "Brand Refresh",
-    desc: "既存ビジネスの見え方を、今の姿に更新。古く見える写真や不揃いな素材を、一貫した表現に整え直します。",
-  },
-  {
-    name: "Googleビジネス強化",
-    en: "Google Business Boost",
-    desc: "Googleマップと検索の入口を強化。写真の刷新から定期的な更新まで、地域での見つけやすさを継続的に高めます。",
-  },
-  {
-    name: "採用ブランディング",
-    en: "Recruitment Branding",
-    desc: "会社の文化と働く人の魅力を、正直なビジュアルで。価値観の合う応募者との出会いを増やします。",
-  },
-  {
-    name: "クリエイティブパートナー",
-    en: "Creative Partner",
-    flagship: true,
-    desc: "撮影を都度お願いするのではなく、ブランドの「伴走者」を持つ月額契約。私たちの中心となる、継続的なパートナーシップです。",
-  },
-  {
-    name: "イベント・PR撮影",
-    en: "Event Marketing Content",
-    desc: "イベントは当日で終わりではありません。当日の記録に加え、次回集客・SNS・Googleマップ・プレスリリースまで、後から使い続けられるマーケティング素材を制作します。",
-  },
-  {
-    name: "季節・スポットキャンペーン",
-    en: "Seasonal Campaigns",
-    desc: "新商品・イベント・季節のフェアなど、期間限定の施策に合わせたビジュアルを、狙ったタイミングで制作します。",
-  },
-];
-
 const INCLUDED = [
   "事前ヒアリング",
-  "撮影プラン作成",
+  "企画・撮影プラン",
   "プロによるライティング",
   "色補正・現像",
   "高解像度データ納品",
@@ -63,129 +23,136 @@ const INCLUDED = [
   "オンライン納品",
 ];
 
-const FLOW = [
-  { name: "コマーシャル・フォトグラフィー", desc: "伝わる一枚をつくる、強力な手段のひとつ。" },
-  { name: "クリエイティブディレクション", desc: "「どう見せるか」を一緒に設計します。" },
-  { name: "ビジュアルブランディング", desc: "一貫したトーンと世界観をつくります。" },
-  { name: "Googleビジネスプロフィール用の写真", desc: "検索・地図で見つけてもらう入口づくり。" },
-  { name: "SNSコンテンツ", desc: "続けやすい写真・動画をまとめて。" },
-  { name: "ポスター・チラシ・メニュー", desc: "撮った写真を、そのまま販促物に。" },
-  { name: "販促・プロモーション素材", desc: "キャンペーンやWEBに使える素材一式。" },
-  { name: "ショート動画", desc: "リールやショートで、動きを伝える。" },
-  { name: "AIを活用した企画・アイデア出し", desc: "新しいツールも使って、発想を広げる。" },
+const PARTNER = [
+  "毎月の撮影",
+  "Googleビジネス更新",
+  "SNSコンテンツ",
+  "ポスター・チラシ制作",
+  "季節キャンペーン企画",
+  "ブランド相談",
+  "AI活用 × 人のディレクション",
+  "優先予約",
+];
+
+const PROCESS = [
+  { n: "01", en: "Inquiry", ja: "お問い合わせ", d: "お店のこと、いまの課題を聞かせてください。" },
+  { n: "02", en: "Planning", ja: "企画", d: "ゴールから逆算して、内容を設計します。" },
+  { n: "03", en: "Shoot", ja: "撮影", d: "現場でも、スタジオでも。" },
+  { n: "04", en: "Delivery", ja: "納品", d: "すぐに使えるかたちで、お渡しします。" },
 ];
 
 export default function ServicesPage() {
   return (
     <div className="page">
-      <div className="sp-hero">
-        <span className="pre">WHAT WE DO</span>
-        <h1>課題から始める、7つのビジネスソリューション。</h1>
-        <p className="sp-lede">
-          Studio くりすさんは、小さなビジネスの課題から考えるクリエイティブスタジオです。「集客」「採用」「ブランディング」といったゴールから逆算し、写真・デザイン・Googleビジネス・SNS・AIを手段として組み合わせます。単発の撮影ではなく、成果につながる設計をご一緒します。
-        </p>
-      </div>
-
-      <div className="sp-body">
-        {/* Six flagship business solutions — the primary framing */}
-        <section className="sp-flow">
-          <div className="sp-flow-hd">
-            <h2>課題から選ぶ、7つのビジネスソリューション</h2>
-            <p>
-              それぞれ独立したメニューではなく、写真を土台にした課題解決のかたちです。目的に合わせて必要な要素を組み合わせ、必要であれば継続的に伴走します。
-            </p>
-          </div>
-          <ul className="sp-flow-grid">
-            {SOLUTIONS.map((s) => (
-              <li key={s.en}>
-                <span className="sp-flow-n">
-                  {s.name}
-                  {s.flagship && (
-                    <span className="svc-flag-badge">おすすめ</span>
-                  )}
-                  <span className="sp-sol-en">{s.en}</span>
-                </span>
-                <span className="sp-flow-d">{s.desc}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* Flagship: ongoing creative partnership (not a monthly photo plan) */}
-        <section className="sp-flow">
-          <div className="sp-incl-hd">
-            <h2>クリエイティブパートナー契約に含まれるもの</h2>
-            <p>
-              撮影を都度お願いするのではなく、ブランドの「伴走者」を持つ、私たちの中心となる継続契約です。技術やAIは賢く使う道具として、人のクリエイティブディレクションで一貫したブランドを育てます。単発の撮影ではなく、続くパートナーシップです。
-            </p>
-          </div>
-          <ul className="sp-incl-grid">
-            <li>Googleビジネス更新</li>
-            <li>毎月の撮影</li>
-            <li>SNSコンテンツ</li>
-            <li>ポスター・チラシ制作</li>
-            <li>季節キャンペーン企画</li>
-            <li>ブランド相談</li>
-            <li>AI活用 × 人のディレクション</li>
-            <li>優先予約</li>
-          </ul>
-        </section>
-
-        {/* Creative components: everything is built on photography */}
-        <section className="sp-flow">
-          <div className="sp-flow-hd">
-            <h2>各ソリューションを構成する、制作の要素</h2>
-            <p>
-              すべてのソリューションは、課題解決から始まります。そこに写真・デザイン・発信など必要な要素を組み合わせ、ブランドが一貫して伝わるようにまとめます。内容はお店やブランドごとに合わせて設計します。
-            </p>
-          </div>
-          <ul className="sp-flow-grid">
-            {FLOW.map((f) => (
-              <li key={f.name}>
-                <span className="sp-flow-n">{f.name}</span>
-                <span className="sp-flow-d">{f.desc}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="sp-flow-more">
-            安定した品質を支える
-            <Link href="/gear">制作環境（スタジオ・機材）</Link>
-            についてはこちら。
+      {/* HERO — split editorial: bold statement + large image */}
+      <section className="svc-hero">
+        <div className="svc-hero-in">
+          <span className="pre">SERVICE ・ できること</span>
+          <h1>
+            写真や動画ではなく、
+            <br />
+            <em>仕事の武器</em>を。
+          </h1>
+          <p>
+            SNS、Googleマップ、Webサイト。見つけて、わかって、選んでもらう。その一歩を、ビジュアルでつくります。
           </p>
-        </section>
+          <Link href="/contact" className="btn-big">
+            相談する
+          </Link>
+        </div>
+        <div className="svc-hero-img">
+          <Image
+            src="/photos/portfolio/kominka-exterior-night.jpg"
+            alt="夜に灯る古民家を改装した店舗"
+            fill
+            priority
+            sizes="(max-width:900px) 100vw, 48vw"
+            quality={82}
+            style={{ objectFit: "cover", objectPosition: "center 58%" }}
+          />
+        </div>
+      </section>
 
-        {/* What's included */}
-        <section className="sp-incl">
-          <div className="sp-incl-hd">
-            <h2>撮影に含まれるもの</h2>
-            <p>すべてのプランに、以下がすべて含まれています。</p>
-          </div>
-          <ul className="sp-incl-grid">
-            {INCLUDED.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </section>
+      <ServiceCategories />
 
-        <div className="sp-incl-hd sp-menu-hd">
-          <h2>料金の目安（撮影メニュー）</h2>
-          <p>各ソリューションは、以下の撮影メニューを組み合わせて構成します。月額プランや複数の制作は、内容に合わせてお見積りします。</p>
+      {/* PRICING */}
+      <section className="svc-pricing" id="pricing">
+        <div className="svc-sec-hd">
+          <span className="pre">PRICING ・ 料金の目安</span>
+          <h2>わかりやすい、料金の目安。</h2>
+          <p>
+            業種や目的に合わせて、必要な内容を組み合わせます。月額プランや複数制作は、内容に合わせてお見積りします。
+          </p>
         </div>
         <ServiceList />
-      </div>
+      </section>
+
+      {/* CREATIVE PARTNER — flagship recurring partnership */}
+      <section className="svc-partner">
+        <div className="svc-partner-in">
+          <span className="svc-partner-badge">おすすめ</span>
+          <h2>
+            続けるほど、効いてくる。
+            <br />
+            月額のクリエイティブパートナー。
+          </h2>
+          <p>
+            撮影を都度お願いするのではなく、ブランドの「伴走者」を持つ月額契約。私たちの中心となる、続くパートナーシップです。
+          </p>
+          <ul className="svc-partner-list">
+            {PARTNER.map((x) => (
+              <li key={x}>{x}</li>
+            ))}
+          </ul>
+          <Link href="/contact" className="btn-p">
+            パートナー契約を相談する
+          </Link>
+        </div>
+      </section>
+
+      {/* WHAT'S INCLUDED — one merged strip */}
+      <section className="svc-incl">
+        <div className="svc-sec-hd">
+          <span className="pre">INCLUDED ・ すべてに含まれるもの</span>
+          <h2>どのご依頼にも、これだけ含まれます。</h2>
+        </div>
+        <ul className="svc-incl-strip">
+          {INCLUDED.map((x) => (
+            <li key={x}>{x}</li>
+          ))}
+        </ul>
+      </section>
+
+      {/* PROCESS */}
+      <section className="svc-process">
+        <div className="svc-sec-hd">
+          <span className="pre">PROCESS ・ ながれ</span>
+          <h2>ご相談から、納品まで。</h2>
+        </div>
+        <ol className="svc-steps">
+          {PROCESS.map((s) => (
+            <li key={s.n}>
+              <span className="svc-step-n">{s.n}</span>
+              <span className="svc-step-en">{s.en}</span>
+              <span className="svc-step-ja">{s.ja}</span>
+              <span className="svc-step-d">{s.d}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
 
       <FAQ />
 
       <PriceCalculator />
 
-      {/* Final CTA */}
+      {/* CTA */}
       <section className="cta-f">
         <div>
           <h2>
-            まずは、<em>お気軽にご相談ください。</em>
+            まずは、<em>お店のことを聞かせてください。</em>
           </h2>
           <p>
-            プロジェクトによって最適な内容は異なります。撮影が決まっていなくても大丈夫です。目的やご予算に合わせて、無料でお見積り・ご提案します。
+            何から始めればいいか決まっていなくても大丈夫です。目的やご予算に合わせて、無料でご提案します。
           </p>
         </div>
         <div className="cta-actions">
@@ -193,7 +160,7 @@ export default function ServicesPage() {
             無料で相談する
           </Link>
           <Link href="/works" className="btn-txt">
-            作品・撮影事例を見る
+            実績を見る
           </Link>
         </div>
       </section>

@@ -16,19 +16,13 @@ type Row = {
 type Section = {
   title: string;
   outcome: string;
-  why: string;
-  img: string;
-  imgAlt: string;
   rows: Row[];
 };
 
 const SECTIONS: Section[] = [
   {
     title: "飲食店の集客・来店を増やす",
-    outcome: "料理・店内・スタッフの撮影で、第一印象を変える",
-    why: "料理だけではなく、お店の雰囲気・スタッフ・空間まで伝えることで、来店前の期待感を高めます。",
-    img: "/photos/portfolio/tonkatsu-staff.jpg",
-    imgAlt: "飲食店の撮影、スタッフと料理",
+    outcome: "料理・店内・スタッフを撮り直し、来店前の期待感をつくる",
     rows: [
       {
         name: "Googleマップ更新パッケージ",
@@ -74,10 +68,7 @@ const SECTIONS: Section[] = [
   },
   {
     title: "ECの売上とブランド価値を上げる",
-    outcome: "商品・ライフスタイル撮影で、世界観を伝える",
-    why: "ブランド価値を高め、ECサイトや広告で使いやすい商品写真を制作します。",
-    img: "/photos/portfolio/candles-lit.jpg",
-    imgAlt: "商品・EC撮影、パッケージのエディトリアル",
+    outcome: "商品・ライフスタイルの撮影で、選ばれる理由をつくる",
     rows: [
       {
         name: "スタジオ商品撮影",
@@ -91,9 +82,9 @@ const SECTIONS: Section[] = [
       },
       {
         name: "ライフスタイル商品撮影",
-        desc: "使用シーンを想定。ブランドの世界観を伝える。",
+        desc: "使用シーンを想定。ブランドらしさを、暮らしの中で。",
         price: "¥45,000〜",
-        use: "ブランドサイト・SNS広告・世界観づくり",
+        use: "ブランドサイト・SNS広告・ブランドづくり",
         delivery: "使用シーン10カット〜 色補正込み",
         shootTime: "約3〜4時間",
         leadTime: "5〜7営業日",
@@ -103,10 +94,7 @@ const SECTIONS: Section[] = [
   },
   {
     title: "採用力と企業ブランドを高める",
-    outcome: "働く人・現場の撮影で、会社の魅力を伝える",
-    why: "企業文化や働く人の魅力を伝え、採用・営業・ブランディングに活用できます。",
-    img: "/photos/on-location.jpg",
-    imgAlt: "企業・採用撮影、現場で働く人",
+    outcome: "働く人・現場の撮影で、会社の人柄を伝える",
     rows: [
       {
         name: "スタッフ・採用写真",
@@ -143,9 +131,6 @@ const SECTIONS: Section[] = [
   {
     title: "SNS・発信を、続けやすくする",
     outcome: "写真・動画・多言語コンテンツをまとめて制作",
-    why: "SNSを継続しやすい写真・動画をまとめて制作します。",
-    img: "/photos/portfolio/model-speaker.jpg",
-    imgAlt: "コンテンツ制作、ライフスタイル撮影",
     rows: [
       {
         name: "リール・ショート動画",
@@ -183,50 +168,40 @@ export default function ServiceList() {
   const [open, setOpen] = useState<string | null>(null);
 
   return (
-    <>
+    <div className="svc-pl">
       {SECTIONS.map((sec) => (
-        <div className="sp-sec" key={sec.title}>
-          <div className="sp-cat-img">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={sec.img} alt={sec.imgAlt} loading="lazy" />
-            <div className="cf-mg" />
+        <div className="svc-pl-sec" key={sec.title}>
+          <div className="svc-pl-hd">
+            <h3 className="svc-pl-t">{sec.title}</h3>
+            <p className="svc-pl-oc">{sec.outcome}</p>
           </div>
-          <div className="sp-sec-hd">
-            <div className="sp-sec-t">{sec.title}</div>
-            <div className="sp-sec-meta">
-              <div className="sp-sec-oc">{sec.outcome}</div>
-              <p className="sp-sec-why">{sec.why}</p>
-            </div>
-          </div>
-          <div>
+          <div className="svc-pl-rows">
             {sec.rows.map((row) => {
               const isOpen = open === row.name;
               return (
-                <div className="sp-row-wrap" key={row.name}>
+                <div className="svc-pl-wrap" key={row.name}>
                   <button
                     type="button"
-                    className={`sp-row${isOpen ? " open" : ""}`}
+                    className={`svc-pl-row${isOpen ? " open" : ""}`}
                     aria-expanded={isOpen}
                     onClick={() => setOpen(isOpen ? null : row.name)}
                   >
-                    <span className="sp-row-n">{row.name}</span>
-                    <span className="sp-row-d">{row.desc}</span>
-                    <span className="sp-row-p">{row.price}</span>
-                    <span className="sp-row-chev" aria-hidden="true">
+                    <span className="svc-pl-n">{row.name}</span>
+                    <span className="svc-pl-d">{row.desc}</span>
+                    <span className="svc-pl-p">{row.price}</span>
+                    <span className="svc-pl-chev" aria-hidden="true">
                       ›
                     </span>
                   </button>
-                  <div className={`sp-detail${isOpen ? " open" : ""}`}>
-                    <div className="sp-detail-inner">
-                      <dl className="sp-detail-grid">
-                        {DETAIL_FIELDS.map((f) => (
-                          <div className="sp-d-item" key={f.label}>
-                            <dt className="sp-d-lbl">{f.label}</dt>
-                            <dd className="sp-d-val">{row[f.key]}</dd>
-                          </div>
-                        ))}
-                      </dl>
-                    </div>
+                  <div className={`svc-pl-detail${isOpen ? " open" : ""}`}>
+                    <dl className="svc-pl-detail-grid">
+                      {DETAIL_FIELDS.map((f) => (
+                        <div className="svc-pl-d-item" key={f.label}>
+                          <dt>{f.label}</dt>
+                          <dd>{row[f.key]}</dd>
+                        </div>
+                      ))}
+                    </dl>
                   </div>
                 </div>
               );
@@ -234,6 +209,6 @@ export default function ServiceList() {
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 }
