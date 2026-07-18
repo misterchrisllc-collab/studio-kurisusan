@@ -10,7 +10,7 @@ const sharp = require("sharp");
 
 const DIR = "public/photos/portfolio";
 const OUT = "lib/crops.generated.json";
-const RATIOS = ["wide", "landscape", "square", "portrait", "tall"];
+const RATIOS = ["banner", "wide", "landscape", "square", "portrait", "tall"];
 
 const files = readdirSync(DIR).filter((f) => /\.jpg$/i.test(f));
 const manifest = {};

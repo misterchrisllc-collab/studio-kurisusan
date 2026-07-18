@@ -42,7 +42,7 @@ const SIZES: Record<Span, string> = {
 
 const SHOTS: Shot[] = [
   // ── statement ──
-  { base: "kominka-exterior-night", ratio: "wide", span: 12, cat: "space", title: "古民家 / 夜の佇まい" },
+  { base: "kominka-exterior-night", ratio: "banner", span: 12, cat: "space", title: "古民家 / 夜の佇まい" },
   // ── dense portrait row ──
   { base: "cafe-owner", ratio: "portrait", span: 3, cat: "fashion", title: "店主 / ポートレート" },
   { base: "tacos-event-chef", ratio: "portrait", span: 3, cat: "event", title: "タコス店 / つくり手" },
@@ -65,7 +65,7 @@ const SHOTS: Shot[] = [
   { base: "model-camera", ratio: "portrait", span: 3, cat: "fashion", title: "ポートレート" },
   // ── paired landscape ──
   { base: "tonkatsu-plate", ratio: "landscape", span: 6, cat: "food", title: "とんかつ定食" },
-  { base: "kominka-dining-night", ratio: "landscape", span: 6, cat: "space", title: "古民家 / 店内" },
+  { base: "brand-donut-model", ratio: "landscape", span: 6, cat: "fashion", title: "ブランド / ライフスタイル" },
   // ── dense portrait row ──
   { base: "burger-set", ratio: "portrait", span: 3, cat: "food", title: "セットメニュー" },
   { base: "mayo-bottle", ratio: "portrait", span: 3, cat: "product", title: "調味料" },
@@ -89,7 +89,6 @@ const SHOTS: Shot[] = [
   { base: "natto-bowl", ratio: "portrait", span: 3, cat: "product", title: "納豆" },
   { base: "model-natural", ratio: "portrait", span: 3, cat: "fashion", title: "ポートレート" },
   { base: "candles-jars", ratio: "landscape", span: 6, cat: "product", title: "商品ラインナップ" },
-  { base: "brand-donut-model", ratio: "landscape", span: 6, cat: "fashion", title: "ブランド / ライフスタイル" },
   { base: "bagel-sando", ratio: "portrait", span: 3, cat: "food", title: "ベーグルサンド" },
   { base: "mayo-cap", ratio: "portrait", span: 3, cat: "product", title: "ディテール" },
   { base: "tacos-macro", ratio: "portrait", span: 3, cat: "food", title: "タコス" },

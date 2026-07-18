@@ -137,7 +137,9 @@
       "w": 2560,
       "h": 1706
     },
-    "crops": []
+    "crops": [
+      "banner"
+    ]
   },
   "kominka-lattice": {
     "natural": {

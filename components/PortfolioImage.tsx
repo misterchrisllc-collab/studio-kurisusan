@@ -5,6 +5,7 @@ import manifest from "@/lib/crops.generated.json";
    is prepared to fit it later. Until a dedicated crop exists we render the
    original at its natural aspect rather than cropping to force the shape. */
 export const RATIO = {
+  banner: 2560 / 985, // ≈2.6 — cinematic hero band; dedicated crop only
   wide: 16 / 9,
   landscape: 3 / 2,
   square: 1,
