@@ -42,8 +42,8 @@ const CATEGORIES: Category[] = [
     problem: "いいものだと、ひと目で伝える。",
     body: "その価値が、必要としている人にまっすぐ伝わること。それが、ECやSNSで選ばれる理由になります。",
     imgs: [
-      { src: "portfolio/sriracha-lying", alt: "調味料ボトルの商品撮影" },
       { src: "portfolio/mayo-bottle", alt: "白背景の調味料の商品撮影" },
+      { src: "portfolio/candles-lit", alt: "キャンドルの商品・ブランド撮影" },
     ],
   },
   {
@@ -53,7 +53,7 @@ const CATEGORIES: Category[] = [
     ja: "アパレル・小売",
     problem: "見た目がそろうと、ブランドになる。",
     body: "トーンの合ったビジュアルで、SNSも、発信も、同じメッセージを届ける。ブランドを、必要としている人とつなぎます。",
-    img: { src: "portfolio/brand-donut-model", alt: "ブランドらしさが伝わるライフスタイル撮影", pos: "38% 22%" },
+    img: { src: "portfolio/model-camera", alt: "アパレルのスタイリング撮影", pos: "center 28%" },
   },
   {
     layout: "split",
@@ -61,7 +61,7 @@ const CATEGORIES: Category[] = [
     ja: "企業・採用",
     problem: "「どんな会社か」が伝われば、合う人が集まる。",
     body: "働く人、現場、その文化。採用も、コーポレートも、価値観の合う人との出会いを増やします。",
-    img: { src: "portfolio/cafe-owner", alt: "店を営む人のポートレート", pos: "center 30%" },
+    img: { src: "portfolio/studio-corner", alt: "働く現場・仕事場の風景", pos: "center 40%" },
   },
   {
     layout: "bleed",
@@ -70,7 +70,7 @@ const CATEGORIES: Category[] = [
     ja: "イベント・PR",
     problem: "イベントは、当日で終わらせない。",
     body: "その日の熱を、次の集客・SNS・プレスへ。あとから使い続けられる素材にします。",
-    img: { src: "portfolio/tacos-event-night", alt: "夜のイベント会場の熱気", pos: "center 26%" },
+    img: { src: "portfolio/tacos-event-night", alt: "夜のイベント会場の熱気", pos: "center 44%" },
   },
 ];
 
