@@ -17,6 +17,7 @@ type Section = {
   title: string;
   outcome: string;
   rows: Row[];
+  note?: { text: string; href: string; label: string };
 };
 
 const SECTIONS: Section[] = [
@@ -130,12 +131,12 @@ const SECTIONS: Section[] = [
   },
   {
     title: "個人の信頼を仕事につなげる",
-    outcome: "経営者・専門職・クリエイターの見せ方を、対話しながら組み立てる",
+    outcome: "経営者・専門職・クリエイター。その人らしい見せ方を、一緒に見つける",
     rows: [
       {
         name: "パーソナルブランディング撮影",
         desc: "ヘッドショットからライフスタイル、エディトリアルまで。内容は相談しながら決めます。",
-        price: "要相談",
+        price: "¥35,000〜",
         use: "コーポレートサイト・SNS・プロフィール・PR・取材・講演資料・クリエイター発信",
         delivery: "ご相談で決めた方向性に沿って、必要なカットを揃えます。色補正込み。",
         shootTime: "1時間の撮り下ろしから、1日かけた複数ロケーションまで。",
@@ -143,6 +144,11 @@ const SECTIONS: Section[] = [
         options: "ヘアメイク・スタイリスト手配・ロケ地追加・動画・SNS用の縦型カット",
       },
     ],
+    note: {
+      text: "発信を続けたい方は、1回ごとではなく月額でお受けすることもできます。",
+      href: "#partner",
+      label: "クリエイティブパートナーを見る",
+    },
   },
   {
     title: "SNS・発信を、続けやすくする",
@@ -223,6 +229,12 @@ export default function ServiceList() {
               );
             })}
           </div>
+          {sec.note && (
+            <p className="svc-pl-note">
+              {sec.note.text}{" "}
+              <a href={sec.note.href}>{sec.note.label} →</a>
+            </p>
+          )}
         </div>
       ))}
     </div>

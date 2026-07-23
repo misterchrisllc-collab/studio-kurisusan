@@ -92,7 +92,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CREATIVE PARTNER — flagship recurring partnership */}
-      <section className="svc-partner">
+      <section className="svc-partner" id="partner">
         <div className="svc-partner-in">
           <span className="svc-partner-badge">おすすめ</span>
           <h2>
@@ -101,7 +101,7 @@ export default function ServicesPage() {
             月額のクリエイティブパートナー。
           </h2>
           <p>
-            撮影を都度お願いするのではなく、ブランドの「伴走者」を持つ月額契約。私たちの中心となる、続くパートナーシップです。
+            1回ごとにお願いするのではなく、月額でお付き合いする形です。必要なときに撮って、一緒に考えて、続けていく。Studio くりすさんの中心にあるプランです。
           </p>
           <ul className="svc-partner-list">
             {PARTNER.map((x) => (
