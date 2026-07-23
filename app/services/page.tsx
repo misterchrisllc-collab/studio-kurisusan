@@ -35,10 +35,11 @@ const PARTNER = [
 ];
 
 const PROCESS = [
-  { n: "01", en: "Inquiry", ja: "お問い合わせ", d: "お店のこと、いまの課題を聞かせてください。" },
-  { n: "02", en: "Planning", ja: "企画", d: "ゴールから逆算して、内容を設計します。" },
-  { n: "03", en: "Shoot", ja: "撮影", d: "現場でも、スタジオでも。" },
-  { n: "04", en: "Delivery", ja: "納品", d: "すぐに使えるかたちで、お渡しします。" },
+  { n: "01", en: "Consultation", ja: "ご相談", d: "無料です。何を撮るかより先に、何を解決したいかを聞かせてください。" },
+  { n: "02", en: "Proposal", ja: "ご提案", d: "内容と金額をお出しします。ここまで費用はかかりません。" },
+  { n: "03", en: "Shoot", ja: "撮影", d: "打ち合わせた内容に沿って。現場でも、スタジオでも対応します。" },
+  { n: "04", en: "Delivery", ja: "納品", d: "用途ごとのサイズで、すぐ使えるかたちにしてお渡しします。" },
+  { n: "05", en: "Follow-up", ja: "その後", d: "使ってみてどうだったか。次に何が要るか。一緒に考えます。" },
 ];
 
 export default function ServicesPage() {
@@ -130,7 +131,7 @@ export default function ServicesPage() {
       <section className="svc-process">
         <div className="svc-sec-hd">
           <span className="pre">PROCESS ・ ながれ</span>
-          <h2>ご相談から、納品まで。</h2>
+          <h2>ご相談から、その先まで。</h2>
         </div>
         <ol className="svc-steps">
           {PROCESS.map((s) => (

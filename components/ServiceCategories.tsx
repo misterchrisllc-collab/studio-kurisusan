@@ -42,7 +42,7 @@ const CATEGORIES: Category[] = [
     problem: "いいものだと、ひと目で伝える。",
     body: "その価値が、必要としている人にまっすぐ伝わること。それが、ECやSNSで選ばれる理由になります。",
     imgs: [
-      { src: "portfolio/donut-blue", alt: "水色背景のドーナツの商品撮影" },
+      { src: "portfolio/mayo-bottle", alt: "白背景の調味料の商品撮影" },
       { src: "portfolio/natto-bowl", alt: "赤背景の納豆の商品撮影" },
     ],
   },

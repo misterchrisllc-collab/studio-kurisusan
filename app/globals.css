@@ -574,7 +574,7 @@ header{
 
 /* PROCESS — 4 steps */
 .svc-process{padding:clamp(56px,8vw,104px) var(--gut);background:var(--off);border-top:1px solid var(--bd);}
-.svc-steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,44px);}
+.svc-steps{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(18px,3vw,44px);}
 .svc-steps li{display:flex;flex-direction:column;gap:4px;border-top:2px solid var(--bk);padding-top:20px;}
 .svc-step-n{font-family:'Inter',sans-serif;font-weight:700;font-size:13px;color:var(--mg);letter-spacing:1px;}
 .svc-step-en{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#aaa;}
@@ -604,7 +604,7 @@ header{
   .sc-split-img{aspect-ratio:4/3;}
   .sc-feat{grid-template-columns:1fr;gap:32px;}
   .sc-feat-img.b{margin-top:0;}
-  .svc-steps{grid-template-columns:1fr 1fr;}
+  .svc-steps{grid-template-columns:repeat(3,1fr);}
   .svc-breath{height:clamp(340px,52vh,520px);}
 }
 @media(max-width:700px){
