@@ -560,7 +560,7 @@ header{
 .svc-pl-d-item dd{font-size:13px;color:#444;font-family:'Noto Sans JP',sans-serif;line-height:1.6;}
 
 /* CREATIVE PARTNER — flagship recurring, dark band */
-.svc-partner{background:var(--bk);color:#fff;padding:clamp(64px,9vw,124px) var(--gut);}
+.svc-partner{background:var(--bk);color:#fff;padding:clamp(64px,9vw,124px) var(--gut);scroll-margin-top:var(--hh);}
 .svc-partner-in{max-width:800px;margin:0 auto;text-align:center;}
 .svc-partner-badge{display:inline-block;background:var(--mg);color:#fff;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:6px 15px;margin-bottom:26px;font-weight:600;}
 .svc-partner-in{max-width:840px;}
@@ -568,6 +568,22 @@ header{
 .svc-partner-in>p{color:rgba(255,255,255,.72);font-size:15px;line-height:1.95;max-width:560px;margin:0 auto 34px;font-family:'Noto Sans JP',sans-serif;}
 .svc-partner-list{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:40px;}
 .svc-partner-list li{border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:9px 17px;font-size:12.5px;color:rgba(255,255,255,.86);font-family:'Noto Sans JP',sans-serif;}
+
+/* partner tiers — bounded START / GROW / PARTNER ladder */
+.svc-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,22px);max-width:1120px;margin:clamp(30px,4vw,50px) auto clamp(26px,3vw,36px);}
+.svc-tier{border:1px solid rgba(255,255,255,.18);padding:clamp(24px,2.6vw,34px);display:flex;flex-direction:column;text-align:left;}
+.svc-tier.hi{border-color:var(--mg);background:rgba(232,25,139,.07);}
+.svc-tier-step{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:2px;color:var(--mg);font-weight:700;}
+.svc-tier-en{font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(20px,2.2vw,27px);margin-top:9px;letter-spacing:-.3px;line-height:1;}
+.svc-tier-ja{font-size:12.5px;color:rgba(255,255,255,.5);margin-top:4px;font-family:'Noto Sans JP',sans-serif;}
+.svc-tier-p{font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(23px,2.6vw,31px);margin-top:20px;letter-spacing:-1px;line-height:1.1;}
+.svc-tier-p small{font-size:12px;font-weight:400;color:rgba(255,255,255,.5);margin-left:3px;letter-spacing:0;}
+.svc-tier-items{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:8px;flex:1;}
+.svc-tier-items li{font-size:12.5px;line-height:1.65;color:rgba(255,255,255,.82);font-family:'Noto Sans JP',sans-serif;padding-left:15px;position:relative;}
+.svc-tier-items li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:1px;background:var(--mg);}
+.svc-tier-note{font-size:11.5px;color:rgba(255,255,255,.45);margin-top:20px;font-family:'Noto Sans JP',sans-serif;}
+.svc-partner-foot{max-width:1120px;margin:0 auto;text-align:center;}
+.svc-review{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.9;font-family:'Noto Sans JP',sans-serif;max-width:560px;margin:0 auto 32px;}
 
 /* WHAT'S INCLUDED — one strip */
 .svc-incl{padding:clamp(56px,8vw,104px) var(--gut);border-top:1px solid var(--bd);}
@@ -608,6 +624,7 @@ header{
   .sc-feat{grid-template-columns:1fr;gap:32px;}
   .sc-feat-img.b{margin-top:0;}
   .svc-steps{grid-template-columns:repeat(3,1fr);}
+  .svc-tiers{grid-template-columns:1fr;max-width:520px;}
   .svc-breath{height:clamp(340px,52vh,520px);}
 }
 @media(max-width:700px){

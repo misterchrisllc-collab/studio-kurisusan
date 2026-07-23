@@ -23,15 +23,51 @@ const INCLUDED = [
   "オンライン納品",
 ];
 
-const PARTNER = [
-  "毎月の撮影",
-  "Googleビジネス更新",
-  "SNSコンテンツ",
-  "ポスター・チラシ制作",
-  "季節キャンペーン企画",
-  "ブランド相談",
-  "AI活用 × 人のディレクション",
-  "優先予約",
+/* Bounded tiers. Each rung buys a defined scope, not an open promise, so the
+   monthly price stays honest against what the same work costs one shoot at a
+   time. START and GROW carry roughly a 20% bundle discount; PARTNER stays 要相談
+   so it never contradicts a quote given in person. */
+const PARTNER_TIERS = [
+  {
+    step: "STEP 1",
+    en: "START",
+    ja: "始める",
+    price: "¥50,000",
+    unit: "／月",
+    items: ["月1回の撮影（1時間）", "すぐ使える写真データ", "Googleビジネス更新"],
+    note: "まずは、ここから。",
+  },
+  {
+    step: "STEP 2",
+    en: "GROW",
+    ja: "広げる",
+    price: "¥100,000",
+    unit: "／月",
+    items: [
+      "月1回の撮影（3時間）",
+      "リール・ショート動画 2本",
+      "Googleビジネス更新",
+      "チラシ・POP 1点",
+      "月1回のブランド相談",
+    ],
+    note: "発信が増えてきたら。",
+    hi: true,
+  },
+  {
+    step: "STEP 3",
+    en: "PARTNER",
+    ja: "一緒に",
+    price: "要相談",
+    unit: "",
+    items: [
+      "SNSの運用まで",
+      "季節キャンペーンの企画",
+      "多言語での発信",
+      "AI活用 × 人のディレクション",
+      "優先対応",
+    ],
+    note: "目指していく形です。",
+  },
 ];
 
 const PROCESS = [
@@ -85,7 +121,7 @@ export default function ServicesPage() {
           <span className="pre">PRICING ・ 料金の目安</span>
           <h2>わかりやすい、料金の目安。</h2>
           <p>
-            業種や目的に合わせて、必要な内容を組み合わせます。月額プランや複数制作は、内容に合わせてお見積りします。
+            業種や目的に合わせて、必要な内容を組み合わせます。月額プランや複数制作は、内容に合わせてお見積りします。表示価格はすべて税別です。
           </p>
         </div>
         <ServiceList />
@@ -103,11 +139,30 @@ export default function ServicesPage() {
           <p>
             1回ごとにお願いするのではなく、月額でお付き合いする形です。必要なときに撮って、一緒に考えて、続けていく。Studio くりすさんの中心にあるプランです。
           </p>
-          <ul className="svc-partner-list">
-            {PARTNER.map((x) => (
-              <li key={x}>{x}</li>
-            ))}
-          </ul>
+        </div>
+        <div className="svc-tiers">
+          {PARTNER_TIERS.map((t) => (
+            <div className={`svc-tier${t.hi ? " hi" : ""}`} key={t.en}>
+              <span className="svc-tier-step">{t.step}</span>
+              <span className="svc-tier-en">{t.en}</span>
+              <span className="svc-tier-ja">{t.ja}</span>
+              <span className="svc-tier-p">
+                {t.price}
+                {t.unit && <small>{t.unit}</small>}
+              </span>
+              <ul className="svc-tier-items">
+                {t.items.map((x) => (
+                  <li key={x}>{x}</li>
+                ))}
+              </ul>
+              <span className="svc-tier-note">{t.note}</span>
+            </div>
+          ))}
+        </div>
+        <div className="svc-partner-foot">
+          <p className="svc-review">
+            3ヶ月ごとに、内容を一緒に見直します。増やすときは、必ず先にご相談します。いきなり変わることはありません。
+          </p>
           <Link href="/contact" className="btn-p">
             パートナー契約を相談する
           </Link>
