@@ -713,6 +713,9 @@ header{
 .ct-l h1{font-family:'Noto Serif JP',serif;font-size:clamp(22px,2.8vw,38px);color:#fff;font-weight:300;line-height:1.55;margin-bottom:20px;}
 .ct-l h1 em{color:var(--mg);font-style:normal;}
 .ct-l p{color:rgba(255,255,255,.4);font-size:13px;line-height:1.9;font-weight:300;max-width:360px;font-family:'Inter',sans-serif;}
+/* prominent, welcoming lead — the "not decided yet is fine" message */
+.ct-lead{color:rgba(255,255,255,.82)!important;font-size:15px!important;line-height:1.95!important;font-family:'Noto Sans JP',sans-serif!important;max-width:400px!important;margin-bottom:14px;}
+.ct-sub{color:rgba(255,255,255,.45)!important;font-size:12.5px!important;line-height:1.85!important;font-family:'Noto Sans JP',sans-serif!important;max-width:400px!important;}
 .ct-det{}
 .ct-row{margin-bottom:18px;}
 .ct-lbl{font-size:10px;letter-spacing:2px;color:var(--mg);font-family:'Inter',sans-serif;display:block;margin-bottom:4px;text-transform:uppercase;}
@@ -748,18 +751,24 @@ header{
   transition:color .2s,border-color .2s;
 }
 .ct-ig:hover{color:var(--mg);border-color:var(--mg);}
-.ct-studio{border-top:1px solid rgba(255,255,255,.12);padding-top:34px;}
-.ct-studio-name{color:#fff;font-size:15px;font-family:'Noto Sans JP',sans-serif;font-weight:400;margin:12px 0 10px;}
-.ct-studio-addr{color:rgba(255,255,255,.45);font-size:12.5px;line-height:1.9;font-weight:300;font-family:'Inter',sans-serif;margin-bottom:14px;}
-.ct-map-link{display:inline-block;color:var(--mg);font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:'Inter',sans-serif;margin-bottom:18px;transition:opacity .2s;}
-.ct-map-link:hover{opacity:.7;}
-.ct-map{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;border:1px solid rgba(255,255,255,.12);}
-.ct-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.3) contrast(1.05);}
-.ct-contacts{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;align-items:baseline;margin-top:22px;}
+/* studio + map — intentionally secondary; the page is about starting a
+   conversation, not showing an address. Quieter type, slim recessed map. */
+.ct-studio{border-top:1px solid rgba(255,255,255,.1);padding-top:30px;}
+.ct-studio .ct-lbl{color:rgba(255,255,255,.35);}
+.ct-studio-name{color:rgba(255,255,255,.75);font-size:13.5px;font-family:'Noto Sans JP',sans-serif;font-weight:400;margin:10px 0 8px;}
+.ct-studio-addr{color:rgba(255,255,255,.4);font-size:12px;line-height:1.85;font-weight:300;font-family:'Inter',sans-serif;margin-bottom:12px;}
+.ct-map-link{display:inline-block;color:rgba(255,255,255,.5);font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:'Inter',sans-serif;margin-bottom:16px;transition:color .2s;}
+.ct-map-link:hover{color:var(--mg);}
+.ct-map{position:relative;width:100%;aspect-ratio:5/2;overflow:hidden;border:1px solid rgba(255,255,255,.1);opacity:.72;transition:opacity .25s;}
+.ct-map:hover{opacity:1;}
+.ct-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.55) contrast(1.02);}
+.ct-contacts{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;align-items:baseline;margin-top:20px;}
 .ct-contacts a{color:rgba(255,255,255,.6);font-size:13px;font-family:'Inter',sans-serif;font-weight:300;transition:color .2s;}
 .ct-contacts a:hover{color:#fff;}
 /* form required note */
 .fs-note{font-size:11px;color:#999;font-family:'Inter',sans-serif;letter-spacing:.5px;margin:-20px 0 26px;}
+/* reassurance just above the submit button */
+.fs-reassure{font-size:12.5px;color:#777;font-family:'Noto Sans JP',sans-serif;line-height:1.75;margin:4px 0 18px;}
 .req{color:var(--mg);}
 .fmsg.ok{color:var(--mg);}
 .fmsg.err{color:#c0392b;}
