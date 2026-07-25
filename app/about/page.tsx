@@ -10,12 +10,16 @@ export const metadata = {
 
 const CAN_DO = [
   "写真を軸にしたブランドづくり",
-  "コマーシャル・フォトグラフィー",
+  "ビジュアル戦略・ブランド設計",
   "クリエイティブディレクション",
   "ビジュアルブランディング・デザイン",
   "SNS・ショート動画などのコンテンツ",
   "AIを活用した企画・アイデア出し",
 ];
+
+// Fields with real work behind them on this site (飲食/小売/商品/空間/イベント).
+// A quiet credibility cue, not a client roster.
+const FIELDS = ["飲食", "小売", "商品", "空間", "イベント"];
 
 const VALUES = [
   "撮影の前に、まずビジネスを理解する",
@@ -40,7 +44,7 @@ export default function AboutPage() {
           <img
             className="slot-img"
             src="/photos/portrait.jpg"
-            alt="Studio くりすさん フォトグラファー Chris"
+            alt="Studio くりすさん 代表 Chris のポートレート"
           />
         </div>
         <div className="ab-intro">
@@ -49,14 +53,15 @@ export default function AboutPage() {
             私の仕事は、写真を届けることではありません。そのお店やブランドが「自分たちらしく伝わること」です。
           </h1>
           <p>
-            いまは、誰でもきれいな画像をつくれる時代です。スマートフォンでも、AIでも。だからこそ難しいのは、上手な写真を撮ることよりも、その事業の「らしさ」が本当に伝わるビジュアルをつくることだと考えています。
+            大切なのは、上手な写真を撮ることではありません。その事業が本当は何者なのかを、まっすぐ伝えることです。
           </p>
           <p>
-            私はAIや新しいツールも積極的に使います。それでも、記憶に残るブランドは、対話と理解、そして本物の写真から生まれると信じています。だから撮影の前に、まずビジネスを理解することから始めます。
+            きれいな画像なら、いまは誰でもつくれます。それでも記憶に残るブランドは、対話と理解から生まれます。だから撮影の前に、まずそのビジネスを理解することから始めます。
           </p>
-          <p>
-            日本語・英語・スペイン語で対応。大阪を拠点に、合同会社くりすさん代表。
-          </p>
+          <div className="ab-sig">
+            <span className="ab-sig-name">合同会社くりすさん 代表　Chris</span>
+            <span className="ab-sig-meta">日本語 ・ English ・ Español ／ 大阪</span>
+          </div>
         </div>
       </div>
       <div className="ab-body">
@@ -76,6 +81,14 @@ export default function AboutPage() {
             ))}
           </ul>
         </div>
+      </div>
+      <div className="ab-fields">
+        <span className="ab-fields-lbl">FIELDS ・ ご一緒してきた分野</span>
+        <ul className="ab-fields-row">
+          {FIELDS.map((f) => (
+            <li key={f}>{f}</li>
+          ))}
+        </ul>
       </div>
       <div className="ab-note">
         <p>

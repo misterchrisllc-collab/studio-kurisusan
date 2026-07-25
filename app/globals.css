@@ -659,6 +659,9 @@ header{
 .ab-intro .pre{font-size:10px;letter-spacing:3px;color:var(--mg);font-family:'Inter',sans-serif;text-transform:uppercase;margin-bottom:24px;display:block;}
 .ab-intro h1{font-family:'Noto Serif JP',serif;font-size:clamp(20px,2.4vw,32px);font-weight:300;line-height:1.6;margin-bottom:24px;}
 .ab-intro p{font-size:14px;color:#555;line-height:2;font-weight:300;margin-bottom:14px;max-width:460px;}
+.ab-sig{margin-top:26px;padding-top:22px;border-top:1px solid #eee;max-width:460px;}
+.ab-sig-name{display:block;font-family:'Noto Serif JP',serif;font-size:13px;font-weight:300;color:#333;letter-spacing:.5px;}
+.ab-sig-meta{display:block;margin-top:7px;font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:1.5px;color:#aaa;}
 .ab-body{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--bd);}
 .ab-col{padding:64px 72px;}
 .ab-col:first-child{border-right:1px solid var(--bd);}
@@ -670,6 +673,11 @@ header{
 .ab-ct{padding:56px 80px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;background:var(--off);}
 .ab-ct-item .lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#bbb;font-family:'Inter',sans-serif;display:block;margin-bottom:6px;}
 .ab-ct-item .val{font-size:13px;color:#333;font-family:'Inter',sans-serif;font-weight:300;}
+.ab-fields{padding:42px 72px;border-bottom:1px solid var(--bd);display:flex;flex-wrap:wrap;align-items:baseline;gap:14px 30px;}
+.ab-fields-lbl{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#bbb;font-family:'Inter',sans-serif;}
+.ab-fields-row{list-style:none;display:flex;flex-wrap:wrap;gap:26px;}
+.ab-fields-row li{font-family:'Noto Serif JP',serif;font-size:15px;font-weight:300;color:#444;position:relative;}
+.ab-fields-row li:not(:last-child)::after{content:'・';position:absolute;right:-16px;color:#d2d2d2;}
 .ab-note{padding:34px 72px;border-bottom:1px solid var(--bd);font-size:13px;color:#888;font-weight:300;line-height:1.9;}
 .ab-note a{color:var(--mg);text-decoration:none;}
 .ab-note a:hover{text-decoration:underline;}
@@ -776,6 +784,7 @@ footer p{font-size:11px;color:#8f8f8f;font-family:'Inter',sans-serif;}
   .why-chris .wc-top,.approach,.quote-s,.cta-f,.ab-hero,.ab-body,.ct-grid{grid-template-columns:1fr;}
   .wc-img,.approach-img,.ab-ph{min-height:280px;border-right:none;border-bottom:1px solid var(--bd);}
   .wc-text,.approach-text,.ab-intro{padding:48px 24px;border-left:none;}
+  .ab-fields,.ab-note{padding-left:24px;padding-right:24px;}
   .wc-grid{grid-template-columns:1fr 1fr;}
   .wc-item{padding:28px 24px;}
   .svc-intro,.cases-intro{padding:56px 24px 32px;}
