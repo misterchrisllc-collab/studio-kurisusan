@@ -2,16 +2,17 @@ import Link from "next/link";
 
 type FooterLink = { href: string; label: string };
 
+// English labels, matching the header nav (Home / Works / Service / About).
 const HOME_LINKS: FooterLink[] = [
-  { href: "/works", label: "作品" },
-  { href: "/services", label: "できること" },
-  { href: "/about", label: "私たちについて" },
-  { href: "/contact", label: "お問い合わせ" },
+  { href: "/works", label: "Works" },
+  { href: "/services", label: "Service" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const SUB_LINKS: FooterLink[] = [
-  { href: "/", label: "ホーム" },
-  { href: "/contact", label: "お問い合わせ" },
+  { href: "/", label: "Home" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Footer({
