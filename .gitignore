@@ -35,5 +35,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# source photo originals (large; keep local, serve optimized copies from public/photos)
+# source photo originals. MOVED 2026-08-14 to ../MINE/photos/ (1.2GB does not
+# belong in a code repo). Serve optimized copies from public/photos. Do not
+# recreate this folder: put originals in MINE/photos and export into public/.
 /photos/
