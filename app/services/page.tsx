@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import ServiceCategories from "@/components/ServiceCategories";
 import ServiceList from "@/components/ServiceList";
 import FAQ from "@/components/FAQ";
-import PriceCalculator from "@/components/PriceCalculator";
 
 export const metadata = {
   title: "できること・料金",
@@ -23,56 +22,71 @@ const INCLUDED = [
   "オンライン納品",
 ];
 
-/* Bounded tiers. Each rung buys a defined scope, not an open promise, so the
-   monthly price stays honest against what the same work costs one shoot at a
-   time. START and GROW carry roughly a 20% bundle discount; PARTNER stays 要相談
-   so it never contradicts a quote given in person. */
-const PARTNER_TIERS = [
+/* 継続サービス — 2026-08-23. Replaced the old START/GROW/PARTNER retainer, whose
+   ¥50,000／¥100,000 came from the product model. Two things are on sale monthly now:
+   コンテンツ運用 (the shoot-backed retainer, = tier 3 on the ladder) and
+   ブランド・コンテンツ設計, which bills in a month with no shoot at all.
+   Source: leads/pricing/simple-stupid.html. 税込.
+
+   ⚠ ブランド・コンテンツ設計 ¥40,000／¥70,000 are the softest numbers on the sheet — the
+   only prices where nothing physical is delivered, and untested on a real client.
+   単発 ¥20,000 is the one that has a shape. Treat the monthlies as provisional and
+   tell Chris before quoting them in writing. */
+const ONGOING = [
   {
-    step: "STEP 1",
-    en: "START",
-    ja: "始める",
-    price: "¥50,000",
-    unit: "／月",
-    items: ["月1回の撮影（1時間）", "すぐ使える写真データ", "Googleビジネス更新"],
-    note: "まずは、ここから。",
-  },
-  {
-    step: "STEP 2",
-    en: "GROW",
-    ja: "広げる",
-    price: "¥100,000",
-    unit: "／月",
+    step: "運用",
+    en: "CONTENT",
+    ja: "コンテンツ運用",
+    price: "¥65,000",
+    unit: "／月〜",
     items: [
-      "月1回の撮影（3時間）",
-      "リール・ショート動画 2本",
-      "Googleビジネス更新",
-      "チラシ・POP 1点",
-      "月1回のブランド相談",
+      "ライト　写真8点・リール1本・カルーセル1本・投稿4本",
+      "毎月の打ち合わせと、前月の見直し",
+      "スタンダード ¥100,000／月　毎月こちらが方針を出し、反応を見て翌月を組み直します",
+      "違いは量ではなく、関わり方です",
     ],
-    note: "発信が増えてきたら。",
+    note: "考える・つくる・見直すを、毎月まわす。",
     hi: true,
   },
   {
-    step: "STEP 3",
-    en: "PARTNER",
-    ja: "一緒に",
-    price: "要相談",
-    unit: "",
+    step: "相談",
+    en: "DIRECTION",
+    ja: "ブランド・コンテンツ設計",
+    // Printed price is the 単発 only. The monthly ladder is 月2回 ¥40,000／毎週 ¥70,000
+    // on the sheet, but those two are untested on a real client and are the only
+    // prices where nothing physical is delivered — see the ⚠ above. They are quoted
+    // in conversation, deliberately not published, until a few have actually sold.
+    price: "¥20,000",
+    unit: "／回",
     items: [
-      "SNSの運用まで",
-      "季節キャンペーンの企画",
-      "多言語での発信",
-      "AI活用 × 人のディレクション",
-      "優先対応",
+      "90分 ＋ 当日のメモ。まず1回だけでも。",
+      "誰に向けるか／何を見せるか",
+      "何を言わないか／どんな色と絵にするか",
+      "写真と投稿でどう支えるか",
+      "月2回・毎週の継続は、内容に合わせてご相談",
+      "※ 初回のご相談は無料です",
     ],
-    note: "目指していく形です。",
+    note: "撮らない月にも売れる、唯一のもの。",
+  },
+  {
+    step: "運用代行",
+    en: "POSTING",
+    ja: "SNS投稿代行",
+    price: "¥20,000",
+    unit: "／月",
+    items: [
+      "月12本まで。追加は ¥2,000／本",
+      "アカウントをお預かりして、決めた日に投稿",
+      "投稿の中身は、上のプランから",
+      "コメント返信・DM・予約受付は含みません",
+    ],
+    note: "つくったものを、出すところまで。",
   },
 ];
 
 const PROCESS = [
-  { n: "01", en: "Consultation", ja: "ご相談", d: "無料です。何を撮るかより先に、何を解決したいかを聞かせてください。" },
-  { n: "02", en: "Proposal", ja: "ご提案", d: "ご希望に合わせて内容を組み立て、金額をお出しします。ここまで費用はかかりません。" },
+  { n: "01", en: "Consultation", ja: "初回相談", d: "無料です。何を撮るかより先に、何を解決したいかを聞かせてください。オンラインでも、お伺いしてでも。" },
+  { n: "02", en: "Proposal", ja: "ご提案", d: "課題を整理して、どの段が合うかと金額をお出しします。ここまで費用はかかりません。" },
   { n: "03", en: "Shoot", ja: "撮影", d: "打ち合わせた内容に沿って。現場でも、スタジオでも対応します。" },
   { n: "04", en: "Delivery", ja: "納品", d: "用途ごとのサイズで、すぐ使えるかたちにしてお渡しします。" },
   { n: "05", en: "Follow-up", ja: "その後", d: "使ってみてどうだったか。次に何が要るか。一緒に考えます。" },
@@ -85,12 +99,12 @@ export default function ServicesPage() {
       <section className="svc-hero">
         <span className="pre">SERVICE ・ できること</span>
         <h1>
-          写真や動画ではなく、
+          写真ではなく、
           <br />
-          <em>仕事の武器</em>を。
+          <em>何を見せるか</em>から。
         </h1>
         <p>
-          SNS、Googleマップ、Webサイト。見つけて、わかって、選んでもらう。その一歩を、ビジュアルでつくります。
+          SNS、Googleマップ、Webサイト。見つけて、わかって、選んでもらう。何を見せるかを一緒に決めるところから、お引き受けします。
         </p>
         <Link href="/contact" className="btn-big">
           相談する
@@ -118,10 +132,14 @@ export default function ServicesPage() {
       {/* PRICING */}
       <section className="svc-pricing" id="pricing">
         <div className="svc-sec-hd">
-          <span className="pre">PRICING ・ 料金の目安</span>
-          <h2>わかりやすい、料金の目安。</h2>
+          <span className="pre">PRICING ・ 料金</span>
+          <h2>
+            値段は、写真の枚数ではなく
+            <br />
+            <em>どこまで一緒に決めるか</em>で変わります。
+          </h2>
           <p>
-            業種や目的に合わせて、必要な内容を組み合わせます。月額プランや複数制作は、内容に合わせてお見積りします。表示価格はすべて税別です。
+            「撮りたいものは決まっているので、撮るだけでいい」から、「何を見せるべきかから一緒に考えてほしい」まで。段が上がるほど、こちらが持ち込むものが増えます。写真や動画は、その結果をお渡しする形です。<strong>初回のご相談は無料です。</strong>表示価格はすべて税込です。
           </p>
         </div>
         <ServiceList />
@@ -134,14 +152,14 @@ export default function ServicesPage() {
           <h2>
             続けるほど、効いてくる。
             <br />
-            月額のクリエイティブパートナー。
+            月額でのお付き合い。
           </h2>
           <p>
-            1回ごとにお願いするのではなく、月額でお付き合いする形です。必要なときに撮って、一緒に考えて、続けていく。Studio くりすさんの中心にあるプランです。
+            1回ごとにお願いするのではなく、月額でお付き合いする形です。撮って終わりではなく、出した結果を見て翌月を調整していきます。撮影のない月でも、ブランドの決め方だけをご一緒することもできます。表示価格はすべて税込です。
           </p>
         </div>
         <div className="svc-tiers">
-          {PARTNER_TIERS.map((t) => (
+          {ONGOING.map((t) => (
             <div className={`svc-tier${t.hi ? " hi" : ""}`} key={t.en}>
               <span className="svc-tier-step">{t.step}</span>
               <span className="svc-tier-en">{t.en}</span>
@@ -164,7 +182,7 @@ export default function ServicesPage() {
             3ヶ月ごとに、内容を一緒に見直します。増やすときは、必ず先にご相談します。いきなり変わることはありません。
           </p>
           <Link href="/contact" className="btn-p">
-            パートナー契約を相談する
+            月額のご相談をする
           </Link>
         </div>
       </section>
@@ -202,8 +220,6 @@ export default function ServicesPage() {
 
       <FAQ />
 
-      <PriceCalculator />
-
       {/* CTA */}
       <section className="svc-cta">
         <div className="svc-cta-in">
@@ -211,7 +227,7 @@ export default function ServicesPage() {
             まずは、<em>お店のことを聞かせてください。</em>
           </h2>
           <p>
-            何から始めればいいか決まっていなくても大丈夫です。目的やご予算に合わせて、無料でご提案します。
+            何から始めればいいか決まっていなくても大丈夫です。初回のご相談は無料。課題を整理して、どの段が合うかと金額をお出しするところまで、費用はかかりません。
           </p>
           <div className="svc-cta-actions">
             <Link href="/contact" className="btn-big">

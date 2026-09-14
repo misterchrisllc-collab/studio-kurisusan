@@ -1,8 +1,80 @@
 # Studio くりすさん — Session Handoff
 
+> # ⏰ 2026-08-25 · SITE FULLY RENAMED AND REVIEWED. Held back on purpose.
+>
+> **`/services` now matches `leads/pricing/simple-stupid.html` (12 pages) exactly.** A mechanical
+> cross-check of sheet vs internal deck vs pitch deck vs site found the site was the only stale
+> artefact; it no longer is.
+>
+> `ServiceList` carries **0 ビジュアル更新 ¥35,000 · 1 見せ方の設計 ¥50,000 · 2 コンテンツ設計 ¥80,000
+> （おすすめ）· 3 コンテンツ運用 ¥65,000〜/月**, then **★ ストーリー ¥150,000〜 as a SEPARATE 特別枠 block**
+> — it is no longer a fifth rung. `ONGOING` on `app/services/page.tsx` is CONTENT / **DIRECTION**
+> (ブランド・コンテンツ設計) / POSTING. `ContactForm` and the home flagship follow the same names.
+>
+> **⚠ 「本命」 WAS RENDERING ON THE PUBLIC PAGE and is now 「おすすめ」.** 本命 is the owner's internal
+> word for the tier to land a client on. Never ship it. Same class of leak the pitch-deck verifier
+> guards against — the website has no such guard, so check by eye.
+>
+> **⚠ DO NOT COMMIT, PUSH OR DEPLOY.** Owner is holding until immigration answers about the visa: the
+> 料金一覧 filed on 08-19 and the new site disagree, and immigration may compare them. The filed file
+> `leads/pricing/immigration-price-list.html` is **frozen and must never be edited to match the site**.
+> Full diff and reasoning, bilingual with furigana:
+> https://claude.ai/code/artifact/e96d0946-50f1-4e35-b7fa-0558bdd743bf
+>
+> Everything sits **uncommitted** on `tweak/services-personal-brand` — a branch name that stopped
+> describing its contents some time ago. `npm run build` passes; /services was screenshot-checked at
+> 1400px and 420px. Production is untouched and still serves the old menu.
+
 _Paste this into a new chat to resume with full context. Durable facts also live in Claude auto-memory. Last consolidated: 2026-07._
 
 ---
+
+> # ⏰ 2026-08-23 · THE SITE NOW SELLS DIRECTION, NOT A MENU OF SHOOTS. Not deployed.
+>
+> **The 12-row photography menu is gone from `/services`.** `ServiceList` is now the **direction
+> ladder** from `leads/pricing/simple-stupid.html`: what escalates between tiers is **how much
+> thinking the studio brings**, not how many photos arrive.
+>
+> `0 スナップ ¥35,000 → 1 写真更新 ¥50,000 → 2 写真＋動画 ¥80,000 本命 → 3 コンテンツ運用 ¥65,000／月〜 → ★ ストーリー ¥150,000〜`
+>
+> **⚠ ALL SITE PRICES ARE NOW 税込.** The page used to say 「表示価格はすべて税別」. The sheet is 税込
+> and the owner chose to match it, so the numbers above are the final figures a client pays.
+> **Never restate them as 税別 without converting** (税込 ¥35,000 = 税別 ¥31,819).
+>
+> **⚠ simple-stupid DISAGREES WITH `master-pricing-sheet.html` ON PURPOSE.** The master is frozen at
+> v11 as a catalogue. Do not reconcile the two, and do not "correct" the site back toward the master.
+>
+> **What was removed and why.**
+> - **`components/PriceCalculator.tsx` DELETED.** A checkbox adder that totalled line items is the
+>   purest form of the product menu the studio is escaping (「客の前で足し算をしない」). Owner's call.
+>   Recover with `git checkout HEAD -- components/PriceCalculator.tsx` if ever wanted back.
+> - **The 7 unpriced website services are gone** (料理・メニュー撮影 ¥50,000〜 · 店内・空間撮影 ·
+>   フルブランドパッケージ ¥95,000〜 · ライフスタイル商品撮影 · スタッフ・採用写真 ·
+>   コーポレートブランディング · バイリンガルキャプション). They were a menu; the ladder replaces them.
+>   料理・メニュー撮影 survives as a **単品 row at ¥5,000／品** because 飲食店 genuinely count by dish.
+> - **建設・リノベーション記録** (per-visit ¥50,000〜) is **not on the site any more.** It is still a real
+>   decided price in the master. If it should stay sellable, it needs a home outside the ladder.
+> - **`ContactForm` SHOOT_TYPES** was a product list too, and now mirrors the ladder.
+>
+> **⚠ ブランド構築コンサル prints only the 単発 ¥20,000／回.** The monthly 月2回 ¥40,000／毎週 ¥70,000 are
+> on the sheet but are **the softest numbers on it** — the only prices where nothing physical is
+> delivered, and untested on a real client. They are quoted in conversation, deliberately not
+> published, until a few have actually sold. The figures are kept in a comment in
+> `app/services/page.tsx` so nothing is lost.
+>
+> **`lib/site.ts` priceRange is now `¥15,000〜¥150,000`** (the 最低料金 floor to the ★ tier).
+>
+>
+> **⏰ 2026-08-23 (追記) — 初回相談は無料, and it is bounded.** Live in five places: `FAQ` (now the
+> **first** question), PROCESS 01/02, the ladder note in `ServiceList`, the pricing intro, the
+> /services CTA, /contact and the home CTA. **The boundary is 資料が残るかどうか** — free covers
+> hearing, structuring the problem, proposing and quoting; the moment something is handed over
+> (イメージボード, 当日のメモ) it is 単発のご相談 ¥20,000. Do not soften that line: without it the
+> ¥20,000 単発相談 is unsellable and 「打ち合わせは商品」 stops being true.
+>
+> **STILL NOT DEPLOYED.** Work sits **uncommitted** on `tweak/services-personal-brand` — a branch name
+> that no longer describes its contents. `npm run build` passes; /services was screenshot-checked at
+> 1440px and 390px. Production still serves the old menu, 月額契約 with no number, and 税別.
 
 ## 1. TL;DR — what this is
 
@@ -35,7 +107,7 @@ Presented as business solutions, not a service menu. Live on the home teaser + `
 2. **ブランドリフレッシュ** (Brand Refresh) — modernize an existing visual identity.
 3. **Googleビジネス強化** (Google Business Boost) — GBP imagery, ongoing updates, local visibility. (Google Business optimization is a signature strength.)
 4. **採用ブランディング** (Recruitment Branding) — attract better hires via authentic visuals.
-5. **クリエイティブパートナー** (Creative Partner) — **FLAGSHIP recurring** (おすすめ badge). Monthly photo/video, Google updates, SNS, promo, seasonal, brand consult, AI×human direction, priority booking. `/services` has a "含まれるもの" chip list. **No published price yet** (shown as "月額契約" — don't invent a number).
+5. **クリエイティブパートナー** (Creative Partner) — **FLAGSHIP recurring** (おすすめ badge). **REPRICED 2026-08-23** and renamed on the page to 「月額でのお付き合い」. Three cards in `ONGOING` (`app/services/page.tsx`), replacing the old START/GROW/PARTNER whose ¥50,000／¥100,000 came from the product model: **コンテンツ運用 ¥65,000／月〜** (hi; グロース ¥100,000／月) · **ブランド構築コンサル ¥20,000／回** (monthlies held back, see the top block) · **SNS投稿代行 ¥20,000／月**. 業務範囲 is **no longer 未定** — each card lists its scope, taken from simple-stupid. 返信・DM・予約受付 are explicitly excluded on responsibility grounds, not workload. ⚠️ Still on `tweak/services-personal-brand`, **not promoted**; production shows 月額契約 with no number.
 6. **イベント・PR撮影** (Event Marketing Content) — restaurants / pop-ups / launches / company & community events / activations. Positioned as **Event Marketing Content, NOT event photography**: reusable post-event assets (SNS / Google / press / website), bilingual, fast turnaround. Home has a matching outcome-framed case study (taco pop-up, `portfolio/tacos-shop.jpg`).
 7. **季節・スポットキャンペーン** (Seasonal Campaigns) — limited-time promos, events, launches.
 
@@ -56,11 +128,11 @@ Presented as business solutions, not a service menu. Live on the home teaser + `
 ## 5. Site structure & current page state
 
 Routes: `/` · `/works` · `/services` · `/about` · `/contact` · `/gear` (title 制作環境, unlinked from nav). `/work` 308-redirects to `/works`.
-Components: `Header`, `Footer`, `WorkGrid`, `PortfolioGallery`, `ServiceList`, `FAQ`, `PriceCalculator`, `ContactForm`.
+Components: `Header`, `Footer`, `WorkGrid`, `PortfolioGallery`, `ServiceList`, `FAQ`, `ContactForm`. (`PriceCalculator` deleted 2026-08-23.)
 
 - **`/` Home** (`app/page.tsx`): Hero leads with the outcome — **「お店やブランドが、もっと選ばれる理由をつくる。」** (sub lists real problems: 集客・SNS・Googleマップ・採用・ブランディング; photography = one tool). Then brand statement → why-Chris ("ブランドづくりの相談相手であり、つくり手でもある") → 7-solution teaser (`SOLUTIONS` array; #5 おすすめ badge via `.svc-flagship`/`.svc-flag-badge`) → **「こんな課題に、こう応えます。」** honest case studies (4 cards incl. taco pop-up event) → approach (制作プロセス) → quote (our own motto, not a fake testimonial) → CTA.
 - **`/works`**: retitled **「作品と、撮影事例。」** Honest — no "all real client projects/results" claim. `WorkGrid` = 3 example cards (業種 / 課題 / 撮影内容 / 制作物 / ねらい). Then `PortfolioGallery` (filterable masonry, 12-preview + 「もっと作品を見る」 expand, custom keyboard-accessible lightbox).
-- **`/services`** (nav "できること"): hero **「課題から始める、7つのビジネスソリューション。」** → 7-solution grid (`SOLUTIONS`, English sublabels via `.sp-sol-en`, おすすめ on #5) → Creative Partner "含まれるもの" chip highlight → **「各ソリューションを構成する、制作の要素」** (how-we-work; has a subtle `.sp-flow-more` link to 制作環境) → 撮影に含まれるもの → **「料金の目安（撮影メニュー）」** (`ServiceList`, 4 outcome-led categories: 飲食店の集客・来店を増やす / ECの売上とブランド価値を上げる / 採用力と企業ブランドを高める / SNS・発信を続けやすくする) → `FAQ` → `PriceCalculator` → CTA.
+- **`/services`** (nav "できること"): hero **「写真や動画ではなく、仕事の武器を。」** → 7-solution grid (`SOLUTIONS`, English sublabels via `.sp-sol-en`, おすすめ on #5) → **「値段は、写真の枚数ではなくどこまで一緒に決めるかで変わります。」** (`ServiceList` — the 5-段 direction ladder + a 組み合わせと、単品 table ending on the ¥15,000 floor) → 月額でのお付き合い (`ONGOING`, 3 cards) → 撮影に含まれるもの → PROCESS → `FAQ` → CTA. **No calculator.**
 - **`/about`**: philosophy-first, real portrait. Opener is on-message: 「私の仕事は、写真を届けることではありません。そのお店やブランドが『自分たちらしく伝わること』です。」 A subtle `.ab-note` line above the contact block links to 制作環境.
 - **`/contact`**: intro 「ビジネスについて、話しましょう。」 + partnership copy. Rich B2B form (`ContactForm`) → DB + email (both paths; succeeds if either works). Studio block uses the **listing name フォトスタジオ くりすさん** + embedded Google Map.
 - **`/gear` = 制作環境** (Production Environment): reframed from an equipment list into a **client-benefit** page (reliable, consistent quality anywhere — 4 benefit points, `.gr-benefits` reusing `.sp-flow-*`). Equipment kept as a secondary accessible **`<details>`** expandable ("機材・技術仕様を見る"). Unlinked from nav but discoverable via the About + services contextual links.
@@ -112,7 +184,7 @@ Next.js **14** (App Router) + TypeScript. **Plain CSS** design system in `app/gl
 
 ## 11. Open follow-ups / next candidates
 
-1. **Set a Creative Partner (#5) price** (currently "月額契約" with no number).
+1. ~~Set a Creative Partner (#5) price~~ ~~PRICE SET, NOT SHIPPED~~ **REPRICED AND SCOPED 2026-08-23.** The old START/GROW/PARTNER is gone; `ONGOING` carries コンテンツ運用 ¥65,000／月〜 · ブランド構築コンサル ¥20,000／回 · SNS投稿代行 ¥20,000／月, each with a printed 業務範囲. **The only remaining work is deploy** — the branch has still never been promoted, so production shows 月額契約 with no number. The genuinely open question is now whether the untested コンサル monthlies (¥40,000／¥70,000) ever get published.
 2. **Map the `ServiceList` pricing rows onto the 7 solutions** (or build dedicated solution detail pages / `/services#anchors`).
 3. **Real corporate/team/office + construction photos** → strengthen card 3 / add subjects; **fuller taco pop-up crowd/activation photos** → strengthen the event case (currently a venue exterior).
 4. ~~LocalBusiness JSON-LD~~ **DONE (2026-07)** — owner still needs to verify NAP/hours/category vs GBP and (optional) add geo coords; then validate in Search Console.

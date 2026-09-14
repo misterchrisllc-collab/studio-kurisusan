@@ -6,18 +6,20 @@ import { submitContact, type ContactState } from "@/app/contact/actions";
 
 const PLACEHOLDER = "選択してください";
 
+/* 2026-08-23 — mirrors the direction ladder on /services, not a menu of shoot
+   types. The old list (料理・メニュー撮影, 店内・空間撮影, フルブランドパッケージ …)
+   asked the client to pick a product before anyone had decided what to show.
+   「まだ決まっていない」 stays last and is a perfectly good answer. */
 const SHOOT_TYPES = [
   PLACEHOLDER,
-  "クリエイティブパートナー（月額契約）",
-  "Googleマップ更新パッケージ",
-  "料理・メニュー撮影",
-  "店内・空間撮影",
-  "商品撮影",
-  "企業・採用撮影",
-  "建設・リノベーション記録",
-  "ファッション・人物撮影",
-  "リール・ショート動画",
-  "フルブランドパッケージ",
+  "ビジュアル更新（撮りたいものは決まっている）",
+  "プロフィール撮影（スタッフ・採用・名刺の写真）",
+  "見せ方の設計（何を見せるかから一緒に）",
+  "コンテンツ設計（調べたうえで構成から）",
+  "コンテンツ運用（月額で続けたい）",
+  "ストーリー（開業・改装・採用・PR など）",
+  "ブランド・コンテンツ設計（撮影なしの相談）",
+  "カルーセル・リールなど、単品で",
   "まだ決まっていない / まず相談したい",
 ];
 

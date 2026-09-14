@@ -558,6 +558,30 @@ header{
 .svc-pl-detail.open .svc-pl-detail-grid{padding:18px 4px 26px;}
 .svc-pl-d-item dt{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#aaa;font-family:'Inter',sans-serif;margin-bottom:5px;}
 .svc-pl-d-item dd{font-size:13px;color:#444;font-family:'Noto Sans JP',sans-serif;line-height:1.6;}
+/* 段 ladder rows — 2026-08-23. The step number and the ディレクション label are the
+   product; the price is a consequence of them, so they lead the row. */
+.svc-pl-tier{grid-template-columns:34px minmax(190px,1fr) 1.5fr auto auto;}
+.svc-pl-step{font-family:'Inter',sans-serif;font-weight:700;font-size:19px;line-height:1;color:var(--mg);}
+.svc-pl-n .svc-pl-dir{display:block;margin-top:5px;font-size:11.5px;font-weight:500;color:#999;letter-spacing:.2px;}
+.svc-pl-main{display:inline-block;margin-left:9px;padding:2px 7px;border-radius:3px;background:var(--mg);color:#fff;font-size:10px;font-weight:700;letter-spacing:.6px;vertical-align:2px;}
+.svc-pl-flat{cursor:default;}
+.svc-pl-flat:hover{background:none;}
+.svc-pl-note strong{font-weight:700;color:var(--bk);}
+/* ★ 特別枠 — 2026-08-23. Deliberately NOT a ladder row: it sits beside 0→1→2→3,
+   so it gets its own block rather than a fifth rung. */
+.svc-special{display:flex;gap:clamp(24px,4vw,56px);align-items:flex-start;padding:26px 0 4px;}
+.svc-special-l{flex:1;min-width:0;}
+.svc-special-lead{font-family:'Noto Sans JP',sans-serif;font-weight:700;font-size:clamp(15px,1.7vw,19px);line-height:1.7;color:var(--bk);}
+.svc-special-body{margin-top:12px;font-size:13.5px;line-height:2;color:#666;font-family:'Noto Sans JP',sans-serif;}
+.svc-special-when{margin-top:18px;list-style:none;display:flex;flex-wrap:wrap;gap:8px 10px;}
+.svc-special-when li{font-size:12px;line-height:1;padding:8px 13px;border:1px solid var(--bd);border-radius:2px;color:#555;font-family:'Noto Sans JP',sans-serif;}
+.svc-special-r{flex:0 0 auto;text-align:right;padding-top:2px;}
+.svc-special-p{display:block;font-family:'Inter',sans-serif;font-weight:600;font-size:clamp(20px,2.6vw,28px);color:var(--bk);white-space:nowrap;}
+.svc-special-n{display:block;margin-top:8px;font-size:11.5px;color:#999;font-family:'Noto Sans JP',sans-serif;}
+@media(max-width:700px){
+  .svc-special{flex-direction:column;gap:18px;}
+  .svc-special-r{text-align:left;}
+}
 
 /* CREATIVE PARTNER — flagship recurring, dark band */
 .svc-partner{background:var(--bk);color:#fff;padding:clamp(64px,9vw,124px) var(--gut);scroll-margin-top:var(--hh);}
@@ -631,6 +655,10 @@ header{
   .svc-pl-row{grid-template-columns:1fr auto;gap:6px 16px;padding:18px 2px;}
   .svc-pl-d{grid-column:1/-1;order:3;}
   .svc-pl-chev{grid-row:1;grid-column:2;}
+  .svc-pl-tier{grid-template-columns:26px 1fr auto auto;}
+  .svc-pl-step{grid-row:1;grid-column:1;font-size:16px;}
+  .svc-pl-tier .svc-pl-d{grid-column:1/-1;order:3;}
+  .svc-pl-tier .svc-pl-chev{grid-row:1;grid-column:4;}
 }
 @media(max-width:560px){
   .svc-steps{grid-template-columns:1fr;}

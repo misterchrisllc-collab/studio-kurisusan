@@ -41,7 +41,7 @@ export default function ContactPage() {
               撮影をするかどうか、まだ決めていなくても大丈夫です。「こういう課題がある」。その一言から、一緒に考えはじめます。
             </p>
             <p className="ct-sub">
-              単発でも、継続的なパートナーとしても。ご相談は無料です。
+              単発でも、継続的なパートナーとしても。初回のご相談は無料です。
             </p>
             <ul className="ct-points">
               {POINTS.map((p) => (
