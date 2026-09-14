@@ -6,19 +6,21 @@ import { submitContact, type ContactState } from "@/app/contact/actions";
 
 const PLACEHOLDER = "選択してください";
 
+/* 2026-08-23 — mirrors the direction ladder on /services, not a menu of shoot
+   types. The old list (料理・メニュー撮影, 店内・空間撮影, フルブランドパッケージ …)
+   asked the client to pick a product before anyone had decided what to show.
+   「まだ決まっていない」 stays last and is a perfectly good answer. */
 const SHOOT_TYPES = [
   PLACEHOLDER,
-  "クリエイティブパートナー（月額契約）",
-  "Googleマップ更新パッケージ",
-  "料理・メニュー撮影",
-  "店内・空間撮影",
-  "商品撮影",
-  "企業・採用撮影",
-  "建設・リノベーション記録",
-  "ファッション・人物撮影",
-  "リール・ショート動画",
-  "フルブランドパッケージ",
-  "その他・未定",
+  "ビジュアル更新（撮りたいものは決まっている）",
+  "プロフィール撮影（スタッフ・採用・名刺の写真）",
+  "見せ方の設計（何を見せるかから一緒に）",
+  "コンテンツ設計（調べたうえで構成から）",
+  "コンテンツ運用（月額で続けたい）",
+  "ストーリー（開業・改装・採用・PR など）",
+  "ブランド・コンテンツ設計（撮影なしの相談）",
+  "カルーセル・リールなど、単品で",
+  "まだ決まっていない / まず相談したい",
 ];
 
 const CONTACT_METHODS = [PLACEHOLDER, "メール", "電話", "LINE", "Instagram DM"];
@@ -63,7 +65,7 @@ export default function ContactForm() {
 
   return (
     <form ref={formRef} action={formAction}>
-      <h2>プロジェクトのご相談</h2>
+      <h2>ご相談フォーム</h2>
       <p className="fs-note">
         <span className="req">*</span> は必須項目です。
       </p>
@@ -128,7 +130,7 @@ export default function ContactForm() {
 
       <div className="fg">
         <label className="fl" htmlFor="contact_method">
-          希望の連絡方法
+          ご希望の連絡方法
         </label>
         <select
           id="contact_method"
@@ -144,7 +146,7 @@ export default function ContactForm() {
 
       <div className="fg">
         <label className="fl" htmlFor="shoot_type">
-          ご相談内容（解決したいこと）
+          ご相談したいこと
         </label>
         <select
           id="shoot_type"
@@ -176,7 +178,7 @@ export default function ContactForm() {
         </div>
         <div className="fg">
           <label className="fl" htmlFor="timeline">
-            希望時期
+            ご希望の時期
           </label>
           <select
             id="timeline"
@@ -193,15 +195,19 @@ export default function ContactForm() {
 
       <div className="fg">
         <label className="fl" htmlFor="message">
-          プロジェクトについて
+          ご相談内容・お困りごと
         </label>
         <textarea
           id="message"
           name="message"
           className="fta"
-          placeholder="撮影したい内容、使用目的（Googleマップ・EC・採用サイトなど）、ご予算、希望時期などをご記入ください。決まっていない点はそのままで構いません。"
+          placeholder="解決したいこと、実現したいこと、気になっていること。決まっていない点は、そのままで構いません。"
         />
       </div>
+
+      <p className="fs-reassure">
+        まだ決まっていない状態でも、お気軽にどうぞ。ご相談だけでも大歓迎です。
+      </p>
 
       <SubmitButton />
 

@@ -8,7 +8,7 @@ const SOLUTIONS = [
   { name: "ブランドリフレッシュ", en: "Brand Refresh" },
   { name: "Googleビジネス強化", en: "Google Business Boost" },
   { name: "採用ブランディング", en: "Recruitment Branding" },
-  { name: "クリエイティブパートナー", en: "Creative Partner", flagship: true },
+  { name: "コンテンツ運用（月額）", en: "Content Partner", flagship: true },
   { name: "イベント・PR撮影", en: "Event Marketing Content" },
   { name: "季節・スポットキャンペーン", en: "Seasonal Campaigns" },
 ];
@@ -202,7 +202,7 @@ export default function Home() {
             その<em>「らしさ」</em>を、<br />
             一緒に見つけましょう。
           </h2>
-          <p>何から始めればいいか決まっていなくても大丈夫です。まずは、お店のことを聞かせてください。ご相談は無料です。</p>
+          <p>何から始めればいいか決まっていなくても大丈夫です。まずは、お店のことを聞かせてください。初回のご相談は無料です。</p>
           <Link href="/contact" className="ibtn light">
             相談する
           </Link>

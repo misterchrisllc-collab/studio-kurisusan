@@ -84,10 +84,10 @@ function detailPairs(d: Parsed): [string, string][] {
     [
       ["会社・店舗名", d.company],
       ["電話番号", clean(d.phone)],
-      ["希望の連絡方法", clean(d.contact_method)],
-      ["撮影・制作内容", clean(d.shoot_type)],
+      ["ご希望の連絡方法", clean(d.contact_method)],
+      ["ご相談したいこと", clean(d.shoot_type)],
       ["ご予算の目安", clean(d.budget)],
-      ["希望時期", clean(d.timeline)],
+      ["ご希望の時期", clean(d.timeline)],
     ] as [string, string][]
   ).filter(([, v]) => v.trim() !== "");
 }
@@ -96,8 +96,9 @@ async function storeInSupabase(d: Parsed): Promise<boolean> {
   const supabase = getSupabaseAdmin();
   if (!supabase) return false;
 
+  // shoot_type has its own column, so keep it out of the composed message.
   const extras = detailPairs(d)
-    .filter(([label]) => label !== "撮影・制作内容")
+    .filter(([label]) => label !== "ご相談したいこと")
     .map(([label, v]) => `${label}: ${v}`);
 
   const fullMessage =
@@ -159,7 +160,7 @@ async function sendNotification(d: Parsed): Promise<boolean> {
         )}&gt;</p>
         ${detailRows ? `<table style="border-collapse:collapse;margin:0 0 4px">${detailRows}</table>` : ""}
         ${messageBlock}
-        <p style="margin:28px 0 0;font-size:11px;color:#aaa">この通知は studio-kurisusan.vercel.app のお問い合わせフォームから送信されました。返信するとお客様に直接届きます。</p>
+        <p style="margin:28px 0 0;font-size:11px;color:#aaa">この通知は studiokurisusan.com のお問い合わせフォームから送信されました。返信するとお客様に直接届きます。</p>
       </div>`,
   });
 

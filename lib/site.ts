@@ -20,7 +20,7 @@ export const BUSINESS = {
   addressCountry: "JP",
   opens: "09:00",
   closes: "21:00",
-  priceRange: "¥15,000〜¥95,000",
+  priceRange: "¥15,000〜¥150,000",
   instagram: "https://instagram.com/studio_kurisusan",
   // Precise GBP pin (from the listing's Maps URL !3d/!4d) + a stable CID map
   // link. Keep in sync with the live listing if it ever moves.

@@ -3,7 +3,7 @@ import ContactForm from "@/components/ContactForm";
 export const metadata = {
   title: "お問い合わせ",
   description:
-    "プロジェクトのご相談。撮影内容が決まっていなくても構いません。大阪のクリエイティブスタジオへのお問い合わせ。日本語・英語・スペイン語対応。",
+    "撮影をするかどうか決めていなくても大丈夫です。事業の課題からご相談いただけます。大阪のクリエイティブスタジオへのお問い合わせ。日本語・英語・スペイン語対応。",
   alternates: { canonical: "/contact" },
 };
 
@@ -22,7 +22,6 @@ const MAPS_EMBED = `https://maps.google.com/maps?q=${encodeURIComponent(
 const POINTS = [
   "ご返信は通常24時間以内にお送りします。",
   "日本語・英語・スペイン語で対応します。",
-  "撮影内容が未定でも、事業の課題からご相談いただけます。",
 ];
 
 export default function ContactPage() {
@@ -34,12 +33,15 @@ export default function ContactPage() {
           <div className="ct-l-top">
             <span className="pre">CONTACT</span>
             <h1>
-              ビジネスについて、
+              うまくまとまっていなくても、
               <br />
-              <em>話しましょう。</em>
+              <em>まずは、聞かせてください。</em>
             </h1>
-            <p>
-              撮影が決まっていなくても構いません。「こういう課題がある」「こう見られたい」、そこから一緒に考えます。単発のご相談も、継続的なパートナーとしてのご相談も歓迎です。ご相談は無料です。
+            <p className="ct-lead">
+              撮影をするかどうか、まだ決めていなくても大丈夫です。「こういう課題がある」。その一言から、一緒に考えはじめます。
+            </p>
+            <p className="ct-sub">
+              単発でも、継続的なパートナーとしても。初回のご相談は無料です。
             </p>
             <ul className="ct-points">
               {POINTS.map((p) => (

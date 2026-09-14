@@ -104,7 +104,7 @@ Bring the **inner pages up to the homepage system**, in order — each on a bran
 2. **Works (`/works`, 作品)** — apply the image pipeline (`next/image` + high-res) and the aligned-grid rhythm; it's the natural showcase.
 3. **About (`/about`)** and **Contact (`/contact`)** — inherit type/gutter; Contact: make the form the hero.
 
-Whole-site follow-ups still open (from `HANDOFF.md` §11): Creative Partner price, map ServiceList rows onto the 7 solutions, real corporate/team photos, GBP NAP/hours verification + Search Console, `EMAIL_FROM` caps fix.
+Whole-site follow-ups still open (from `HANDOFF.md` §11): ~~Creative Partner price~~ (**authored 2026-08-21, awaiting promotion — see `HANDOFF.md` §3.5**), map ServiceList rows onto the 7 solutions, real corporate/team photos, GBP NAP/hours verification + Search Console, `EMAIL_FROM` caps fix.
 
 ---
 
