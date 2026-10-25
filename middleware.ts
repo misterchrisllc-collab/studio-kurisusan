@@ -30,10 +30,12 @@ export async function middleware(request: NextRequest) {
   });
 
   const { data } = await supabase.auth.getUser();
+  // Same parsing as parseAdminEmails in lib/admin-auth.ts (that file is server-only, so not imported here).
   const allow = (process.env.ADMIN_EMAILS ?? "")
-    .split(",")
-    .map((e) => e.trim().toLowerCase())
-    .filter(Boolean);
+    .replace(/^\s*ADMIN_EMAILS\s*=/i, "")
+    .split(/[,;\s]+/)
+    .map((e) => e.replace(/^["']+|["']+$/g, "").trim().toLowerCase())
+    .filter((e) => e.includes("@"));
   const ok = !!data.user?.email && allow.includes(data.user.email.toLowerCase());
 
   if (isLogin) {

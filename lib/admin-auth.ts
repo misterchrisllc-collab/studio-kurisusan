@@ -9,10 +9,16 @@ import type { User } from "@supabase/supabase-js";
  * enough, the email must also be in ADMIN_EMAILS.
  */
 export function adminEmails(): string[] {
-  return (process.env.ADMIN_EMAILS ?? "")
-    .split(",")
-    .map((e) => e.trim().toLowerCase())
-    .filter(Boolean);
+  return parseAdminEmails(process.env.ADMIN_EMAILS);
+}
+
+/** Tolerates what a dashboard paste can add: quotes, spaces, newlines, ";" separators. */
+export function parseAdminEmails(raw: string | undefined): string[] {
+  return (raw ?? "")
+    .replace(/^\s*ADMIN_EMAILS\s*=/i, "")
+    .split(/[,;\s]+/)
+    .map((e) => e.replace(/^["']+|["']+$/g, "").trim().toLowerCase())
+    .filter((e) => e.includes("@"));
 }
 
 export function isAdminEmail(email: string | undefined | null): boolean {
