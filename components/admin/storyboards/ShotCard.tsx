@@ -95,14 +95,11 @@ export default function ShotCard(p: ShotCardProps) {
           <button className="adm-btn small" onClick={() => file.current?.click()}>
             {shot.reference_url ? "Replace reference" : "Upload reference"}
           </button>
-          <button
-            className="adm-btn small"
-            onClick={p.onSketch}
-            disabled={!p.sketchEnabled}
-            title={p.sketchEnabled ? undefined : "Needs an image API key on the server (see setup notes)"}
-          >
-            {shot.sketch_url ? "New sketch" : "Generate sketch"}
-          </button>
+          {p.sketchEnabled && (
+            <button className="adm-btn small" onClick={p.onSketch}>
+              {shot.sketch_url ? "New sketch" : "Generate sketch"}
+            </button>
+          )}
           <input
             ref={file}
             type="file"
@@ -167,17 +164,16 @@ export default function ShotCard(p: ShotCardProps) {
         )}
       </div>
 
-      <div className="sb-suggest">
+      {/* Hidden without an AI key; suggestions already saved on the shot stay visible so they can be added or dismissed. */}
+      {(p.suggestEnabled || shot.suggestions.length > 0) && <div className="sb-suggest">
         <div className="sb-suggest-head">
           <span>AI suggestions</span>
-          <button
-            className="adm-btn small"
-            onClick={p.onSuggest}
-            disabled={!p.suggestEnabled || !!p.busy}
-            title={p.suggestEnabled ? "Ideas for this shot that aren't in its details yet" : "Needs Anthropic credit + ANTHROPIC_API_KEY on the server"}
-          >
-            {shot.suggestions.length ? "Suggest again" : "Suggest setups"}
-          </button>
+          {p.suggestEnabled && (
+            <button className="adm-btn small" onClick={p.onSuggest} disabled={!!p.busy}
+              title="Ideas for this shot that aren't in its details yet">
+              {shot.suggestions.length ? "Suggest again" : "Suggest setups"}
+            </button>
+          )}
         </div>
         {shot.suggestions.length > 0 && (
           <ul className="sb-suggest-list">
@@ -193,7 +189,7 @@ export default function ShotCard(p: ShotCardProps) {
             ))}
           </ul>
         )}
-      </div>
+      </div>}
 
       <div className="sb-card-foot">
         <button className="adm-link" onClick={() => p.onMove(-1)} disabled={p.index === 0} aria-label="Move earlier">↑</button>

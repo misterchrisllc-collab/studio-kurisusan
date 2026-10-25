@@ -12,7 +12,8 @@ export default function StoryTab({
 }: {
   project: Project;
   onPatch: (patch: ProjectPatch) => void;
-  onTurnIntoShots: () => void;
+  /** Only passed when an AI key is configured; otherwise the AI controls aren't shown at all. */
+  onTurnIntoShots?: () => void;
 }) {
   return (
     <section className="sb-tabpanel sb-story">
@@ -30,12 +31,12 @@ export default function StoryTab({
         <Field label="Music & sound" multiline value={project.music} maxLength={5000} onChange={(v) => onPatch({ music: v })}
           placeholder="Track, tempo, VO, natural sound" />
       </div>
-      <div className="sb-story-actions">
+      {onTurnIntoShots && <div className="sb-story-actions">
         <span className="adm-muted">The story is also what the AI reads when it organizes notes or suggests setups.</span>
         <button className="adm-btn" onClick={onTurnIntoShots} disabled={!project.story.trim() && !project.logline.trim()}>
           Turn story into shots →
         </button>
-      </div>
+      </div>}
     </section>
   );
 }

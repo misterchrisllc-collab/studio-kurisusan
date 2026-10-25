@@ -407,10 +407,11 @@ function Editor({ project: initialProject, shots: initialShots, ai }: Props) {
 
         <span className="sb-spacer" />
         <DictationStatus />
-        <button className="adm-btn small" onClick={() => setOrganizing(project.notes)}
-          title={ai.organize ? undefined : "Needs ANTHROPIC_API_KEY on the server"}>
-          Organize My Ideas
-        </button>
+        {ai.organize && (
+          <button className="adm-btn small" onClick={() => setOrganizing(project.notes)}>
+            Organize My Ideas
+          </button>
+        )}
         <a className="adm-btn small" href={`/admin/storyboards/${project.id}/print`} target="_blank" rel="noopener"
           onClick={() => void save.flush()}>
           Export PDF
@@ -427,7 +428,7 @@ function Editor({ project: initialProject, shots: initialShots, ai }: Props) {
         <StoryTab
           project={project}
           onPatch={patchProject}
-          onTurnIntoShots={() => setOrganizing([project.logline, project.story].filter((v) => v.trim()).join("\n\n"))}
+          onTurnIntoShots={ai.organize ? () => setOrganizing([project.logline, project.story].filter((v) => v.trim()).join("\n\n")) : undefined}
         />
       )}
 
