@@ -13,6 +13,9 @@ const NAV = [
 export default function Header() {
   const pathname = usePathname();
 
+  // The admin area has its own bar.
+  if (pathname.startsWith("/admin")) return null;
+
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 

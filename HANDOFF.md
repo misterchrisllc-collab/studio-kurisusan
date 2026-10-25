@@ -1,5 +1,20 @@
 # Studio くりすさん — Session Handoff
 
+> # ⏰ 2026-10-25 · /admin/storyboards BUILT on `feat/admin-storyboards`. Uncommitted, not deployed.
+>
+> Private storyboard tool: Supabase Auth login + `ADMIN_EMAILS` allowlist (`middleware.ts`,
+> `lib/admin-auth.ts`), tables `storyboard_projects` / `storyboard_shots` + private bucket
+> `storyboard-assets` (migration 0002, **already applied** to the live project). Drawings are vector
+> strokes in `storyboard_shots.drawing` (`lib/storyboards/drawing.ts`). PDF = browser print of
+> `/admin/storyboards/[id]/print`. Voice = browser speech API only. AI: Organize (Claude, needs
+> `ANTHROPIC_API_KEY` + credit: the copied key had **no credit** on 10-25) and Generate sketch (OpenAI
+> Images, needs `OPENAI_API_KEY`, **never run against the real API**).
+>
+> ⚠ The site's global CSS styles bare `header` / `footer` as the fixed public nav and footer: never
+> use those tags inside admin components. ⚠ The Supabase project was found PAUSED (free tier, 7 days
+> idle) on 10-25 and restored. ⚠ No admin account exists yet: Chris creates his in Supabase and puts
+> the email in `ADMIN_EMAILS` (local + Vercel).
+
 > # ⏰ 2026-08-25 · SITE FULLY RENAMED AND REVIEWED. Held back on purpose.
 >
 > **`/services` now matches `leads/pricing/simple-stupid.html` (12 pages) exactly.** A mechanical
