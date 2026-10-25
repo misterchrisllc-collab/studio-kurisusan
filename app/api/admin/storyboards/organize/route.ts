@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 import { z } from "zod";
 import { requireAdmin } from "@/lib/admin-auth";
-import { aiStatus, organizeNotes } from "@/lib/storyboards/ai";
+import { aiStatus, organizeNotes, storyContext } from "@/lib/storyboards/ai";
+import type { Project } from "@/lib/storyboards/types";
 import { db } from "@/lib/storyboards/server";
 
 export const runtime = "nodejs";
@@ -28,7 +29,7 @@ export async function POST(req: Request) {
 
   const { data: project } = await db()
     .from("storyboard_projects")
-    .select("format, target_seconds, storyboard_shots(count)")
+    .select("*, storyboard_shots(count)")
     .eq("id", parsed.data.projectId)
     .maybeSingle();
   if (!project) return NextResponse.json({ error: "Project not found" }, { status: 404 });
@@ -39,6 +40,7 @@ export async function POST(req: Request) {
       format: project.format,
       targetSeconds: project.target_seconds,
       existingShots: (project.storyboard_shots as unknown as { count: number }[])?.[0]?.count ?? 0,
+      story: storyContext(project as Project),
     });
     return NextResponse.json({ shots });
   } catch (err) {

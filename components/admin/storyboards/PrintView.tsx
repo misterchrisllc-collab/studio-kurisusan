@@ -70,6 +70,7 @@ export default function PrintView({ project, shots }: { project: Project; shots:
           <div><dt>Date</dt><dd>{dateFmt.format(new Date())}</dd></div>
         </dl>
       </div>
+      {project.logline && <p className="pv-logline">{project.logline}</p>}
       {project.description && <p className="pv-desc">{project.description}</p>}
 
       <ol className="pv-grid" ref={grid}>

@@ -5,7 +5,7 @@ import { CSS } from "@dnd-kit/utilities";
 import { useRef, useState } from "react";
 import type { ShotPatch } from "@/app/admin/storyboards/actions";
 import { isEmptyDrawing } from "@/lib/storyboards/drawing";
-import { CAMERA_ANGLES, CAMERA_MOVEMENTS, SHOT_SIZES, type Background, type ShotView, type VideoFormat } from "@/lib/storyboards/types";
+import { CAMERA_ANGLES, CAMERA_MOVEMENTS, SHOT_SIZES, type Background, type ShotView, type Suggestion, type VideoFormat } from "@/lib/storyboards/types";
 import Field from "./Field";
 import FrameView from "./FrameView";
 
@@ -16,6 +16,10 @@ export type ShotCardProps = {
   format: VideoFormat;
   busy?: string;
   sketchEnabled: boolean;
+  suggestEnabled: boolean;
+  onSuggest: () => void;
+  onAcceptSuggestion: (s: Suggestion) => void;
+  onDismissSuggestion: (s: Suggestion) => void;
   onPatch: (patch: ShotPatch) => void;
   onMove: (dir: -1 | 1) => void;
   onInsertAfter: () => void;
@@ -43,6 +47,7 @@ export default function ShotCard(p: ShotCardProps) {
 
   return (
     <article
+      id={`shot-${shot.id}`}
       ref={sortable.setNodeRef}
       className={`sb-card${sortable.isDragging ? " dragging" : ""}`}
       style={{ transform: CSS.Translate.toString(sortable.transform), transition: sortable.transition }}
@@ -52,6 +57,7 @@ export default function ShotCard(p: ShotCardProps) {
           <svg viewBox="0 0 12 20" aria-hidden><circle cx="3" cy="4" r="1.6"/><circle cx="9" cy="4" r="1.6"/><circle cx="3" cy="10" r="1.6"/><circle cx="9" cy="10" r="1.6"/><circle cx="3" cy="16" r="1.6"/><circle cx="9" cy="16" r="1.6"/></svg>
         </button>
         <span className="sb-num">{num}</span>
+        {shot.filmed && <span className="sb-filmed" title="Ticked off on the shot list">✓ Filmed</span>}
         <input
           className="sb-title-input"
           value={shot.title}
@@ -158,6 +164,34 @@ export default function ShotCard(p: ShotCardProps) {
             <Field label="Production notes" multiline value={shot.production_notes} maxLength={20000}
               onChange={(v) => p.onPatch({ production_notes: v })} />
           </>
+        )}
+      </div>
+
+      <div className="sb-suggest">
+        <div className="sb-suggest-head">
+          <span>AI suggestions</span>
+          <button
+            className="adm-btn small"
+            onClick={p.onSuggest}
+            disabled={!p.suggestEnabled || !!p.busy}
+            title={p.suggestEnabled ? "Ideas for this shot that aren't in its details yet" : "Needs Anthropic credit + ANTHROPIC_API_KEY on the server"}
+          >
+            {shot.suggestions.length ? "Suggest again" : "Suggest setups"}
+          </button>
+        </div>
+        {shot.suggestions.length > 0 && (
+          <ul className="sb-suggest-list">
+            {shot.suggestions.map((sg) => (
+              <li key={sg.id}>
+                <span className="sb-suggest-tag">Suggestion · {sg.category}</span>
+                <p>{sg.text}</p>
+                <div>
+                  <button className="adm-link" onClick={() => p.onAcceptSuggestion(sg)}>Add to notes</button>
+                  <button className="adm-link sb-muted-link" onClick={() => p.onDismissSuggestion(sg)}>Dismiss</button>
+                </div>
+              </li>
+            ))}
+          </ul>
         )}
       </div>
 

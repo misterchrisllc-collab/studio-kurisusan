@@ -16,6 +16,9 @@ export function aspectOf(format: VideoFormat): number {
 
 export type Background = "none" | "reference" | "sketch";
 
+export const SUGGESTION_CATEGORIES = ["Framing", "Lens & camera", "Lighting", "Sound", "Gear", "Direction", "Story", "Other"] as const;
+export type Suggestion = { id: string; category: (typeof SUGGESTION_CATEGORIES)[number]; text: string };
+
 export type ProjectSummary = {
   id: string;
   title: string;
@@ -26,12 +29,21 @@ export type ProjectSummary = {
   shot_count: number;
 };
 
+export const STORY_FIELDS = ["logline", "story", "tone", "audience", "locations", "music"] as const;
+export type StoryField = (typeof STORY_FIELDS)[number];
+
 export type Project = {
   id: string;
   title: string;
   client_name: string;
   description: string;
   notes: string;
+  logline: string;
+  story: string;
+  tone: string;
+  audience: string;
+  locations: string;
+  music: string;
   format: VideoFormat;
   target_seconds: number | null;
   created_at: string;
@@ -57,6 +69,8 @@ export type Shot = {
   sketch_path: string | null;
   background: Background;
   drawing: Drawing | null;
+  filmed: boolean;
+  suggestions: Suggestion[];
   updated_at: string;
 };
 

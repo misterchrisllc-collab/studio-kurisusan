@@ -29,7 +29,7 @@ export function db(): SupabaseClient {
 }
 
 export const SHOT_COLUMNS =
-  "id, project_id, position, title, description, shot_size, camera_angle, camera_movement, subject_action, script, audio_notes, lighting_notes, duration_seconds, production_notes, reference_path, sketch_path, background, drawing, updated_at";
+  "id, project_id, position, title, description, shot_size, camera_angle, camera_movement, subject_action, script, audio_notes, lighting_notes, duration_seconds, production_notes, reference_path, sketch_path, background, drawing, filmed, suggestions, updated_at";
 
 /**
  * Second gate behind middleware.ts for the page-level reads: if the middleware

@@ -11,7 +11,7 @@ import {
   touchProject,
   withUrls,
 } from "@/lib/storyboards/server";
-import { FORMATS, type Shot, type ShotView } from "@/lib/storyboards/types";
+import { FORMATS, SUGGESTION_CATEGORIES, type Shot, type ShotView } from "@/lib/storyboards/types";
 
 export type Result<T = null> = { ok: true; data: T } | { ok: false; error: string };
 
@@ -36,6 +36,12 @@ const projectPatch = z
     client_name: text(200),
     description: text(5000),
     notes: text(50000),
+    logline: text(500),
+    story: text(50000),
+    tone: text(5000),
+    audience: text(5000),
+    locations: text(5000),
+    music: text(5000),
     format: z.enum(FORMATS),
     target_seconds: z.number().int().min(1).max(36000).nullable(),
   })
@@ -57,6 +63,11 @@ const shotPatch = z
     duration_seconds: z.number().min(0).max(36000).nullable(),
     background: z.enum(["none", "reference", "sketch"]),
     drawing: drawingSchema.nullable(),
+    filmed: z.boolean(),
+    // Only removals reach here from the browser (add-to-notes / dismiss); new ones come from the server route.
+    suggestions: z
+      .array(z.object({ id: z.string().max(64), category: z.enum(SUGGESTION_CATEGORIES), text: text(1000) }).strict())
+      .max(10),
   })
   .partial()
   .strict();
@@ -101,7 +112,7 @@ export async function duplicateProject(projectId: string) {
     const supabase = db();
     const { data: src, error } = await supabase
       .from("storyboard_projects")
-      .select("title, client_name, description, notes, format, target_seconds")
+      .select("title, client_name, description, notes, logline, story, tone, audience, locations, music, format, target_seconds")
       .eq("id", id.parse(projectId))
       .single();
     if (error) throw error;
@@ -121,7 +132,7 @@ export async function duplicateProject(projectId: string) {
 
     // Images are copied, not shared, so deleting one project never breaks the other.
     for (const s of (shots ?? []) as Shot[]) {
-      await insertShotCopy(s, copy.id, s.position);
+      await insertShotCopy(s, copy.id, s.position, { filmed: false });
     }
     return copy.id as string;
   });
@@ -250,7 +261,7 @@ export async function duplicateShot(shotId: string) {
     const src = await getShot(shotId);
     const order = await orderedShotIds(src.project_id);
     const at = order.indexOf(src.id) + 1;
-    const copy = await insertShotCopy(src, src.project_id, at);
+    const copy = await insertShotCopy(src, src.project_id, at, { filmed: false });
     order.splice(at, 0, copy.id);
     await writePositions(src.project_id, order);
     await touchProject(src.project_id);

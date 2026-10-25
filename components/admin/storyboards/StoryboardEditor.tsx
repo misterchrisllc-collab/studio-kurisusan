@@ -31,13 +31,16 @@ import {
   totalSeconds,
   type Project,
   type ShotView,
+  type Suggestion,
 } from "@/lib/storyboards/types";
 import { DictationProvider, DictationStatus } from "./Dictation";
 import DrawingEditor from "./DrawingEditor";
 import EditedAt from "./EditedAt";
 import Field from "./Field";
 import OrganizePanel from "./OrganizePanel";
+import ShotListTab from "./ShotListTab";
 import SketchReview from "./SketchReview";
+import StoryTab from "./StoryTab";
 import ShotCard from "./ShotCard";
 import { useAutosave } from "./useAutosave";
 
@@ -61,6 +64,14 @@ type Props = {
   ai: { organize: boolean; sketch: boolean };
 };
 
+const TABS = [
+  { id: "story", label: "Story" },
+  { id: "board", label: "Storyboard" },
+  { id: "list", label: "Shot list" },
+  { id: "notes", label: "Notes" },
+] as const;
+type Tab = (typeof TABS)[number]["id"];
+
 type SketchState = { shotId: string; path: string | null; url: string | null; busy: string | null };
 
 export default function StoryboardEditor(props: Props) {
@@ -77,9 +88,9 @@ function Editor({ project: initialProject, shots: initialShots, ai }: Props) {
   const [busy, setBusy] = useState<Record<string, string>>({});
   const [error, setError] = useState<string | null>(null);
   const [drawingId, setDrawingId] = useState<string | null>(null);
-  const [organizing, setOrganizing] = useState(false);
+  const [organizing, setOrganizing] = useState<string | null>(null); // initial notes text when open
+  const [tab, setTab] = useState<Tab>("board");
   const [sketch, setSketch] = useState<SketchState | null>(null);
-  const [showNotes, setShowNotes] = useState(!!initialProject.notes || !!initialProject.description);
   const [customTarget, setCustomTarget] = useState(
     initialProject.target_seconds != null && !TARGETS.includes(initialProject.target_seconds),
   );
@@ -248,6 +259,49 @@ function Editor({ project: initialProject, shots: initialShots, ai }: Props) {
     setSketch(null);
   };
 
+  // The tab lives in the URL hash so a reload (or a shared link) reopens the same tab.
+  useEffect(() => {
+    const read = () => {
+      const h = window.location.hash.slice(1);
+      if (TABS.some((t) => t.id === h)) setTab(h as Tab);
+    };
+    read();
+    window.addEventListener("hashchange", read);
+    return () => window.removeEventListener("hashchange", read);
+  }, []);
+  const openTab = (t: Tab) => {
+    setTab(t);
+    history.replaceState(null, "", `#${t}`);
+  };
+  const openShot = (id: string) => {
+    openTab("board");
+    requestAnimationFrame(() => document.getElementById(`shot-${id}`)?.scrollIntoView({ behavior: "smooth", block: "start" }));
+  };
+
+  // ── AI setup suggestions: stored on the shot, never applied until "Add to notes" ──
+  const suggest = (id: string) =>
+    withBusy(id, "Thinking about setups…", async () => {
+      await save.flush(); // the server reads the saved shot
+      const res = await fetch("/api/admin/storyboards/suggest", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ shotId: id }),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok) return fail(json.error ?? `Suggestions failed (${res.status})`);
+      setShots((ss) => ss.map((s) => (s.id === id ? { ...s, suggestions: json.suggestions as Suggestion[] } : s)));
+    });
+
+  const acceptSuggestion = (shot: ShotView, sg: Suggestion) => {
+    const line = `• [${sg.category}] ${sg.text}`;
+    patchShot(shot.id, {
+      production_notes: shot.production_notes.trim() ? `${shot.production_notes.replace(/\s+$/, "")}\n${line}` : line,
+      suggestions: shot.suggestions.filter((x) => x.id !== sg.id),
+    });
+  };
+  const dismissSuggestion = (shot: ShotView, sg: Suggestion) =>
+    patchShot(shot.id, { suggestions: shot.suggestions.filter((x) => x.id !== sg.id) });
+
   useEffect(() => {
     if (save.status === "error" && save.error) setError(save.error);
   }, [save.status, save.error]);
@@ -291,6 +345,15 @@ function Editor({ project: initialProject, shots: initialShots, ai }: Props) {
           aria-label="Client name"
         />
       </section>
+
+      <nav className="sb-tabs" role="tablist" aria-label="Project sections">
+        {TABS.map((t) => (
+          <button key={t.id} role="tab" aria-selected={tab === t.id} className={tab === t.id ? "on" : ""} onClick={() => openTab(t.id)}>
+            {t.label}
+            {t.id === "list" && shots.length > 0 && <span className="sb-tab-count">{shots.filter((x) => x.filmed).length}/{shots.length}</span>}
+          </button>
+        ))}
+      </nav>
 
       <section className="sb-toolbar">
         <div className="sb-seg" role="group" aria-label="Video format">
@@ -344,12 +407,9 @@ function Editor({ project: initialProject, shots: initialShots, ai }: Props) {
 
         <span className="sb-spacer" />
         <DictationStatus />
-        <button className="adm-btn small" onClick={() => setOrganizing(true)}
+        <button className="adm-btn small" onClick={() => setOrganizing(project.notes)}
           title={ai.organize ? undefined : "Needs ANTHROPIC_API_KEY on the server"}>
           Organize My Ideas
-        </button>
-        <button className="adm-btn small" onClick={() => setShowNotes((v) => !v)} aria-expanded={showNotes}>
-          {showNotes ? "Hide notes" : "Project notes"}
         </button>
         <a className="adm-btn small" href={`/admin/storyboards/${project.id}/print`} target="_blank" rel="noopener"
           onClick={() => void save.flush()}>
@@ -363,8 +423,16 @@ function Editor({ project: initialProject, shots: initialShots, ai }: Props) {
         </p>
       )}
 
-      {showNotes && (
-        <section className="sb-notes">
+      {tab === "story" && (
+        <StoryTab
+          project={project}
+          onPatch={patchProject}
+          onTurnIntoShots={() => setOrganizing([project.logline, project.story].filter((v) => v.trim()).join("\n\n"))}
+        />
+      )}
+
+      {tab === "notes" && (
+        <section className="sb-tabpanel sb-notes">
           <Field label="Description" multiline value={project.description} maxLength={5000}
             onChange={(v) => patchProject({ description: v })} placeholder="What this video is for" />
           <Field label="Project notes" multiline value={project.notes} maxLength={50000}
@@ -372,6 +440,11 @@ function Editor({ project: initialProject, shots: initialShots, ai }: Props) {
         </section>
       )}
 
+      {tab === "list" && (
+        <ShotListTab project={project} shots={shots} onToggleFilmed={(id, filmed) => patchShot(id, { filmed })} onOpen={openShot} />
+      )}
+
+      {tab === "board" && (
       <DndContext id="storyboard-shots" sensors={sensors} collisionDetection={closestCenter} onDragEnd={onDragEnd}>
         <SortableContext items={shots.map((s) => s.id)} strategy={rectSortingStrategy}>
           <div className={`sb-grid f${project.format.replace(":", "x")}`}>
@@ -384,6 +457,10 @@ function Editor({ project: initialProject, shots: initialShots, ai }: Props) {
                 format={project.format}
                 busy={busy[s.id]}
                 sketchEnabled={ai.sketch}
+                suggestEnabled={ai.organize}
+                onSuggest={() => void suggest(s.id)}
+                onAcceptSuggestion={(sg) => acceptSuggestion(s, sg)}
+                onDismissSuggestion={(sg) => dismissSuggestion(s, sg)}
                 onPatch={(patch) => patchShot(s.id, patch)}
                 onMove={(dir) => move(i, dir)}
                 onInsertAfter={() => void insertAfter(s.id)}
@@ -401,15 +478,16 @@ function Editor({ project: initialProject, shots: initialShots, ai }: Props) {
           </div>
         </SortableContext>
       </DndContext>
+      )}
 
-      {organizing && (
+      {organizing !== null && (
         <OrganizePanel
           projectId={project.id}
-          initialNotes={project.notes}
+          initialNotes={organizing}
           enabled={ai.organize}
           existingCount={shots.length}
           onAdded={(added) => setShots((ss) => [...ss, ...added])}
-          onClose={() => setOrganizing(false)}
+          onClose={() => setOrganizing(null)}
         />
       )}
 
